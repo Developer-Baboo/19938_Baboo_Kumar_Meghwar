@@ -1,0 +1,1 @@
+Create a mark sheet which can calculate 5 subject total marks, and obtained marks, and percentage and grade. if any of subject marks are less than 40 then he/she will fail

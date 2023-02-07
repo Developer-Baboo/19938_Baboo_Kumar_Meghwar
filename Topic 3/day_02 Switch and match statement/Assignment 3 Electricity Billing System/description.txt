@@ -1,0 +1,16 @@
+COUNT TOTAL NUMBER OF NOTES IN GIVEN AMOUNT (EVENING)
+Make a system which should have the capability to analyze the total number of possible notes in a given amount. Currently, in Pakistan, the notes are of 5000, 1000, 500, 100, 50, 20, 10, 5, 2, 1.
+
+Example Input:
+Input amount: 575
+Output:
+Total number of notes: 
+
+500: 1
+100: 0
+50: 1
+20: 1
+10: 0
+5: 1
+2: 0
+1: 0
