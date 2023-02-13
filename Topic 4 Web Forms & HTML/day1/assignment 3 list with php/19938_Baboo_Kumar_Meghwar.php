@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>List</title>
-	</head>
-	<body>
-
-    <ul>
-        <?php
-$type = "circlec";
-if ($type == "square") {
-    for ($i = 2; $i <= 20; $i++) {
-        if ($i % 2 == 0) {
-            echo "<li> $i </li>";
+         <head>
+                    <title>Dynamic List </title>
+         </head>
+<body>
+<?php
+$type = "circle";
+switch ($type) {
+    case "square":
+        for ($a = 1; $a <= 20; $a++) {
+            if ($a % 2 == 0) {
+                echo "<ul type='square'>";
+                echo "<li>$a</li>";
+                echo "</ul>";
+            }
         }
+        break;
 
-    }
-} elseif ($type == "disc") {
-    for ($i = 1; $i <= 20; $i++) {if ($i % 2 != 0) {
-        echo "<li> $i </li>";
-    }
-
-    }
-} elseif ($type == "circle") {
-    for ($i = 1; $i <= 20; $i++) 
-    {
-        $c = $i * $i;
-        echo "<li> $c </li>";
-    }
-} else {
-    echo "Sorry! It is not a valid type";
+    case "disc":
+        for ($a = 1; $a <= 20; $a++) {
+            if ($a % 2 != 0) {
+                echo "<ul type='disc'>";
+                echo "<li>$a</li>";
+                echo "</ul>";
+            }
+        }
+        break;
+    case "circle":
+        for ($a = 1; $a <= 20; $a++) {
+            $b = $a * $a;
+            echo "<ul type='circle'>";
+            echo "<li>$b</li>";
+            echo "</ul>";
+        }
+        break;
+    default:
+        echo "Sorry you have entered wrong input";
 }
 ?>
-</ul>
 
-
-
-	</body>
+</body>
 </html>
