@@ -1,0 +1,68 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: lightseagreen;
+}
+
+ul li {
+    display: block;
+    position: relative;
+    float: left;
+    /* background: lightcoral; */
+}
+
+li ul {
+    display: none;
+}
+
+ul li a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    color: white;
+}
+
+ul li a:hover {
+    background: silver
+}
+
+li:hover>ul {
+    display: block;
+    position: absolute;
+}
+
+li:hover li {
+    float: none;
+}
+
+li:hover a {
+    background: blueviolet;
+}
+
+li:hover li a:hover {
+    background: goldenrod;
+}
+
+.main-navigation li ul li {
+    border-top: 0;
+}
+ul ul ul {
+    left: 100%;
+    top: 0;
+}
+
+ul:before,ul:after {
+    content: " ";
+    display: table;
+}
+
+ul:after {
+    clear: both;
+}
