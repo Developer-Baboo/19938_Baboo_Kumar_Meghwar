@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+}
+
+.col-1 {
+    /* float: left; */
+    width: 8.33%;
+}
+
+.col-2 {
+    /* float: left; */
+    width: 16.66%;
+}
+
+.col-3 {
+    /* float: left; */
+    width: 25%;
+}
+
+.col-4 {
+    /* float: left; */
+    width: 33.33%;
+}
+
+.col-5 {
+    /* float: left; */
+    width: 41.66%;
+}
+
+.col-6 {
+    /* float: left; */
+    width: 50%;
+}
+
+.col-7 {
+    /* float: left; */
+    width: 58.33%;
+}
+
+.col-8 {
+    /* float: left; */
+    width: 66.66%;
+}
+
+.col-9 {
+    /* float: left; */
+    width: 75%;
+}
+
+.col-10 {
+    /* float: left; */
+    width: 83.33%;
+}
+
+.col-11 {
+    /* float: left; */
+    width: 91.66%;
+}
+
+.col-12 {
+    /* float: left; */
+    width: 100%;
+}
+
+.row {
+    clear: both;
+    display: flex;
+}
+
+p {
+    text-align: justify;
+}
+
+[class|='col'] {
+    padding: 5px;
+}
+
+
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: orange;
+}
+
+ul li {
+    display: block;
+    position: relative;
+    float: left;
+    background: orange;
+}
+
+
+
+
+li ul {
+    display: none;
+}
+
+ul li a {
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+    white-space: nowrap;
+    color: white;
+}
+
+ul li a:hover {
+    background: silver
+}
+
+
+
+
+li:hover>ul {
+    display: block;
+    position: absolute;
+}
+
+li:hover li {
+    float: none;
+}
+
+li:hover a {
+    background: red;
+}
+
+li:hover li a:hover {
+    background: green;
+}
+
+.main-navigation li ul li {
+    border-top: 0;
+}
+
+
+
+
+ul ul ul {
+    left: 100%;
+    top: 0;
+}
+
+
+
+ul:before,
+ul:after {
+    content: " ";
+    display: table;
+}
+
+ul:after {
+    clear: both;
+}
