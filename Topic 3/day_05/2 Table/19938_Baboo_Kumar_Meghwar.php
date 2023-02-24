@@ -11,7 +11,6 @@ for ($i = 1; $i <= $limit - 1; $i++) {
         echo "<br />";
     }
     echo "<br />";
-
 }
 //using while loop
 echo "<br /> *************************Using while Loop*********************** <br/>";
@@ -46,6 +45,5 @@ do {
     } while ($j <= 10);
     echo "<br />";
     $i++;
-} while ($i <= $limit - 1) {
-    ;
-}
+} while ($i <= $limit - 1);
+?>
