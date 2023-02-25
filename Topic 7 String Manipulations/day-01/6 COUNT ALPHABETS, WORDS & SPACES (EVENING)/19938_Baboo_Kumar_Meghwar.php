@@ -66,7 +66,6 @@ if (isset($_POST['submit'])) {
         echo "Total Spaces: $count_spaces";
         ?>
     </center>
-
 <?php
 }
 ?>
