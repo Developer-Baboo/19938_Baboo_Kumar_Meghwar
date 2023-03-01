@@ -14,14 +14,12 @@
             cursor: pointer;
             border-radius: 10px;
         }
-
         input[type=number] {
             border: 2px solid red;
             border-radius: 4px;
         }
-
-        center {
-            color: green;
+        center{
+            color:green;
         }
     </style>
 </head>
