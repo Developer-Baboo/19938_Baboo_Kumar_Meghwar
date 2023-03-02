@@ -1,12 +1,21 @@
 <?php
-// echo "tesing";
-$string = "hidaya trust";
-// echo $string = "hidaya trust jamshoro";
-// echo $string = "hidaya*trust*jamshoro";
-$array = explode(' ', $string);
-// $array = explode('*', $string);
+$str = "19938 Baboo Kumar Meghwar";
+$array = [];
+$current_str = '';
+for ($i = 0; isset($str[$i]); $i++) 
+{
+    if ($str[$i] == " ") 
+    {
+        $array[] = $current_str;
+        $current_str = '';
+    } 
+    else 
+    {
+        $current_str .= $str[$i];
+    }
+}
+$array[] = $current_str;
 echo "<pre>";
-    print_r($array);
+print_r($array);
 echo "</pre>";
-
 ?>
