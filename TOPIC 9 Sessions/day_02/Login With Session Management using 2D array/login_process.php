@@ -1,4 +1,5 @@
 <?php
+session_start();
 $flag = true;
 if(isset($_POST['login'])){
     $username = $_POST['name'];
@@ -29,13 +30,14 @@ $userDetails = array(
         "role" => "Student",
         "Status" => 0,
     )
-);    
-foreach ($userDetails as $user) {
-        // echo "Name: " . $user["Name"] . "<br>";
-        // &&  $user["Password"] === $pass
-    if($user["Name"] === $username &&  $user["Password"] == $pass){
+);
+    $_SESSION['userDetails'] = $userDetails;
+    $_SESSION['username'] = $username;
+    $_SESSION['pass'] = $pass;  
+
+foreach ($_SESSION['userDetails'] as $user) {
+    if($user["Name"] === $_SESSION['username'] &&  $user["Password"] == $_SESSION['pass']){
             $flag = false;
-        // echo "valid user";
         if($user["Status"] == 1){
             if($user["role"] == "Student"){
                 header('Location: student_dashboard.php');
@@ -49,7 +51,7 @@ foreach ($userDetails as $user) {
         }
         else if($user["Status"] == 0){
                 // echo "you account is inactive";
-            header('Location: index.php?msg= You account is Inactive');
+            header('Location: index.php?msg= Your Account is Inactive');
         }
     }
 }
