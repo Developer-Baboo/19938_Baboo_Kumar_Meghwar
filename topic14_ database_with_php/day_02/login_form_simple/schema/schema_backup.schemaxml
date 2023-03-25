@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8mb4" collation="utf8mb4_general_ci">login_registraction_form</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="register_form" view="standard">
+<left>282</left>
+<top>119</top>
+<width>500</width>
+<height>246</height>
+<sql_create_table>CREATE TABLE `register_form` (
+  `First Name` longtext NOT NULL,
+  `Last Name` longtext NOT NULL,
+  `Father Name` longtext NOT NULL,
+  `Email` longtext NOT NULL,
+  `Password` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
