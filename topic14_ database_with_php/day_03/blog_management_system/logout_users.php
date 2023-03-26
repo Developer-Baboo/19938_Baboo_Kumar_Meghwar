@@ -4,6 +4,4 @@
 	session_destroy();
 
 	header("location: index.php?msg=Logout Successfully !...&color=green")
-
-
 ?>

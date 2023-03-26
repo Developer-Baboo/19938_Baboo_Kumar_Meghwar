@@ -10,17 +10,16 @@
 			height: auto;
 			text-align: center;
 		}
-		#post_div{
+		#post_div
+		{
 			background-color: lightgreen;
 		}
-		
 	</style>
 </head>
 <body>
 	<?php 
 		require_once 'session_maintance.php';
 		require_once 'manage_posts.php';
-
 		$posts = getAllPosts();
 	?>
 	<center>
@@ -41,8 +40,6 @@
 					{
 						while($post = mysqli_fetch_assoc($posts))
 						{
-
-						
 						?>
 						<div id="post_div">
 							<h5> Title: <?php echo $post['post_title']; ?></h5>

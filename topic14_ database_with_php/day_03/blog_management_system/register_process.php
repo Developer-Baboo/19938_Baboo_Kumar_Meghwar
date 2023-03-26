@@ -1,8 +1,6 @@
 <?php 
 	require_once("require/connection.php");
-
 	require_once 'session_maintance.php';
-	
 	if(isset($_POST['register']))
 	{
 		//print_r($_POST);
@@ -13,7 +11,6 @@
 		$stmt_insert = mysqli_prepare($connection,$insertUserQuery);
 
 		mysqli_stmt_bind_param($stmt_insert,'ssss',$full_name,$gender,$email,$password);
-
 		$msg = "";
 		if(mysqli_stmt_execute($stmt_insert))
 		{
@@ -25,19 +22,14 @@
 			mysqli_stmt_bind_param($stmt,'ii',mysqli_insert_id($connection),$role);
 			mysqli_stmt_execute($stmt);
 
-
-
 			$msg = "User Account Registered With User Id:".$user_last_insert_id;
 			header("location: register.php?msg=$msg&color=green");	
-
 		}
 		else
 		{
 			$msg = "Register Not Working";
 			header("location: register.php?msg=$msg&color=red");
 		}
-
-
 
 	}
 

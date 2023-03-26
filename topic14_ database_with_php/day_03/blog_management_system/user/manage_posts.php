@@ -11,10 +11,7 @@
 		$res = mysqli_query($connection,$query);
 		return $res;
 	}
-
-	function getUserFullNameByUserRoleId($user_role_id){
-		
-
+	function getUserFullNameByUserRoleId($user_role_id){	
 		global $connection;
 		$query = "SELECT `roles`.`role_type`, `users`.`full_name` FROM `users`
 		INNER JOIN `user_role` ON `users`.`user_id` = `user_role`.`user_id`

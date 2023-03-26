@@ -3,9 +3,7 @@
 	session_start();
 	if(isset($_POST['login']))
 	{
-
 		extract($_POST);
-
 		$login_query = "SELECT * FROM `users` 
 		WHERE `users`.`user_email` = ?
 		AND `users`.`user_password` = ?";
@@ -22,7 +20,6 @@
 		if($data->num_rows > 0)
 		{
 			$user_info = mysqli_fetch_assoc($data);
-
 			//var_dump($user_info);
 			$query = "SELECT `user_role`.`user_role_id`, `roles`.`role_id`,`roles`.`role_type`
 			FROM `roles`, `user_role`
@@ -36,7 +33,9 @@
 			$user_info['role_id'] = $roles['role_id'];
 			$user_info['role_type'] = $roles['role_type'];
 			$user_info['user_role_id'] = $roles['user_role_id'];
+			
 			//var_dump($user_info);
+
 			$_SESSION['user'] =  $user_info;
 			if($user_info['role_id'] == 1)
 			{
@@ -48,10 +47,6 @@
 			{
 				header("location: user/index.php");
 			}
-
-
-
-
 
 
 
