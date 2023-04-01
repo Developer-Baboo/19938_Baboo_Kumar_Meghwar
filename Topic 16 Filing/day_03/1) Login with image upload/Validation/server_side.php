@@ -9,18 +9,15 @@
 <?php
 
 if (isset($_REQUEST['register'])) {
-	 echo "<pre>";
-	   print_r($_REQUEST);
-	 echo "</pre>";
+	 // echo "<pre>";
+	 //   print_r($_REQUEST);
+	 // echo "</pre>";
 	 // die();
 	$alpha_pattern     = "/^[A-Z]{1}[a-z]{2,}$/";
 	$email_pattern     = "/^[a-z]{2,6}[0-9]{1,3}[@][a-z]{5,8}[.][a-z]{2,5}$/";
 	$cnic_pattern      = "/^\d{5}[-][0-9]{7}-\d{1}$/";
 	$phone_num_pattern = "/^[0-9]{2}\d{3}[ ][0-9]{7}$/";
 	extract($_REQUEST);
-
-	// echo $first_name = $_REQUEST['first_name'];
-	// echo $first_name;
 	$flag = true;
 	$error_msg = null;
 
@@ -98,9 +95,6 @@ if (isset($_REQUEST['register'])) {
 	}
 
 	if (isset($policies)) {
-		 // echo "<pre>";
-		 //  print_r($policies);
-		 // echo "</pre>";
 		if(count($policies) != 4){
 			$flag = false;
 		    $error_msg.="<li>Please Select All Policies !...</li>";
