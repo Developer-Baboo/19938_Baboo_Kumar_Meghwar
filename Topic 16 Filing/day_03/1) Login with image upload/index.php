@@ -11,7 +11,7 @@
 		<h1>User Login Form</h1>
 	</center>
 	<center>
-		<form method="POST" action="registraction_process.php" >
+		<form method="POST" action="login_process.php" >
 			<fieldset>
 				<legend>
 					User Login Form 

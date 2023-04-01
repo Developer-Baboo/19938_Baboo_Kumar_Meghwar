@@ -1,6 +1,7 @@
 <?php
-include './Include/connection.php';
-if (isset($_POST['register'])) {
+require_once("./Include/connection.php");
+if (isset($_POST['register'])) 
+{
   $first_name = $_POST['first_name'];
   $middle_name = $_POST['middle_name'];
   $last_name = $_POST['last_name'];
@@ -17,13 +18,16 @@ if (isset($_POST['register'])) {
 
   $upload_dir = 'Images/';
   $file_path = $upload_dir . $file_name;
-  move_uploaded_file($file_tmp, $file_path);
+  // move_uploaded_file($file_tmp, $file_path);
 
   $sql = "INSERT INTO image_table (`image_name`) VALUES ('$file_path')";
   $sql_query = mysqli_query($connection, $sql);
-  if ($insert && $sql_query) {
+  if ($insert && $sql_query) 
+  {
     header("location: index.php");
-  } else {
+  } 
+  else 
+  {
     echo "Data not inserted";
   }
 }
