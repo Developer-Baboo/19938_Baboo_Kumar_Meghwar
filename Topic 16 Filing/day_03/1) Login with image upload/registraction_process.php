@@ -15,12 +15,15 @@ if (isset($_POST['register']))
   $file_tmp = $_FILES['profile_image']['tmp_name'];
 
   $insert = mysqli_query($connection, "INSERT INTO registraction_table (`first_name`,`middle_name`,`last_name`,`email_address`,`contact_number`,`cnic_number`,`gender`,`city`,`password`) VALUES('" . $first_name . "','" . $middle_name . "','" . $last_name . "','" . $email . "','" . $contact . "','" . $cnic_number . "','" . $gender . "','" . $city . "','" . $password . "')");
+  
+  $last_user_id= mysqli_insert_id($connection);
 
   $upload_dir = 'Images/';
   $file_path = $upload_dir . $file_name;
-  // move_uploaded_file($file_tmp, $file_path);
+  // echo $file_path;
+  move_uploaded_file($file_tmp, $file_path);
 
-  $sql = "INSERT INTO image_table (`image_name`) VALUES ('$file_path')";
+  $sql = "INSERT INTO image_table (image_name,user_id) VALUES ('$file_path',$last_user_id)";
   $sql_query = mysqli_query($connection, $sql);
   if ($insert && $sql_query) 
   {

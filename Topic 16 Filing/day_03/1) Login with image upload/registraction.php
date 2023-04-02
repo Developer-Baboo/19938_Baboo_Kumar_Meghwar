@@ -3,16 +3,8 @@
 
 <head>
 	<title>Registeration Form</title>
+	<link rel="stylesheet" type="text/css" href="./CSS/style.css">
 
-	<style type="text/css">
-		span {
-			color: red;
-		}
-
-		li {
-			color: red;
-			list-style: none;
-		}
 	</style>
 	<script type="text/javascript">
 		function register_form() {
@@ -29,13 +21,15 @@
 			var male = document.getElementById("gender_male");
 			var female = document.getElementById("gender_female");
 
-			if (male.checked) {
+			if (male.checked) 
+			{
 				gender = male.value;
-				// alert(male.checked);
-			} else if (female.checked) {
+			} 
+			else if (female.checked) 
+			{
 				gender = female.value;
-				// alert(female.checked);
 			}
+			
 			var cnic = document.getElementById("cnic").value;
 			var phone_number = document.getElementById("phone_number").value;
 			var country = document.getElementById("country").value;
@@ -142,13 +136,14 @@
 			} else {
 				document.getElementById("policies_msg").innerHTML = "";
 			}
-			if (flag) {
+			if (flag) 
+			{
 				return true;
-			} else {
+			} 
+			else 
+			{
 				return false;
-
 			}
-
 		}
 	</script>
 </head>
@@ -156,14 +151,13 @@
 <body>
 
 	<center>
-		<h3>Registeration Form</h3>
-		<hr />
+		<h1>Registeration Form</h1>
+		<br><br/>
 		<fieldset>
 			<legend>Register Here</legend>
 			<form action="./registraction_process.php" method="POST" enctype="multipart/form-data">
 				<table>
 					<tr>
-						<th>Marked (*) Fields are required !...</th>
 						<?php if (isset($_REQUEST['message'])) {
 							echo "<ul>";
 							echo $_REQUEST['message'];
@@ -246,24 +240,27 @@
 						</td>
 					</tr>
 					<tr>
-						<td>Upload Profile</td>
+						<td>Upload Profile: <span>*</span></td>
 						<td>
 							<input type="file" name="profile_image" />
 						</td>
 					</tr>
 					<tr>
-						<td>Enter Password</td>
+						<td>Enter Password: <span>*</span></td>
 						<td>
-							<input type="password" name="password">
+							<input type="password" name="password" placeholder="********">
 						</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td>
-							<input type="submit" name="register" value="Register">
+							<input type="submit" name="register" value="Register" onclick="return register_form()">
 						</td>
 					</tr>
 				</table>
+				<center>
+					<p> <a href="./"></a> </p>
+				</center>
 
 			</form>
 		</fieldset>

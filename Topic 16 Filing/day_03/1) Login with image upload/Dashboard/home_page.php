@@ -1,6 +1,9 @@
 <?php
-    include_once("./Include/connection.php");
-$query = "SELECT * FROM registraction_table";
+    session_start();
+    include_once("../connection.php");
+    // print_r($_SESSION);die;
+    $user_id=$_SESSION['data_users']['user_id'];
+$query = "SELECT * FROM registraction_table WHERE user_id=$user_id";
 $result = mysqli_query($connection, $query);
 
 if (mysqli_num_rows($result) > 0) 
@@ -61,10 +64,10 @@ else
                     <?php echo $user_details["first_name"]; ?>
                 </td>
                 <td>
-                    <?php echo $user_details["email"]; ?>
+                    <?php echo $user_details["email_address"]; ?>
                 </td>
                 <td>
-                    <a href="../Dashboard/show_user_data.php">View Details</a>
+                    <a href="../Dashboard/show_user_data.php?user_id=<?php echo $user_details['user_id'];?>">View Details</a>
                 </td>
             </tr>
         </table>

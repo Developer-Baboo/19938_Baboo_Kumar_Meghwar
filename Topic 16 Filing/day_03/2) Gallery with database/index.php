@@ -34,6 +34,7 @@
 					</tbody>
 				</table>
 			</form>
+			<a href="showimages.php"></a>
 		</fieldset>
 	</center>
 </body>

@@ -4,14 +4,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login Page</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="./CSS/style.css">
 </head>
 <body>
 	<center>
 		<h1>User Login Form</h1>
+		<br><br>
 	</center>
 	<center>
-		<form method="POST" action="login_process.php" >
+		<form style="width:50%" method="POST" action="login_process.php" >
 			<fieldset>
 				<legend>
 					User Login Form 
@@ -31,7 +32,7 @@
 						<td><input type="submit" name="register" value="Login"></td>
 					</tr>
 				</table>
-				<p>If You have not Created Earlier Then <a href="./registraction.php">Register Here</a></p>
+				<p>If you have not already gegistered then <a href="./registraction.php" style="text-decoration: none;">Register Here</a></p>
 			</fieldset>
 		</form>
 	</center>

@@ -11,45 +11,31 @@ if (isset($_REQUEST['send'])) {
         }
     }
 
-    foreach ($_FILES['multiple_file']['name'] as $key => $value) {
-        $originalname = $_FILES['multiple_file']['name'][$key];
-        $filename = rand() . "_" . $_FILES['multiple_file']['name'][$key];
-        $temp_name = $_FILES['multiple_file']['tmp_name'][$key];
-
-        if (move_uploaded_file($temp_name, $folder . "/" . $filename)) {
-            $count++;
+    $files= $_FILES['multiple_file'];
+    // echo "<pre>";print_r($_FILES);die;
+    foreach ($files['name'] as $key => $value) {
+        if(move_uploaded_file($files['tmp_name'][$key], $folder."/".$files['name'][$key]))
+        {
+            $file_extension = pathinfo($folder."/".$files['name'][$key],PATHINFO_EXTENSION);
+            
+            $query=" INSERT INTO images(image_name)Values('".$files['name'][$key]."')";
+            $result=mysqli_query($connection,$query);
+            
         }
-    }
-    if ($count > 0) {
-        $message = $count . " Files Uploaded";
-        header("location:index.php?msg=$message&color=green");
-        die;
-    } else {
-        $message = "Files Not Uploaded";
-        header("location:index.php?msg=$message&color=red");
-        die;
-    }
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                
+        }
 }
+?>
+
+
+<?php 
+   $qry="SELECT *FROM images";
+   $result=mysqli_query($connection,$qry);
+   if (mysqli_num_rows($result)) {
+       while ($row=mysqli_fetch_assoc($result)) {
+          ?>
+            <img src="<?php echo $folder."/".$row['image_name']?>">
+          <?php
+       }
+   }
 ?>
