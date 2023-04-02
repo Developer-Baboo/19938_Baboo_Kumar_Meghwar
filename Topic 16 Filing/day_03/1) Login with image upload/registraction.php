@@ -2,17 +2,14 @@
 <html>
 
 <head>
-	<title>Registeration Form</title>
+	<title>Registraction Form</title>
 	<link rel="stylesheet" type="text/css" href="./CSS/style.css">
-
-	</style>
 	<script type="text/javascript">
 		function register_form() {
 			var alpha_pattern = /^[A-Z]{1}[a-z]{2,}$/;
 			var email_pattern = /^[a-z]{2,6}[0-9]{1,3}[@][a-z]{5,8}[.][a-z]{2,5}$/;
 			var cnic_pattern = /^\d{5}[-][0-9]{7}-\d{1}$/;
 			var phone_num_pattern = /^[0-9]{2}\d{3}[ ][0-9]{7}$/;
-
 			var first_name = document.getElementById("first_name").value;
 			var middle_name = document.getElementById("middle_name").value;
 			var last_name = document.getElementById("last_name").value;
@@ -20,16 +17,11 @@
 			var gender = null;
 			var male = document.getElementById("gender_male");
 			var female = document.getElementById("gender_female");
-
-			if (male.checked) 
-			{
+			if (male.checked) {
 				gender = male.value;
-			} 
-			else if (female.checked) 
-			{
+			} else if (female.checked) {
 				gender = female.value;
 			}
-			
 			var cnic = document.getElementById("cnic").value;
 			var phone_number = document.getElementById("phone_number").value;
 			var country = document.getElementById("country").value;
@@ -41,7 +33,6 @@
 					policy_counter++;
 				}
 			}
-
 			var flag = true;
 
 			if (first_name == "") {
@@ -55,7 +46,6 @@
 					document.getElementById("first_name_msg").innerHTML = " First Name must be like eg: Sherry";
 				}
 			}
-
 			if (middle_name != "") {
 
 				if (alpha_pattern.test(middle_name) == false) {
@@ -64,9 +54,7 @@
 				} else {
 					document.getElementById("middle_name_msg").innerHTML = "";
 				}
-
 			}
-
 			if (last_name == "") {
 				flag = false;
 				document.getElementById("last_name_msg").innerHTML = "Please Enter Last Name !...";
@@ -78,7 +66,6 @@
 					document.getElementById("last_name_msg").innerHTML = " Last Name must be like eg: Wilson";
 				}
 			}
-
 			if (email == "") {
 				flag = false;
 				document.getElementById("email_msg").innerHTML = "Please Enter Email !...";
@@ -90,7 +77,6 @@
 					document.getElementById("email_msg").innerHTML = " Email must be like eg: shery12@gmail.com";
 				}
 			}
-
 			if (!gender) {
 
 				flag = false;
@@ -98,7 +84,6 @@
 			} else {
 				document.getElementById("gender_msg").innerHTML = "";
 			}
-
 			if (cnic == "") {
 				flag = false;
 				document.getElementById("cnic_msg").innerHTML = "Please Enter CNIC Number !...";
@@ -110,19 +95,16 @@
 					document.getElementById("cnic_msg").innerHTML = " CNIC Number must be like eg: 41303-1234567-1";
 				}
 			}
-
 			if (phone_number == "") {
 				flag = false;
 				document.getElementById("phone_number_msg").innerHTML = "Please Enter Phone Number !...";
 			} else {
 				document.getElementById("phone_number_msg").innerHTML = "";
-
 				if (phone_num_pattern.test(phone_number) == false) {
 					flag = false;
 					document.getElementById("phone_number_msg").innerHTML = " Phone Number must be like eg: 92300 1234567";
 				}
 			}
-
 			if (country == "") {
 				flag = false;
 				document.getElementById("country_msg").innerHTML = "Please Select Country !...";
@@ -136,25 +118,22 @@
 			} else {
 				document.getElementById("policies_msg").innerHTML = "";
 			}
-			if (flag) 
-			{
+			if (flag) {
 				return true;
-			} 
-			else 
-			{
+			} else {
 				return false;
+
 			}
 		}
 	</script>
 </head>
 
 <body>
-
 	<center>
-		<h1>Registeration Form</h1>
-		<br><br/>
+		<h3>Registeration Form</h3>
+		<br><br>
 		<fieldset>
-			<legend>Register Here</legend>
+			<legend>Register here</legend>
 			<form action="./registraction_process.php" method="POST" enctype="multipart/form-data">
 				<table>
 					<tr>
@@ -215,17 +194,15 @@
 						</td>
 					</tr>
 					<tr>
-						<td> City : <span>*</span></td>
+						<td> Country : <span>*</span></td>
 						<td>
-							<select name="city" id="city">
-								<option value="">--Select city--</option>
-								<option>Mithi</option>
-								<option>Diplo</option>
-								<option>Salamkot</option>
-								<option>Cehlhar</option>
-								<option>New Kot</option>
+							<select name="country" id="country">
+								<option value="">--Select Country--</option>
+								<option>Pakistan</option>
+								<option>Iran</option>
+								<option>China</option>
 							</select>
-							<span id="city_msg"></span>
+							<span id="country_msg"></span>
 						</td>
 					</tr>
 
@@ -255,12 +232,10 @@
 						<td></td>
 						<td>
 							<input type="submit" name="register" value="Register" onclick="return register_form()">
+							<a href="./home_page.php">Show User Data</a>
 						</td>
 					</tr>
 				</table>
-				<center>
-					<p> <a href="./"></a> </p>
-				</center>
 
 			</form>
 		</fieldset>

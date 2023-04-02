@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8mb4" collation="utf8mb4_general_ci">gallery_database</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="images" view="standard">
+<left>257</left>
+<top>89</top>
+<width>306</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `images` (
+  `image_id` int(10) NOT NULL AUTO_INCREMENT,
+  `image_name` varchar(20) NOT NULL,
+  PRIMARY KEY (`image_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
