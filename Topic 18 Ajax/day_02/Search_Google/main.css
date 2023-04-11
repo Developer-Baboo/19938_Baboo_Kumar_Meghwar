@@ -1,0 +1,73 @@
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+}
+
+input[type="text"] {
+    flex: 1;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #5f6368;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #202124;
+}
+
+.fa-search {
+    font-size: 20px;
+}
+
+.google-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 120px;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 50px;
+}
+
+.google-logo span {
+    font-family: 'Product Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: #4285F4;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-right: 5px;
+    /* margin-bottom: 10px; */
+    /* margin-top: 50px; */
+}
+
+.google-logo span:nth-of-type(2) {
+    color: #DB4437;
+}
+
+.google-logo span:nth-of-type(3) {
+    color: #F4B400;
+}
+
+.google-logo span:nth-of-type(4) {
+    color: #4285F4;
+}
+#e{
+    color:green;
+}
