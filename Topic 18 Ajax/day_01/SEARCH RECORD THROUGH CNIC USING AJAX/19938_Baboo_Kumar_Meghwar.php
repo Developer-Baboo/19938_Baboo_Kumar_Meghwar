@@ -66,6 +66,7 @@
 
     <script>
         function searchCNIC() {
+            // alert("working");
             var cnic = document.getElementById('cnic').value;
             if (cnic == "") {
                 document.getElementById('result').innerHTML = "";
@@ -84,20 +85,9 @@
             }
             obj.open("POST", 'process.php');
             obj.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-            obj.send("action=search_cnic&cnic=" + cnic);
+            obj.send("action=result&cnic=" + cnic);
         }
     </script>
-
-
-
-
-
-
-
-
-
-
-
 </head>
 
 <body>
@@ -105,7 +95,7 @@
     <form>
         <label for="cnic">Enter CNIC:</label>
         <input type="text" id="cnic" name="cnic">
-        <input type="button" value="Search" onclick="searchCNIC()">
+        <input type="button" value="search" onclick="searchCNIC()">
     </form>
     <div id="result"></div>
 </body>
