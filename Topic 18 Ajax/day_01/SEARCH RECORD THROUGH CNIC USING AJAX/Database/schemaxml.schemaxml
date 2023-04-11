@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8mb4" collation="utf8mb4_general_ci">ajax_cnic</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="image" view="standard">
+<left>135</left>
+<top>40</top>
+<width>218</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `image` (
+  `img_id` int(5) NOT NULL AUTO_INCREMENT,
+  `user_id` int(5) NOT NULL,
+  `image_name` varchar(20) NOT NULL,
+  `image_path` varchar(20) NOT NULL,
+  `file_type` varchar(20) NOT NULL,
+  PRIMARY KEY (`img_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="user_data" view="standard">
+<left>492</left>
+<top>133</top>
+<width>237</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `user_data` (
+  `user_id` int(4) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(200) NOT NULL,
+  `cnic_number` varchar(20) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `email_address` varchar(100) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
