@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">search_post</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="posts" view="standard">
+<left>114</left>
+<top>48</top>
+<width>241</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `posts` (
+  `post_id` int(20) NOT NULL AUTO_INCREMENT,
+  `post_title` varchar(200) NOT NULL,
+  `title_description` longtext NOT NULL,
+  PRIMARY KEY (`post_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
