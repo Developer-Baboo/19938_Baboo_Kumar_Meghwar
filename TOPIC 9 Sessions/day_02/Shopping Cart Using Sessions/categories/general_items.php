@@ -1,11 +1,17 @@
 <?php
 session_start();
+if (isset($_SESSION['username'])) { // check if the user is logged in
+    $username = $_SESSION['username'];
+} else {
+    header("Location: index.php");
+    exit();
+}
 ?>
 <!Doctype html>
 <html>
 
 <head>
-    <title>.::Dashboard DESIGN::.</title>
+    <title>.::General Items::.</title>
     <link rel="stylesheet" href="../mystyle.css">
     <style>
         p.solid {
@@ -15,9 +21,6 @@ session_start();
 </head>
 
 <body style="background-color: lightblue;font-family:Georgia, 'Times New Roman', Times, serif ">
-    <!-- <div>
-        <h1 style="background-color:chartreuse; padding: 10px; font-weight:bold; border:4px solid black; border-radius: 5px;text-align:center; ">Banner</h1>
-    </div> -->
     <div style="border:3px solid black; font-size:30px " class="row">
         <div class="col-12">
             <center>
@@ -28,7 +31,7 @@ session_start();
     <div style="border:3px solid black; font-size:30px " class="row">
         <div class="col-12">
             <center>
-                <p style="text-align: left;">Welcome...<?php echo $_SESSION['username'] ?> </p>
+                <p style="text-align: center;">Welcome <?php echo $_SESSION['username'] ?> To our shopping cart </p>
             </center>
         </div>
     </div>
@@ -37,20 +40,29 @@ session_start();
             <center>
                 <h2>Categories</h2>
             </center>
-            <ul>
-                <li><a href="./cosmetics.php">Cosmetics</a></li>
-                <!-- <li> <a href="www.google.com"></a>Google </li> -->
-                <li><a href="./grocery.php">Grocery</a></li>
+            <a href="./cosmetics.php">Cosmetics</a> <br />
+            <a href="./general_frouts.php">General Fruits</a> <br />
+            <a href="./grocery.php">Grocery</a> <br />
+            <a href="./general_items.php">General Items</a> <br />
+            <br />
+
+
+
+            <!-- <ul>
+                <li><a href="./cosmetics.php">Cosmetics</a></li> -->
+
+            <!-- <li> <a href="www.google.com"></a>Google </li> -->
+            <!-- <li><a href="./grocery.php">Grocery</a></li>
                 <li><a href="./general_frouts.php">General Fruits</a></li>
-                <li><a href="./general_items.php">General Items</a></li>
-            </ul>
+                <li></li>
+            </ul> -->
         </div>
 
         <div style="background-color:lightgreen" class="col-8">
             <center>
                 <h2>General Items</h2>
             </center>
-            <div style="border:4px solid white;background-color:gray;border-radius:10px;  margin:10px 50px 10px 5px; float:right ">
+            <div style="border:4px solid white;border-radius:10px;  margin:10px 50px 10px 5px; float:right ">
                 <img style="text-align:center" src="../images/ff.png" alt="" height="100px" width="200px" alt="">
                 <p>Name: ABC</p>
                 <p>PRICE: 123</p>
@@ -60,7 +72,7 @@ session_start();
                 </span>
             </div>
 
-            <div style="border:4px solid white; border-radius:10px;margin:10px 50px 10px 5px; background-color:gray; float:right ">
+            <div style="border:4px solid white; border-radius:10px;margin:10px 50px 10px 5px; float:right ">
                 <img src="../images/cc.png" alt="" height="100px" width="200px" alt="">
                 <p>Name: ABC</p>
                 <p>PRICE: 124</p>
@@ -69,7 +81,7 @@ session_start();
                     <input type="submit" value="Add" name="add">
                 </span>
             </div>
-            <div style="border:4px solid white; margin:10px 50px 10px 5px; background-color:gray; border-radius:10px; float:right;">
+            <div style="border:4px solid white; margin:10px 50px 10px 5px;  border-radius:10px; float:right;">
                 <img src="../images/dd.png" alt="" height="100px" width="200px" alt="">
                 <p>Name: ABC</p>
                 <p>PRICE: 125</p>
@@ -93,6 +105,8 @@ session_start();
     <div>
         <footer style="background-color:grey; margin:69px 0px -10px 0px ; text-align: center; padding:20px 2px 20px 2px ">
             Copyright Made: by Developer Baboo Kumar Meghwar 2023
+            <a style="float:right" href="./checkout.php">Checkout</a>
+
         </footer>
     </div>
 

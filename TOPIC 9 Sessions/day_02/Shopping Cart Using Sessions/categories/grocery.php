@@ -1,11 +1,17 @@
 <?php
 session_start();
+if (isset($_SESSION['username'])) { // check if the user is logged in
+    $username = $_SESSION['username'];
+} else {
+    header("Location: index.php");
+    exit();
+}
 ?>
 <!Doctype html>
 <html>
 
 <head>
-    <title>.::Dashboard DESIGN::.</title>
+    <title>.::Grocery Items::.</title>
     <link rel="stylesheet" href="../mystyle.css">
     <style>
         p.solid {
@@ -28,7 +34,7 @@ session_start();
     <div style="border:3px solid black; font-size:30px " class="row">
         <div class="col-12">
             <center>
-                <p style="text-align: left;">Welcome...<?php echo $_SESSION['username'] ?> </p>
+                <p style="text-align: center;">Welcome <?php echo $_SESSION['username'] ?> To our shopping cart </p>
             </center>
         </div>
     </div>
@@ -37,12 +43,10 @@ session_start();
             <center>
                 <h2>Categories</h2>
             </center>
-            <ul>
-                <li><a href="./categories/cosmetics.php">Cosmetics</a></li>
-                <li><a href="./categories/grocery.php">Grocery</a></li>
-                <li><a href="./categories/general_frouts.php">General Fruits</a></li>
-                <li><a href="./categories/general_items.php">Grocery Items</a></li>
-            </ul>
+            <a href="./cosmetics.php">Cosmetics</a> <br />
+            <a href="./general_frouts.php">General Fruits</a> <br />
+            <a href="./grocery.php">Grocery</a> <br />
+            <a href="./general_items.php">General Items</a> <br />
         </div>
 
         <div style="background-color:lightgreen" class="col-8">
@@ -90,8 +94,10 @@ session_start();
 
     </div>
     <div>
-        <footer style="background-color:grey; margin:20px 0px -10px 0px ; text-align: center; padding:20px 2px 20px 2px ">
+        <footer style="background-color:grey; margin:69px 0px -10px 0px ; text-align: center; padding:20px 2px 20px 2px ">
             Copyright Made: by Developer Baboo Kumar Meghwar 2023
+            <a style="float:right" href="./checkout.php">Checkout</a>
+
         </footer>
     </div>
 

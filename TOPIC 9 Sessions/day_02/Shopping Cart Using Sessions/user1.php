@@ -1,11 +1,17 @@
 <?php
 session_start();
+if (isset($_SESSION['username'])) { // check if the user is logged in
+    $username = $_SESSION['username'];
+} else {
+    header("Location: index.php");
+    exit();
+}
 ?>
 <!Doctype html>
 <html>
 
 <head>
-    <title>.::Dashboard DESIGN::.</title>
+    <title>Shopping Cart</title>
     <link rel="stylesheet" href="./mystyle.css">
     <style>
         p.solid {
@@ -25,10 +31,15 @@ session_start();
             </center>
         </div>
     </div>
-    <div style="border:3px solid black; font-size:30px " class="row">
+    <div style="border:3px solid black; font-size:20px  " class="row">
         <div class="col-12">
             <center>
-                <p style="text-align: left;">Welcome...<?php echo $_SESSION['username'] ?> </p>
+                <p style="text-align: center;">Welcome <?php echo $_SESSION['username'] ?> to our shopping cart! Please Choose a category of items and start shopping. </p>
+                <p>
+                <form action="logout.php" method="post">
+                    <button type="submit" name="logout">Logout</button>
+                </form>
+                </p>
             </center>
         </div>
     </div>
@@ -71,6 +82,12 @@ session_start();
     <div>
         <footer style="background-color:grey; margin:69px 0px -10px 0px ; text-align: center; padding:20px 2px 20px 2px ">
             Copyright Made: by Developer Baboo Kumar Meghwar 2023
+            <div>
+                <form action="checkout.php" method="post">
+                    <button type="submit" name="checkout">Checkout</button>
+                </form>
+            </div>
+
         </footer>
     </div>
 

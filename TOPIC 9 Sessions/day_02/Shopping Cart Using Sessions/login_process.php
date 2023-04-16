@@ -30,9 +30,11 @@ foreach ($_SESSION['userDetails'] as $user) {
     if($user["Name"] === $_SESSION['username'] &&  $user["Password"] == $_SESSION['pass']){
         $flag = false;
         if ($_SESSION['username'] === "Baboo Kumar") {
+                $_SESSION['user1'] = $user;
                 header('Location: user1.php');
         }
         else if ($_SESSION['username'] === "Akash Parmar") {
+                $_SESSION['user2'] = $user;
                 header('Location: user2.php');
         } 
         else if ($_SESSION['username'] === "Kelash Kumar") {
