@@ -1,0 +1,13 @@
+{
+  "name": "dhx-calendar-package",
+  "version": "8.0.3",
+  "description": "dhtmlxCalendar widget",
+  "homepage": "https://docs.dhtmlx.com/calendar",
+  "private": true,
+  "bugs": {
+    "url": "https://forum.dhtmlx.com",
+    "email": "support@dhtmlx.com"
+  },
+  "main": "codebase/calendar.js",
+  "types": "codebase/calendar.d.ts"
+}

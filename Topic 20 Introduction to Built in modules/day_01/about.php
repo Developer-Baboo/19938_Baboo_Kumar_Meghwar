@@ -51,11 +51,15 @@
     </div>
     <div class="clr"></div>
   </div>
-  <div class="clr"></div>
+  <div class="clr">
+
+    
+
+  </div>
 </div>
 <?php include_once("include/footer.php"); ?>
 </div>
-<div align=center>This template downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+<!-- <div align=center>This template downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div> -->
 </body>
 
 </html>

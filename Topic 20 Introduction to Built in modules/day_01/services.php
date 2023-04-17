@@ -10,10 +10,10 @@
     <div class="News">
       <h2>Sub Navigation</h2>
       <ul>
-        <li><a href="#">Management</a></li>
-        <li><a href="#">Consulting</a></li>
-        <li><a href="#">Repair</a></li>
-        <li><a href="#">Support</a></li>
+        <li><a href="#">Software Development</a></li>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">Mobile App Develpment</a></li>
+        <li><a href="#">Web Design</a></li>
         <li><a href="#">We really do care</a></li>
       </ul>
       <p></p>
@@ -24,46 +24,46 @@
       <div class="bg"></div>
       <p>Vestibulum vehicula purus nec dui accumsan fermentum. Suspendisse potenti. Ut dapibus est id odio pretium blandit in eget leo. </p>
       <div class="serv">
-        <h2>Services 1</h2>
+        <h2>Software Dev.</h2>
         <div class="bg"></div>
         <p><img src="images/ser_1.gif" width="60" height="60" alt="img" /></p>
         <p>Various versions have evolved over the years, sometimes by accident, sometimes on purpose</p>
         <ul>
-          <li>Sed congue, dui vel tristique mollis.</li>
-          <li>Morbi eget sem. Nam mollis. </li>
-          <li>Donec sed velit ut tellus fermentum.</li>
+          <li>We build high quality software</li>
+          <li>our Software are reliable </li>
+          <li>Our Software is user friendly</li>
         </ul>
         <p>&nbsp;</p>
         <p><a href="#">+ order service</a></p>
       </div>
       <div class="serv">
-        <h2>Services 2</h2>
+        <h2>Web Develpment</h2>
         <div class="bg"></div>
         <p><img src="images/ser_2.gif" width="60" height="60" alt="img" /></p>
-        <p>Various versions have evolved over the years, sometimes by accident, sometimes on purpose</p>
+        <p>WE serve high quality website to our customers, because customers are the king</p>
         <ul>
-          <li>Sed congue, dui vel tristique mollis.</li>
-          <li>Morbi eget sem. Nam mollis. </li>
-          <li>Donec sed velit ut tellus fermentum.</li>
+          <li>Responsive websites</li>
+          <li>Attractive </li>
+          <li>Easy to use.</li>
         </ul>
         <p>&nbsp;</p>
         <p><a href="#">+ order service</a></p>
       </div>
       <div class="serv">
-        <h2>Services 3</h2>
+        <h2>Database Design</h2>
         <div class="bg"></div>
         <p><img src="images/ser_3.gif" width="60" height="60" alt="img" /></p>
-        <p>Various versions have evolved over the years, sometimes by accident, sometimes on purpose</p>
+        <p>We service High Quality Database Design Services to our customers</p>
         <ul>
-          <li>Sed congue, dui vel tristique mollis.</li>
-          <li>Morbi eget sem. Nam mollis. </li>
-          <li>Donec sed velit ut tellus fermentum.</li>
+          <li>High Qualtiy Diagrams<li>
+          <li>Client Satisfication</li>
+          <li>Reliability</li>
         </ul>
         <p>&nbsp;</p>
         <p><a href="#">+ order service</a></p>
       </div>
       <div class="serv">
-        <h2>Services 4</h2>
+        <h2>Game Development</h2>
         <div class="bg"></div>
         <p><img src="images/ser_4.gif" width="60" height="60" alt="img" /></p>
         <p>Various versions have evolved over the years, sometimes by accident, sometimes on purpose</p>
@@ -83,7 +83,7 @@
 </div>
 <?php include_once("include/footer.php"); ?>
 </div>
-<div align=center>This template downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+<!-- <div align=center>This template downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div> -->
 </body>
 
 </html>

@@ -1,11 +1,66 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 
 <head>
+
+
+
+    <!--Data Table-->
+
+    <link rel="stylesheet" type="text/css" href="../Data Table/jquery.dataTables.min.js">
+    <script type="text/javascript" src="../Data Table/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="../Data Table/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
+    <!--Data Table-->
+
+
+
+    <!-- TinyMCE Editor -->
+    <script src="../TinyMCE Editor/tinymce/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                'insertdatetime', 'media', 'table', 'help', 'wordcount'
+            ],
+            toolbar: 'undo redo | blocks | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+        });
+    </script>
+    <!-- TinyMCE Editor -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- calender -->
+    <script type="text/javascript" src="../calender/codebase/calendar.js"></script>
+    <link rel="stylesheet" href="../calender/codebase/calendar.css">
+    <!-- calender -->
+
     <!-- Insert to your webpage before the </head> -->
-    <script src="sliderengine/jquery.js"></script>
     <script src="sliderengine/amazingslider.js"></script>
     <link rel="stylesheet" type="text/css" href="sliderengine/amazingslider-1.css">
+    <script src="sliderengine/initslider-1.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="sliderengine/amazingslider-1.css"> -->
     <script src="sliderengine/initslider-1.js"></script>
     <!-- End of head section HTML codes -->
     <title>home</title>
@@ -13,6 +68,26 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/easySlider1.5.js"></script>
+    <script>
+        // creating dhtmlxCalendar
+        var calendar = new dhx.Calendar("calendar_container");
+        const calendar = new dhx.Calendar(null, {
+            dateFormat: "%d/%m/%y"
+        });
+        const popup = new dhx.Popup();
+        popup.attach(calendar);
+
+        const dateInput = document.getElementById("date-input");
+        dateInput.addEventListener("click", function() {
+            popup.show(dateInput);
+
+        });
+
+        calendar.events.on("change", function() {
+            dateInput.value = calendar.getValue();
+            popup.hide();
+        });
+    </script>
     <script type="text/javascript" charset="utf-8">
         // <![CDATA[
         $(document).ready(function() {
@@ -84,14 +159,39 @@
             background: url(images/r_arrow.gif) no-repeat 0 0;
         }
     </style>
+
+
+
+
+    <!-- Insert to your webpage before the </head> -->
+    <!-- <script src="sliderengine/jquery.js"></script> -->
+    <script src="../sliderengine/jquery.js"></script>
+    <script src="../sliderengine/amazingslider.js"></script>
+    <link rel="stylesheet" type="text/css" href="../sliderengine/amazingslider-1.css">
+    <script src="../sliderengine/initslider-1.js"></script>
+    <!-- End of head section HTML codes -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 
 <body>
     <div class="main">
         <div class="header">
             <div class="block_header">
-                <div class="logo"><b style="color:#FC0">SMART.</b><b style="color:#FFF">WEBDESIGN</b></div>
-                <div class="Twitter">Follow us on Twitter</div>
+                <div class="logo"><b style="color:#FC0">Developer.</b><b style="color:#FFF">Baboo </b></div>
+                <div class="Twitter">Follow us on Facebook</div>
                 <div class="clr"></div>
                 <div class="menu">
                     <ul>
