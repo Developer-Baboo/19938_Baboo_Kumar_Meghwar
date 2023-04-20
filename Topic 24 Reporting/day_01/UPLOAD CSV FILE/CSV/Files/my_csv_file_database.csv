@@ -1,0 +1,10 @@
+ID,Fullname,Gender,Email,Password,Status
+1,"Admin Hidaya",Male,admin@gmail.com,12345,Active
+2,"Author Nazir",Male,author_nazir@gmail.com,12345,Active
+3,Saba,Female,saba_user@gmail.com,12345,Active
+4,Ali,Male,ali@gmai.com,12345,Active
+5,"Baboo Kumar",Male,babooheerani999@gmail.com,123456789,Active
+6,"Mohan Lal",Male,mohanheerani@gmail.com,12345,Active
+7,"Faria Shaikh",Female,faria@gmail.com,12345,Active
+8,"Author Baboo Kumar",Male,baboo123@gmail.com,12345,Active
+9,"Author Muskan",Female,muskan@gmail.com,12345,Active
