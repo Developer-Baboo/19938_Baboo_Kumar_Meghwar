@@ -1,5 +1,9 @@
 <?php include "header.php"; 
 
+if($_SESSION["user_role"] == '0'){
+header("Location: post.php");
+}
+
 if(isset($_POST['submit'])){
  include "config.php";
 
