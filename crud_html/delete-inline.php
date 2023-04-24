@@ -1,5 +1,5 @@
 <?php
-echo $stu_id = $_GET['id'];
+$stu_id = $_GET['id'];
 
 $conn = mysqli_connect("localhost","root","","crud") or die("Connection Failed"); 
 
