@@ -38,6 +38,8 @@ CREATE TABLE `blogs` (
   `blog_name` varchar(200) NOT NULL,
   `no_of_posts` int(11) NOT NULL,
   `no_of_followers` int(11) NOT NULL,
+  `action` varchar(20) NOT NULL,
+  `is_active` int(20) NOT NULL,
   PRIMARY KEY (`blog_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -49,10 +51,11 @@ DROP TABLE IF EXISTS `categories`;
 
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `name` varchar(200) NOT NULL,
+  `admin_id` int(11) NOT NULL,
+  `category_name` varchar(200) NOT NULL,
   `is_active` int(11) NOT NULL,
   `num_of_posts` int(11) NOT NULL,
+  `action` int(11) NOT NULL,
   PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -73,6 +76,22 @@ CREATE TABLE `comments` (
 
 /*Data for the table `comments` */
 
+/*Table structure for table `feedbacks` */
+
+DROP TABLE IF EXISTS `feedbacks`;
+
+CREATE TABLE `feedbacks` (
+  `feedback_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_email` varchar(100) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `time` varchar(100) NOT NULL,
+  `date` varchar(100) NOT NULL,
+  `action` varbinary(100) NOT NULL,
+  PRIMARY KEY (`feedback_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `feedbacks` */
+
 /*Table structure for table `posts` */
 
 DROP TABLE IF EXISTS `posts`;
@@ -80,14 +99,29 @@ DROP TABLE IF EXISTS `posts`;
 CREATE TABLE `posts` (
   `post_id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
   `content` varchar(200) NOT NULL,
   `is_active` int(11) NOT NULL,
+  `action` varchar(20) NOT NULL,
   PRIMARY KEY (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `posts` */
+
+/*Table structure for table `settings` */
+
+DROP TABLE IF EXISTS `settings`;
+
+CREATE TABLE `settings` (
+  `setting_id` int(11) NOT NULL AUTO_INCREMENT,
+  `blog_title` varchar(100) NOT NULL,
+  `blog_bg_image` varchar(200) NOT NULL,
+  `posts_per_pages` int(11) NOT NULL,
+  PRIMARY KEY (`setting_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `settings` */
 
 /*Table structure for table `users` */
 
@@ -104,6 +138,7 @@ CREATE TABLE `users` (
   `home_town` varchar(500) NOT NULL,
   `profile` varchar(300) NOT NULL,
   `is_active` varchar(10) NOT NULL,
+  `action` varchar(10) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
