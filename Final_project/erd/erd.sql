@@ -24,10 +24,28 @@ CREATE TABLE `admins` (
   `admin_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
+  `no_of_blog_created` int(11) NOT NULL,
   PRIMARY KEY (`admin_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `admins` */
+
+/*Table structure for table `blog_settings` */
+
+DROP TABLE IF EXISTS `blog_settings`;
+
+CREATE TABLE `blog_settings` (
+  `blog_setting_id` int(11) NOT NULL AUTO_INCREMENT,
+  `blog_id` int(11) NOT NULL,
+  `blog_title` varchar(100) NOT NULL,
+  `blog_bg_image` varchar(200) NOT NULL,
+  `posts_per_pages` int(11) NOT NULL,
+  PRIMARY KEY (`blog_setting_id`),
+  KEY `blog_id` (`blog_id`),
+  CONSTRAINT `blog_id` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`blog_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `blog_settings` */
 
 /*Table structure for table `blogs` */
 
@@ -35,12 +53,16 @@ DROP TABLE IF EXISTS `blogs`;
 
 CREATE TABLE `blogs` (
   `blog_id` int(11) NOT NULL AUTO_INCREMENT,
+  `admin_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
   `blog_name` varchar(200) NOT NULL,
   `no_of_posts` int(11) NOT NULL,
   `no_of_followers` int(11) NOT NULL,
   `action` varchar(20) NOT NULL,
   `is_active` int(20) NOT NULL,
-  PRIMARY KEY (`blog_id`)
+  PRIMARY KEY (`blog_id`),
+  KEY `admin_id` (`admin_id`),
+  KEY `category_id` (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `blogs` */
@@ -71,7 +93,11 @@ CREATE TABLE `comments` (
   `user_id` int(11) NOT NULL,
   `description` varchar(500) NOT NULL,
   `is_active` int(11) NOT NULL,
-  PRIMARY KEY (`comment_id`)
+  PRIMARY KEY (`comment_id`),
+  KEY `post_id` (`post_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  CONSTRAINT `post_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `comments` */
@@ -98,30 +124,44 @@ DROP TABLE IF EXISTS `posts`;
 
 CREATE TABLE `posts` (
   `post_id` int(11) NOT NULL AUTO_INCREMENT,
+  `blog_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `admin_id` int(11) NOT NULL,
-  `title` varchar(200) NOT NULL,
-  `content` varchar(200) NOT NULL,
+  `comment_id` int(11) NOT NULL,
+  `post_title` varchar(200) NOT NULL,
+  `post_date` varchar(50) NOT NULL,
+  `post_img` year(4) NOT NULL,
+  `post_description` varchar(200) NOT NULL,
   `is_active` int(11) NOT NULL,
   `action` varchar(20) NOT NULL,
-  PRIMARY KEY (`post_id`)
+  PRIMARY KEY (`post_id`),
+  KEY `comment_id` (`comment_id`),
+  KEY `category_id` (`category_id`),
+  CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `posts` */
 
-/*Table structure for table `settings` */
+/*Table structure for table `posts_settings` */
 
-DROP TABLE IF EXISTS `settings`;
+DROP TABLE IF EXISTS `posts_settings`;
 
-CREATE TABLE `settings` (
-  `setting_id` int(11) NOT NULL AUTO_INCREMENT,
-  `blog_title` varchar(100) NOT NULL,
-  `blog_bg_image` varchar(200) NOT NULL,
-  `posts_per_pages` int(11) NOT NULL,
-  PRIMARY KEY (`setting_id`)
+CREATE TABLE `posts_settings` (
+  `post_setting_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `font_size` int(11) NOT NULL,
+  `font_color` varchar(50) NOT NULL,
+  `bg_image` varchar(50) NOT NULL,
+  `font_style` varchar(50) NOT NULL,
+  `date_and_time` varchar(50) NOT NULL,
+  PRIMARY KEY (`post_setting_id`),
+  KEY `user_id` (`user_id`),
+  KEY `post_id` (`post_id`),
+  CONSTRAINT `posts_settings_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Data for the table `settings` */
+/*Data for the table `posts_settings` */
 
 /*Table structure for table `users` */
 
