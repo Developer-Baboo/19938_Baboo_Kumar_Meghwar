@@ -26,9 +26,12 @@ CREATE TABLE `admins` (
   `password` varchar(200) NOT NULL,
   `no_of_blog_created` int(11) NOT NULL,
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `admins` */
+
+insert  into `admins`(`admin_id`,`username`,`password`,`no_of_blog_created`) values 
+(1,'baboo','12345',0);
 
 /*Table structure for table `blog_settings` */
 
@@ -40,6 +43,9 @@ CREATE TABLE `blog_settings` (
   `blog_title` varchar(100) NOT NULL,
   `blog_bg_image` varchar(200) NOT NULL,
   `posts_per_pages` int(11) NOT NULL,
+  `blog_post_color` varchar(50) NOT NULL,
+  `post_bg_color` varchar(50) NOT NULL,
+  `blog_font_style` varchar(50) NOT NULL,
   PRIMARY KEY (`blog_setting_id`),
   KEY `blog_id` (`blog_id`),
   CONSTRAINT `blog_id` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`blog_id`)
@@ -63,9 +69,12 @@ CREATE TABLE `blogs` (
   PRIMARY KEY (`blog_id`),
   KEY `admin_id` (`admin_id`),
   KEY `category_id` (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `blogs` */
+
+insert  into `blogs`(`blog_id`,`admin_id`,`category_id`,`blog_name`,`no_of_posts`,`no_of_followers`,`action`,`is_active`) values 
+(1,1,1,'computer_science',1,1,'',1);
 
 /*Table structure for table `categories` */
 
@@ -108,15 +117,30 @@ DROP TABLE IF EXISTS `feedbacks`;
 
 CREATE TABLE `feedbacks` (
   `feedback_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_email` varchar(100) NOT NULL,
-  `description` varchar(500) NOT NULL,
-  `time` varchar(100) NOT NULL,
-  `date` varchar(100) NOT NULL,
-  `action` varbinary(100) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `feedback_message` varchar(1000) NOT NULL,
   PRIMARY KEY (`feedback_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `feedbacks` */
+
+/*Table structure for table `outside_user_feedbacks` */
+
+DROP TABLE IF EXISTS `outside_user_feedbacks`;
+
+CREATE TABLE `outside_user_feedbacks` (
+  `outsider_user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `outside_user_name` varchar(200) NOT NULL,
+  `outside_user_email` varchar(200) NOT NULL,
+  `feeback_message` varchar(1000) NOT NULL,
+  `time_and_date` varchar(200) NOT NULL,
+  PRIMARY KEY (`outsider_user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `outside_user_feedbacks` */
+
+insert  into `outside_user_feedbacks`(`outsider_user_id`,`outside_user_name`,`outside_user_email`,`feeback_message`,`time_and_date`) values 
+(1,'1','','','');
 
 /*Table structure for table `posts` */
 
