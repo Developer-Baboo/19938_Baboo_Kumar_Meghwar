@@ -39,6 +39,8 @@ DROP TABLE IF EXISTS `admins`;
 
 CREATE TABLE `admins` (
   `admin_id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_id` int(11) NOT NULL,
+  `follow_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `username` varchar(200) NOT NULL,
@@ -49,8 +51,8 @@ CREATE TABLE `admins` (
 
 /*Data for the table `admins` */
 
-insert  into `admins`(`admin_id`,`category_id`,`post_id`,`username`,`password`,`no_of_blog_created`) values 
-(1,0,0,'baboo','12345',0);
+insert  into `admins`(`admin_id`,`comment_id`,`follow_id`,`category_id`,`post_id`,`username`,`password`,`no_of_blog_created`) values 
+(1,0,0,0,0,'baboo','12345',0);
 
 /*Table structure for table `blog_settings` */
 
@@ -107,7 +109,9 @@ CREATE TABLE `categories` (
   `is_active` int(11) NOT NULL,
   `num_of_posts` int(11) NOT NULL,
   `action` int(11) NOT NULL,
-  PRIMARY KEY (`category_id`)
+  PRIMARY KEY (`category_id`),
+  KEY `blog_id` (`blog_id`),
+  CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`blog_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `categories` */
@@ -118,6 +122,7 @@ DROP TABLE IF EXISTS `comments`;
 
 CREATE TABLE `comments` (
   `comment_id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `description` varchar(500) NOT NULL,
@@ -126,6 +131,7 @@ CREATE TABLE `comments` (
   KEY `post_id` (`post_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`comment_id`) REFERENCES `admins` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `post_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -153,7 +159,13 @@ DROP TABLE IF EXISTS `follow`;
 CREATE TABLE `follow` (
   `follow_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`follow_id`)
+  `blog_id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL,
+  PRIMARY KEY (`follow_id`),
+  KEY `blog_id` (`blog_id`),
+  KEY `admin_id` (`admin_id`),
+  CONSTRAINT `follow_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`blog_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `follow_ibfk_2` FOREIGN KEY (`admin_id`) REFERENCES `admins` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `follow` */
