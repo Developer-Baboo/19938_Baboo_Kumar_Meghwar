@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8mb4" collation="utf8mb4_general_ci">online_blogging_application</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="role" view="standard">
+<left>109</left>
+<top>552</top>
+<width>265</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `role` (
+  `role_id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_type` varchar(50) NOT NULL,
+  `is_active` enum('Active','InActive') DEFAULT 'Active',
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="user" view="standard">
+<left>399</left>
+<top>344</top>
+<width>352</width>
+<height>311</height>
+<sql_create_table>CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_id` int(11) DEFAULT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` text NOT NULL,
+  `gender` enum('Male','Female') DEFAULT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `user_image` text DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `is_approved` enum('Pending','Approved','Rejected') DEFAULT 'Pending',
+  `is_active` enum('Active','InActive') DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  KEY `role_id` (`role_id`),
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="user_feedback" view="standard">
+<left>138</left>
+<top>102</top>
+<width>237</width>
+<height>186</height>
+<sql_create_table>CREATE TABLE `user_feedback` (
+  `feedback_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `user_name` varchar(100) DEFAULT NULL,
+  `user_email` varchar(100) DEFAULT NULL,
+  `feedback` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`feedback_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `user_feedback_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="category" view="standard">
+<left>2133</left>
+<top>322</top>
+<width>335</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `category` (
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_title` varchar(100) DEFAULT NULL,
+  `category_description` text DEFAULT NULL,
+  `category_status` enum('Active','InActive') DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="post" view="standard">
+<left>1484</left>
+<top>428</top>
+<width>327</width>
+<height>249</height>
+<sql_create_table>CREATE TABLE `post` (
+  `post_id` int(11) NOT NULL AUTO_INCREMENT,
+  `blog_id` int(11) DEFAULT NULL,
+  `post_title` varchar(200) NOT NULL,
+  `post_summary` text NOT NULL,
+  `post_description` longtext NOT NULL,
+  `featured_image` text DEFAULT NULL,
+  `post_status` enum('Active','InActive') DEFAULT NULL,
+  `is_comment_allowed` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`post_id`),
+  KEY `blog_id` (`blog_id`),
+  CONSTRAINT `post_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`blog_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="post_category" view="standard">
+<left>1835</left>
+<top>219</top>
+<width>233</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `post_category` (
+  `post_category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`post_category_id`),
+  KEY `post_id` (`post_id`),
+  KEY `category_id` (`category_id`),
+  CONSTRAINT `post_category_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `post_category_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="post_atachment" view="standard">
+<left>1836</left>
+<top>621</top>
+<width>344</width>
+<height>197</height>
+<sql_create_table>CREATE TABLE `post_atachment` (
+  `post_atachment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) DEFAULT NULL,
+  `post_attachment_title` varchar(200) DEFAULT NULL,
+  `post_attachment_path` text DEFAULT NULL,
+  `is_active` enum('Active','InActive') DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`post_atachment_id`),
+  KEY `fk1` (`post_id`),
+  CONSTRAINT `fk1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="post_comment" view="standard">
+<left>776</left>
+<top>621</top>
+<width>319</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `post_comment` (
+  `post_comment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `comment` text DEFAULT NULL,
+  `is_active` enum('Active','InActive') DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`post_comment_id`),
+  KEY `user_id` (`user_id`),
+  KEY `post_id` (`post_id`),
+  CONSTRAINT `post_comment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `post_comment_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="following_blog" view="standard">
+<left>774</left>
+<top>85</top>
+<width>312</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `following_blog` (
+  `follow_id` int(11) NOT NULL AUTO_INCREMENT,
+  `follower_id` int(11) DEFAULT NULL,
+  `blog_following_id` int(11) DEFAULT NULL,
+  `status` enum('Followed','Unfollowed') DEFAULT 'Followed',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`follow_id`),
+  KEY `blog_following_id` (`blog_following_id`),
+  KEY `follower_id` (`follower_id`),
+  CONSTRAINT `following_blog_ibfk_1` FOREIGN KEY (`blog_following_id`) REFERENCES `blog` (`blog_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `following_blog_ibfk_2` FOREIGN KEY (`follower_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="blog" view="standard">
+<left>1109</left>
+<top>241</top>
+<width>352</width>
+<height>214</height>
+<sql_create_table>CREATE TABLE `blog` (
+  `blog_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `blog_title` varchar(11) DEFAULT NULL,
+  `post_per_page` int(11) DEFAULT NULL,
+  `blog_background_image` text DEFAULT NULL,
+  `blog_status` enum('Active','InActive') DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`blog_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="setting" view="standard">
+<left>40</left>
+<top>328</top>
+<width>295</width>
+<height>197</height>
+<sql_create_table>CREATE TABLE `setting` (
+  `setting_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `setting_key` varchar(100) DEFAULT NULL,
+  `setting_value` varchar(100) DEFAULT NULL,
+  `setting_status` enum('Active','InActive') DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`setting_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `setting_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
