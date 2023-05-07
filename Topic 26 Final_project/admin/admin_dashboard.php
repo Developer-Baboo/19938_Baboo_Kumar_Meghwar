@@ -105,14 +105,19 @@
 
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; background-color: #5DADE2">
           <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <!-- <svg class="bi me-2" width="40" height="32">
-              <use xlink:href="#bootstrap" />
-            </svg> -->
             <img src="../images/logo.png" width="50px">
             <span class="fs-10">Online Blogging Application</span>
           </a>
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16">
+                  <use xlink:href="#speedometer2" />
+                </svg>
+                Admin Dashboard
+              </a>
+            </li>
             <li class="nav-item">
               <a href="./posts.php" class="nav-link active" aria-current="page">
                 <svg class="bi me-2" width="16" height="16">
@@ -160,7 +165,7 @@
           <hr>
           <div class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../images/my_pic.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
+              <img src="../images/profile_image_1683396936.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
               <strong>Baboo Kumar</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
@@ -174,7 +179,9 @@
           </div>
         </div>
       </main>
+
     </div>
+    
     <div class="col-lg-8 col-md-8">
       <div class="row">
         <div class="col-md-6 border rounded shadow-lg my-5 mx-10" style="width:50%; height: 100px; ">
@@ -186,7 +193,7 @@
       </div>
       <div class="row">
         <div class="col-md-6 border rounded shadow-lg my-5">
-          Total Blogs 
+          Total Blogs
         </div>
         <div class="col-md-6 border rounded shadow-lg my-5">
           Total Posts
