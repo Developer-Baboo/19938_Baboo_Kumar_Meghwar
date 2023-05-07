@@ -98,8 +98,8 @@
     </symbol>
   </svg>
 
-  <div class="row" >
-    <div class="col-lg-4 col-md-4" >
+  <div class="row">
+    <div class="col-lg-4 col-md-4">
       <main>
         <h1 class="visually-hidden">Sidebars examples</h1>
 
@@ -108,7 +108,7 @@
             <!-- <svg class="bi me-2" width="40" height="32">
               <use xlink:href="#bootstrap" />
             </svg> -->
-            <img src="../images/logo.png" width="50px" >
+            <img src="../images/logo.png" width="50px">
             <span class="fs-10">Online Blogging Application</span>
           </a>
           <hr>
@@ -135,7 +135,7 @@
                   <use xlink:href="#grid" />
                 </svg> -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                 </svg>
                 MANAGE USERS
               </a>
@@ -145,7 +145,7 @@
                 <svg class="bi me-2" width="16" height="16">
                   <use xlink:href="#comments" />
                 </svg>
-                MANAAGE COMMENTS
+                MANAGE COMMENTS
               </a>
             </li>
             <li>
@@ -153,14 +153,14 @@
                 <svg class="bi me-2" width="16" height="16">
                   <use xlink:href="#feedbacks" />
                 </svg>
-                MANAGE FEEDBACKS 
+                MANAGE FEEDBACKS
               </a>
             </li>
           </ul>
           <hr>
           <div class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+              <img src="../images/my_pic.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
               <strong>Baboo Kumar</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
@@ -175,16 +175,32 @@
         </div>
       </main>
     </div>
-  <div class ="col-lg-8 col-md-8">
-      <div class="row" >
+    <div class="col-lg-8 col-md-8">
+      <div class="row">
+        <div class="col-md-6 border rounded shadow-lg my-5 mx-10" style="width:50%; height: 100px; ">
+          Total Active Users
+        </div>
+        <div class="col-md-6 border rounded shadow-lg my-5">
+          Total Registered Users
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 border rounded shadow-lg my-5">
+          Total Blogs 
+        </div>
+        <div class="col-md-6 border rounded shadow-lg my-5">
+          Total Posts
+        </div>
+      </div>
+      <!-- <div class="row">
         <div class="col-md-6 border rounded shadow-lg my-5">
           <h4>Hello World</h4>
         </div>
-        <div class="col-md-6 border rounded shadow-lg my-5"  >
+        <div class="col-md-6 border rounded shadow-lg my-5">
           <h4>Hello Baboo</h4>
         </div>
-      </div>
-  </div>
+      </div> -->
+    </div>
   </div>
 
 

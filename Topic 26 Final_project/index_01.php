@@ -16,7 +16,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="images/logo.png" style="width: 100px;"></a>
+            <a class="navbar-brand" href="./index_01.php"><img src="images/logo.png" style="width: 100px;"></a>
             <form class="d-flex mx-auto">
                 <div class="col-sm-12 col-md-8">
                     <input class="form-control w-100" type="search" placeholder="Search news here" aria-label="Search">

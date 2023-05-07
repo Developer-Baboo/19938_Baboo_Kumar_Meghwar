@@ -46,7 +46,7 @@
       </div>
       <div class="col-md-6">
         <label for="address" class="form-label">POST PER PAGE</label>
-        <textarea class="form-control" id="address" required></textarea>
+        <input type="number" class="form-control" id="post_per_page" required>
         <div class="invalid-feedback">
           Please enter post per page.
         </div>
@@ -79,6 +79,7 @@
           <th>POST PER PAGE</th>
           <th>BLOG STATUS</th>
           <th>Created At</th>
+          <th>Updated At</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -88,32 +89,97 @@
           <td>1</td>
           <td>Health</td>
           <td>2</td>
-          <td>Inactive</td>
+          <td>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+              <label class="form-check-label" for="flexRadioDefault1">
+                Active
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+              <label class="form-check-label" for="flexRadioDefault2">
+                InActive
+              </label>
+            </div>
+          </td>
           <td>2023-9-1</td>
+          <td>2023-9-1</td>
+          <td>
+            <a href="">Edit</a> || <a href="">Delete</a>
+          </td>
         </tr>
         <tr>
           <td>2</td>
           <td>1</td>
           <td>Technology</td>
           <td>3</td>
-          <td>Active</td>
+          <td>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+              <label class="form-check-label" for="flexRadioDefault1">
+                Active
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+              <label class="form-check-label" for="flexRadioDefault2">
+                InActive
+              </label>
+            </div>
+          </td>
           <td>2023-10-1</td>
+          <td>2023-9-1</td>
+          <td>
+            <a href="">Edit</a> || <a href="">Delete</a>
+          </td>
         </tr>
         <tr>
           <td>3</td>
           <td>2</td>
           <td>Sports</td>
           <td>5</td>
-          <td>Active</td>
+          <td>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+              <label class="form-check-label" for="flexRadioDefault1">
+                Active
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+              <label class="form-check-label" for="flexRadioDefault2">
+                InActive
+              </label>
+            </div>
+          </td>
           <td>2023-10-15</td>
+          <td>2023-9-1</td>
+          <td>
+            <a href="">Edit</a> || <a href="">Delete</a>
+          </td>
         </tr>
         <tr>
           <td>4</td>
           <td>3</td>
           <td>Travel</td>
           <td>4</td>
-          <td>Inactive</td>
+          <td>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+              <label class="form-check-label" for="flexRadioDefault1">
+                Active
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+              <label class="form-check-label" for="flexRadioDefault2">
+                InActive
+              </label>
+            </div>
+          </td>
           <td>2023-11-1</td>
+          <td>2023-9-1</td>
           <td>
             <a href="">Edit</a> || <a href="">Delete</a>
           </td>
