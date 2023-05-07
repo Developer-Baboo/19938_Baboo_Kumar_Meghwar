@@ -3,6 +3,24 @@
 
 <head>
     <style>
+        .nav-item {
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-size: 50px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            /* color: #FFF; */
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: red;
+            /* text-decoration: none; */
+        }
+
         #carouselExampleAutoplaying {
             margin-top: 10px;
         }
@@ -26,8 +44,8 @@
                 </div>
             </form>
             <div class="d-flex">
-                <button class="btn btn-outline-secondary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin">Login</button>
-                <button class="btn btn-outline-primary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin"><a class="nav-link active " aria-current="page" href="../register.php">Register</a></button>
+                <button class="btn btn-outline-secondary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin" style="margin-right: 10px;">Login</button>
+                <button class="btn btn-outline-primary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin"><a class="nav-link active " aria-current="page" href="register.php">Register</a></button>
                 <div class="social-media-icons mx-2">
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-twitter"></i></a>
@@ -85,13 +103,13 @@
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="../images/health/1.jpg" class="d-block w-100" alt="No Images" style="height:540px;">
+                            <img style="border-radius: 20px;" src="../images/health/1.jpg" class="d-block w-100" alt="No Images" style="height:440px;">
                         </div>
                         <div class="carousel-item">
-                            <img src="../images/health/2.jpg" class="d-block w-100" alt="No Image" style="height:540px;">
+                            <img style="border-radius: 20px;" src="../images/health/2.jpg" class="d-block w-100" alt="No Image" style="height:440px;">
                         </div>
                         <div class="carousel-item">
-                            <img src="../images/health/3.jpg" class="d-block w-100" alt="No Image" style="height:540px;">
+                            <img style="border-radius: 20px;" src="../images/health/3.jpg" class="d-block w-100" alt="No Image" style="height:440px;">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">

@@ -3,6 +3,28 @@
 
 <head>
     <style>
+        .nav-item {
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-size: 50px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            /* color: #FFF; */
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: red;
+            /* text-decoration: none; */
+        }
+
+        .search-input {
+            margin-right: 100px;
+        }
+
         #carouselExampleAutoplaying {
             margin-top: 10px;
         }
@@ -19,14 +41,14 @@
             <a class="navbar-brand" href="./index_01.php"><img src="images/logo.png" style="width: 100px;"></a>
             <form class="d-flex mx-auto">
                 <div class="col-sm-12 col-md-8">
-                    <input class="form-control w-100" type="search" placeholder="Search news here" aria-label="Search">
+                    <input class="form-control w-100 search-input" type="search" placeholder="Search news here" aria-label="Search">
                 </div>
                 <div class="col-sm-12 col-md-4 mt-3 mt-md-0">
                     <button class="btn btn-outline-secondary w-100" type="submit"><i class="bi bi-search"></i></button>
                 </div>
             </form>
             <div class="d-flex">
-                <button  class="btn btn-outline-secondary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin">Login</button>
+                <button class="btn btn-outline-secondary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin" style="margin-right: 10px;">Login</button>
                 <button class="btn btn-outline-primary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin"><a class="nav-link active " aria-current="page" href="register.php">Register</a></button>
                 <div class="social-media-icons mx-2">
                     <a href="#"><i class="bi bi-facebook"></i></a>
@@ -86,10 +108,10 @@
                             <img style="border-radius: 10px;" src="./images/1.jpeg" class="d-block w-100" alt="No Images" style="height:740px;">
                         </div>
                         <div class="carousel-item">
-                            <img src="./images/sport/2.jpg" class="d-block w-100" alt="No Image" style="height:540px;">
+                            <img style="border-radius: 10px;" src="./images/sport/2.jpg" class="d-block w-100" alt="No Image" style="height:420px;">
                         </div>
                         <div class="carousel-item">
-                            <img src="./images/buisness/3.jpg" class="d-block w-100" alt="No Image" style="height:540px;">
+                            <img style="border-radius: 10px;" src="./images/buisness/3.jpg" class="d-block w-100" alt="No Image" style="height:440px;">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">

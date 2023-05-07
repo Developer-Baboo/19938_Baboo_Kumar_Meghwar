@@ -3,6 +3,9 @@
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxx" crossorigin="anonymous" />
+
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
@@ -146,19 +149,24 @@
               </a>
             </li>
             <li>
+              <i class="fas fa-comment"></i>
               <a href="./all_comments.php" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#comments" />
-                </svg>
                 MANAGE COMMENTS
               </a>
             </li>
             <li>
               <a href="./feedbacks.php" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#feedbacks" />
-                </svg>
                 MANAGE FEEDBACKS
+              </a>
+            </li>
+            <li>
+              <a href="./follower.php" class="nav-link text-white">
+                MANAGE FOLLOWERS
+              </a>
+            </li>
+            <li>
+              <a href="./create_blog.php" class="nav-link text-white">
+                MANAGE BLOGS
               </a>
             </li>
           </ul>
@@ -174,14 +182,17 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
+              <li>
+                <i class="fas fa-angle-right"></i>
+                <a class="dropdown-item" href="#">Sign out</a>
+              </li>
             </ul>
           </div>
         </div>
       </main>
 
     </div>
-    
+
     <div class="col-lg-8 col-md-8">
       <div class="row">
         <div class="col-md-6 border rounded shadow-lg my-5 mx-10" style="width:50%; height: 100px; ">
@@ -209,6 +220,45 @@
       </div> -->
     </div>
   </div>
+
+  <footer class="footer-main bg-dark text-light">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-8">
+          <h5 class="mb-3">About Us</h5>
+          <center>
+            <p class="text-white" style="text-align:justify;">We are an online blogging application developed by Developer Baboo Kumar 19938 Intern @ HIST Jamshoro. Our goal is to provide a platform for people to share their thoughts and ideas with the world.</p>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <h5 class="mb-3">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li>Address: 123 Main St, Anytown USA</li>
+            <li>Phone: (555) 555-5555</li>
+            <li>Email: info@onlineblogging.com</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bg-secondary text-light py-3">
+      <div class="container">
+        <div class="row d-flex align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">&copy; <script>
+                document.write(new Date().getFullYear())
+              </script> All rights reserved | Online Blogging Application</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end text-white">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none;">Privacy Policy</a></li>
+              <li class="list-inline-item">·</li>
+              <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none; ">Terms &amp; Conditions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
 

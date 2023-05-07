@@ -87,47 +87,104 @@
         <!-- /END SIDE BAR/ -->
         <div class="col-lg-9 col-md-9">
             <center>
-                <h1 class="text-primary font-weight-bold animated fadeInDown" style="font-family: 'Courier New', Courier, monospace; font-size: 48px;">ALL USERS FEEDBACKS</h1>
+                <h1>ALL USERS COMMENTS</h1>
             </center>
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped table-hover">
-                    <thead class="thead-dark">
+            <div class="container">
+                <table class="table table-bordered">
+                    <thead>
                         <tr>
-                            <th scope="col">FEEDBACK ID</th>
-                            <th scope="col">USER ID</th>
-                            <th scope="col">USER EMAIL</th>
-                            <th scope="col">FEEDBACK</th>
-                            <th scope="col">CREATED AT</th>
+                            <th>Comment ID</th>
+                            <th>Post ID</th>
+                            <th>User ID</th>
+                            <th>Comment</th>
+                            <th>Status</th>
+                            <th>Created At</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
                             <td>1</td>
-                            <td>baboo@gmail.com</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>Your post content is awesome</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Active
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        InActive
+                                    </label>
+                                </div>
+                            </td>
                             <td>2023-9-1</td>
                         </tr>
                         <tr>
-                            <th scope="row">1</th>
+                            <td>2</td>
                             <td>1</td>
-                            <td>baboo@gmail.com</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
-                            <td>2023-9-1</td>
+                            <td>2</td>
+                            <td>Thanks for sharing this information</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Active
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        InActive
+                                    </label>
+                                </div>
+                            </td>
+                            <td>2023-9-3</td>
                         </tr>
                         <tr>
-                            <th scope="row">1</th>
+                            <td>3</td>
+                            <td>2</td>
                             <td>1</td>
-                            <td>baboo@gmail.com</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
-                            <td>2023-9-1</td>
+                            <td>Great post!</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Active
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        InActive
+                                    </label>
+                                </div>
+                            </td>
+                            <td>2023-9-5</td>
                         </tr>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>1</td>
-                            <td>baboo@gmail.com</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
-                            <td>2023-9-1</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>Very helpful article</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Active
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        InActive
+                                    </label>
+                                </div>
+                            </td>
+                            <td>2023-9-7</td>
                         </tr>
                     </tbody>
                 </table>
@@ -135,43 +192,28 @@
         </div>
     </div>
     <!-- Footer Start-->
-    <footer class="footer-main bg-dark text-light">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-md-8">
-                    <h5 class="mb-3">About Us</h5>
-                    <center>
-                        <p class="text-white" style="text-align:justify;">We are an online blogging application developed by Developer Baboo Kumar 19938 Intern @ HIST Jamshoro. Our goal is to provide a platform for people to share their thoughts and ideas with the world.</p>
-                    </center>
-                </div>
-                <div class="col-md-4">
-                    <h5 class="mb-3">Contact Us</h5>
-                    <ul class="list-unstyled">
-                        <li>Address: 123 Main St, Anytown USA</li>
-                        <li>Phone: (555) 555-5555</li>
-                        <li>Email: info@onlineblogging.com</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="bg-secondary text-light py-3">
-            <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="col-md-6 text-center text-md-start">
-                        <p class="mb-0">&copy; <script>
-                                document.write(new Date().getFullYear())
-                            </script> All rights reserved | Online Blogging Application</p>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end text-white">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none;">Privacy Policy</a></li>
-                            <li class="list-inline-item">·</li>
-                            <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none; ">Terms &amp; Conditions</a></li>
-                        </ul>
+    <footer>
+
+        <div class="footer-main footer-bg">
+            <div class="footer-bottom-area footer-bg">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                                    <p>
+                                        Copyright &copy;<script>
+                                            document.write(new Date().getFullYear());
+                                        </script> All rights reserved | Online Blogging Application Developed by Developer Baboo Kumar 19938 Intern @ HIST Jamshoro
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Footer End-->
     </footer>
     <script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -6,22 +6,6 @@
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-  <script type="text/javascript">
-    function register() {
-      const forms = document.querySelectorAll('.needs-validation')
-      Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-
-          form.classList.add('was-validated')
-        }, false)
-      })
-    }
-  </script>
 </head>
 
 <body>
@@ -38,7 +22,7 @@
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li>
-              <a href="#" class="nav-link text-white">
+              <a href="./admin_dashboard.php" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16">
                   <use xlink:href="#speedometer2" />
                 </svg>
@@ -93,12 +77,9 @@
               <strong>Baboo Kumar</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
+              <li><a class="dropdown-item" href="#">Change Settings</a></li>
+              <li><a class="dropdown-item" href="#">View Profile</a></li>
+              <li><a class="dropdown-item" href="#">Log out</a></li>
             </ul>
           </div>
         </div>
@@ -109,12 +90,8 @@
     <div class="col-lg-8 col-md-8">
       <div class="row">
         <div class="col-md-12">
-          <div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW USERS</button>
-
-            <a href="export_data_user.php"><button class="btn btn-secondary">User Excel Data</button></a>
-            <!-- <a href="export_data_user.php"><button class="btn btn-secondary">User PDF Data</button></a>  -->
+          <div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button>
           </div>
-          <div class="text-center" style="color: red; font-family: times; font-size: 18px;">New Users</div>
 
 
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -166,255 +143,257 @@
                       <label for="address" class="form-label">Address</label>
                       <input type="text" class="form-control" name="address" id="address" placeholder="Enter Your Address">
                     </div>
-                    <div class="col-md-6">
-                      <label for="inputState" class="form-label">Role</label>
-                      <select id="inputState" class="form-select" name="roles">
-                        <option selected>Roles</option>
-                        <option value="1">Admin</option>
-                        <option value="2">Teacher</option>
-                        <option value="3">Student</option>
-                      </select>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary" name="register">Add POST</button>
                     </div>
-
-                    <div class="col-12">
-
-                    </div>
+                  </form>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary" name="register">Add Users</button>
-                </div>
-                </form>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        <div class class="row">
+          <div class="col-lg-8 col-md-12">
+            <center>
+              <h1>ALL POSTS</h1>
+            </center>
+            <div style="margin-left: -100px; " class="table-responsive">
+              <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>POST ID</th>
+                    <th>BLOG ID</th>
+                    <th scope="col">POST Title</th>
+                    <th scope="col">POST Summary</th>
+                    <th scope="col">POST Description </th>
+                    <th scope="col">POST Attachement</th>
+                    <th scope="col">Featured Image</th>
+                    <th scope="col">POST Status</th>
+                    <th scope="col">Comment Allowed</th>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Updated At</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <th>1</th>
+                    <td>1</td>
+                    <td>Block Chain</td>
+                    <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
+                    <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                    <td>files/cv.pdf</td>
+                    <td>tech.jpg</td>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Active
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          InActive
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          YES
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          NO
+                        </label>
+                      </div>
+                    </td>
+                    <td>2023-9-1</td>
+                    <td>2023-9-8</td>
+                    <td>
+                      <a href="">Edit</a> || <a href="">Delete</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>1</th>
+                    <td>1</td>
+                    <td>Block Chain</td>
+                    <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
+                    <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                    <td>files/cv.pdf</td>
+                    <td>tech.jpg</td>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Active
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          InActive
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          YES
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          NO
+                        </label>
+                      </div>
+                    </td>
+                    <td>2023-9-1</td>
+                    <td>2023-9-8</td>
+                    <td>
+                      <a href="">Edit</a> || <a href="">Delete</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>1</th>
+                    <td>1</td>
+                    <td>Block Chain</td>
+                    <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
+                    <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                    <td>files/cv.pdf</td>
+                    <td>tech.jpg</td>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Active
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          InActive
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          YES
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          NO
+                        </label>
+                      </div>
+                    </td>
+                    <td>2023-9-1</td>
+                    <td>2023-9-8</td>
+                    <td>
+                      <a href="">Edit</a> || <a href="">Delete</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>1</th>
+                    <td>1</td>
+                    <td>Block Chain</td>
+                    <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
+                    <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                    <td>files/cv.pdf</td>
+                    <td>tech.jpg</td>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Active
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          InActive
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          YES
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          NO
+                        </label>
+                      </div>
+                    </td>
+                    <td>2023-9-1</td>
+                    <td>2023-9-8</td>
+                    <td>
+                      <a href="">Edit</a> || <a href="">Delete</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
               </div>
             </div>
-
           </div>
         </div>
-      </div>
-      <div class class="row">
-        <div class="col-md-12">
-          <center>
-            <h1>ALL POSTS</h1>
-          </center>
-          <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover">
-              <thead class="thead-dark">
-                <tr>
-                  <th>POST ID</th>
-                  <th>BLOG ID</th>
-                  <th scope="col">POST Title</th>
-                  <th scope="col">POST Summary</th>
-                  <th scope="col">POST Description </th>
-                  <th scope="col">POST Attachement</th>
-                  <th scope="col">Featured Image</th>
-                  <th scope="col">POST Status</th>
-                  <th scope="col">Comment Allowed</th>
-                  <th scope="col">Created At</th>
-                  <th scope="col">Updated At</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>1</th>
-                  <td>1</td>
-                  <td>Block Chain</td>
-                  <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
-                  <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
-                  <td>files/cv.pdf</td>
-                  <td>tech.jpg</td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        Active
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        InActive
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        YES
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        NO
-                      </label>
-                    </div>
-                  </td>
-                  <td>2023-9-1</td>
-                  <td>2023-9-8</td>
-                  <td>
-                    <a href="">Edit</a> || <a href="">Delete</a>
-                  </td>
-                </tr>
-                <tr>
-                  <th>1</th>
-                  <td>1</td>
-                  <td>Block Chain</td>
-                  <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
-                  <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
-                  <td>files/cv.pdf</td>
-                  <td>tech.jpg</td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        Active
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        InActive
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        YES
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        NO
-                      </label>
-                    </div>
-                  </td>
-                  <td>2023-9-1</td>
-                  <td>2023-9-8</td>
-                  <td>
-                    <a href="">Edit</a> || <a href="">Delete</a>
-                  </td>
-                </tr>
-                <tr>
-                  <th>1</th>
-                  <td>1</td>
-                  <td>Block Chain</td>
-                  <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
-                  <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
-                  <td>files/cv.pdf</td>
-                  <td>tech.jpg</td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        Active
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        InActive
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        YES
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        NO
-                      </label>
-                    </div>
-                  </td>
-                  <td>2023-9-1</td>
-                  <td>2023-9-8</td>
-                  <td>
-                    <a href="">Edit</a> || <a href="">Delete</a>
-                  </td>
-                </tr>
-                <tr>
-                  <th>1</th>
-                  <td>1</td>
-                  <td>Block Chain</td>
-                  <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
-                  <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
-                  <td>files/cv.pdf</td>
-                  <td>tech.jpg</td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        Active
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        InActive
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        YES
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        NO
-                      </label>
-                    </div>
-                  </td>
-                  <td>2023-9-1</td>
-                  <td>2023-9-8</td>
-                  <td>
-                    <a href="">Edit</a> || <a href="">Delete</a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div>
+        <footer class="footer-main bg-dark text-light">
+          <div class="container py-5">
+            <div class="row">
+              <div class="col-md-8">
+                <h5 class="mb-3">About Us</h5>
+                <center>
+                  <p class="text-white" style="text-align:justify;">We are an online blogging application developed by Developer Baboo Kumar 19938 Intern @ HIST Jamshoro. Our goal is to provide a platform for people to share their thoughts and ideas with the world.</p>
+                </center>
+              </div>
+              <div class="col-md-4">
+                <h5 class="mb-3">Contact Us</h5>
+                <ul class="list-unstyled">
+                  <li>Address: 123 Main St, Anytown USA</li>
+                  <li>Phone: (555) 555-5555</li>
+                  <li>Email: info@onlineblogging.com</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- Footer Start-->
-      <footer>
-
-        <div class="footer-main footer-bg">
-          <div class="footer-bottom-area footer-bg">
+          <div class="bg-secondary text-light py-3">
             <div class="container">
-              <div class="footer-border">
-                <div class="row d-flex align-items-center">
-                  <div class="col-xl-12 ">
-                    <div class="footer-copy-right text-center">
-                      <p>
-                        Copyright &copy;<script>
-                          document.write(new Date().getFullYear());
-                        </script> All rights reserved | Online Blogging Application Developed by Developer Baboo Kumar 19938 Intern @ HIST Jamshoro
-                      </p>
-                    </div>
-                  </div>
+              <div class="row d-flex align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                  <p class="mb-0">&copy; <script>
+                      document.write(new Date().getFullYear())
+                    </script> All rights reserved | Online Blogging Application</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end text-white">
+                  <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none;">Privacy Policy</a></li>
+                    <li class="list-inline-item">·</li>
+                    <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none; ">Terms &amp; Conditions</a></li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- Footer End-->
-      </footer>
-      <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+        </footer>
+        <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
