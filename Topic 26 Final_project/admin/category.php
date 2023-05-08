@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    
     <center>
         <h1>ALL Categories</h1>
     </center>

@@ -18,9 +18,8 @@ if (isset($_REQUEST['register'])) {
       if ($result1) {
 ?>
         <script type="text/javascript">
-          confirm('your  Account Registration Successfully!...');
+          confirm('Your account have been created successfully!...');
         </script>
-
 <?php
       }
     }

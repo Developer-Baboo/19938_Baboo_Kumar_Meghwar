@@ -9,11 +9,12 @@
 </head>
 
 <body>
-
   <div class="row">
     <!-- SIDE BAR START -->
     <div class="col-lg-4 col-md-4">
       <main>
+        <h1 class="visually-hidden">Sidebars examples</h1>
+
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; background-color: #5DADE2">
           <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <img src="../images/logo.png" width="50px">
@@ -22,64 +23,69 @@
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li>
+
               <a href="./admin_dashboard.php" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#speedometer2" />
-                </svg>
+                <img src="../images/icons/dashboard.svg" width="10%" height="10%">
                 Admin Dashboard
               </a>
             </li>
             <li class="nav-item">
               <a href="./posts.php" class="nav-link active" aria-current="page">
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#writing" />
-                </svg>
+                <img src="../images/icons/post.svg" width="10%" height="10%">
                 MANAGE POSTS
               </a>
             </li>
             <li>
               <a href="#" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#speedometer2" />
-                </svg>
+                <img src="../images/icons/category.svg" width="10%" height="10%">
                 MANAGE CATEGORIES
               </a>
             </li>
             <li>
               <a href="./all_users.php" class="nav-link text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                </svg>
+                <img src="../images/icons/user.svg" width="10%" height="10%">
                 MANAGE USERS
               </a>
             </li>
             <li>
+              <i class="fas fa-comment"></i>
               <a href="./all_comments.php" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#comments" />
-                </svg>
+                <img src="../images/icons/comment.svg" width="10%" height="10%">
                 MANAGE COMMENTS
               </a>
             </li>
             <li>
               <a href="./feedbacks.php" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#feedbacks" />
-                </svg>
+                <img src="../images/icons/feedback.svg" width="10%" height="10%">
                 MANAGE FEEDBACKS
+              </a>
+            </li>
+            <li>
+              <a href="./follower.php" class="nav-link text-white">
+                <img src="../images/icons/thumb.png" width="10%" height="10%">
+                MANAGE FOLLOWERS
+              </a>
+            </li>
+            <li>
+              <a href="./create_blog.php" class="nav-link text-white">
+                <img src="../images/icons/blog.svg" width="10%" height="10%">
+                MANAGE BLOGS
               </a>
             </li>
           </ul>
           <hr>
-          <div class="dropdown">
+          <div style="padding-top: 100px;" class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="../images/profile_image_1683396936.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
               <strong>Baboo Kumar</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="#">Change Settings</a></li>
-              <li><a class="dropdown-item" href="#">View Profile</a></li>
-              <li><a class="dropdown-item" href="#">Log out</a></li>
+              <li><a class="dropdown-item" href="#"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Settings</a></li>
+              <li><a class="dropdown-item" href="#"> <img src="../images/icons/user.svg" width="10%" height="10%"> Profile</a></li>
+              <li>
+                <i class="fas fa-angle-right"></i>
+                <a class="dropdown-item" href="#"><img src="../images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -159,6 +165,7 @@
           </div>
 
         </div>
+
         <div class class="row">
           <div style="margin-left:-10px;" class="col-lg-12 col-md-12">
             <center>
@@ -361,6 +368,7 @@
         </div>
       </div>
     </div>
+
   </div>
   <footer class="footer-main bg-dark text-light">
     <div class="container py-5">

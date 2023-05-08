@@ -28,6 +28,7 @@
 
 <body>
   <div class="row">
+    <!-- side bar start -->
     <div class="col-lg-4 col-md-4">
       <main>
         <h1 class="visually-hidden">Sidebars examples</h1>
@@ -40,86 +41,149 @@
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li>
-              <a href="#" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#speedometer2" />
-                </svg>
+
+              <a href="./admin_dashboard.php" class="nav-link text-white">
+                <img src="../images/icons/dashboard.svg" width="10%" height="10%">
                 Admin Dashboard
               </a>
             </li>
             <li class="nav-item">
               <a href="./posts.php" class="nav-link active" aria-current="page">
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#writing" />
-                </svg>
+                <img src="../images/icons/post.svg" width="10%" height="10%">
                 MANAGE POSTS
               </a>
             </li>
             <li>
               <a href="#" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#speedometer2" />
-                </svg>
+                <img src="../images/icons/category.svg" width="10%" height="10%">
                 MANAGE CATEGORIES
               </a>
             </li>
             <li>
               <a href="./all_users.php" class="nav-link text-white">
-                <!-- <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#grid" />
-                </svg> -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                </svg>
+                <img src="../images/icons/user.svg" width="10%" height="10%">
                 MANAGE USERS
               </a>
             </li>
             <li>
               <i class="fas fa-comment"></i>
               <a href="./all_comments.php" class="nav-link text-white">
+                <img src="../images/icons/comment.svg" width="10%" height="10%">
                 MANAGE COMMENTS
               </a>
             </li>
             <li>
               <a href="./feedbacks.php" class="nav-link text-white">
+                <img src="../images/icons/feedback.svg" width="10%" height="10%">
                 MANAGE FEEDBACKS
               </a>
             </li>
             <li>
               <a href="./follower.php" class="nav-link text-white">
+                <img src="../images/icons/thumb.png" width="10%" height="10%">
                 MANAGE FOLLOWERS
               </a>
             </li>
             <li>
               <a href="./create_blog.php" class="nav-link text-white">
+                <img src="../images/icons/blog.svg" width="10%" height="10%">
                 MANAGE BLOGS
               </a>
             </li>
           </ul>
           <hr>
-          <div class="dropdown">
+          <div style="padding-top: 100px;" class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="../images/profile_image_1683396936.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
               <strong>Baboo Kumar</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
+              <li><a class="dropdown-item" href="#"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Settings</a></li>
+              <li><a class="dropdown-item" href="#"> <img src="../images/icons/user.svg" width="10%" height="10%"> Profile</a></li>
               <li>
                 <i class="fas fa-angle-right"></i>
-                <a class="dropdown-item" href="#">Sign out</a>
+                <a class="dropdown-item" href="#"><img src="../images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
               </li>
             </ul>
           </div>
         </div>
       </main>
-
     </div>
+    <!-- side bar end -->
 
     <div class="col-lg-8 col-md-8">
+      <div class="row">
+        <div class="col-md-12">
+          <div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD BLOG</button>
+          </div>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content" style="width: 100%">
+                <div class="modal-header">
+                  <center>
+                    <h3 style="font-family: times;color: green; text-align: center; ">Add POST</h3>
+                  </center>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="row g-3" method="POST" action="" enctype="multipart/form-data">
+                    <div class="col-md-6">
+                      <label for="posttitle" class="form-label">Post Title</label>
+                      <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="Enter Post Title">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="postdecription" class="form-label">Post Description</label>
+                      <input type="text" class="form-control" id="lastname" name="last_name" required placeholder="Enter Post Description">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputState" class="form-label">Choose Category</label>
+                      <select id="inputState" class="form-select" name="gender">
+                        <option selected>Block Chain</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="image" class="form-label">ADD ATTACHEMENT </label>
+                      <input type="file" class="form-control" name="upload" id="image">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="inputState" class="form-label">POST STATUS</label>
+                      <select id="inputState" class="form-select" name="gender">
+                        <option value="Male">ACTIVE</option>
+                        <option value="Female">INACTIVE</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="inputState" class="form-label">Comment Permission</label>
+                      <select id="inputState" class="form-select" name="gender">
+                        <option value="Male">YES</option>
+                        <option value="Female">NO</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="image" class="form-label">Upload Featured Image</label>
+                      <input type="file" class="form-control" name="upload" id="image">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="posttitle" class="form-label">Post Summary</label>
+                      <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="Enter Post Title">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary" name="register">Add POST</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <center>
@@ -244,6 +308,7 @@
             </table>
           </div>
         </div>
+
       </div>
     </div>
 
