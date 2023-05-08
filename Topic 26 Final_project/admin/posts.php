@@ -92,56 +92,60 @@
         <div class="col-md-12">
           <div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button>
           </div>
-
-
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content" style="width: 100%">
                 <div class="modal-header">
-                  <img src="images/logo.png" width="30%">
-                  <h3 style="margin-top:40px;font-family: times;color: green">Admin Add Users</h3>
+                  <center>
+                    <h3 style="font-family: times;color: green; text-align: center; ">Add POST</h3>
+                  </center>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <form class="row g-3" method="POST" action="" enctype="multipart/form-data">
                     <div class="col-md-6">
-                      <label for="firstname" class="form-label">Firstname</label>
-                      <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="Enter Your Firstname">
+                      <label for="posttitle" class="form-label">Post Title</label>
+                      <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="Enter Post Title">
                     </div>
                     <div class="col-md-6">
-                      <label for="lastname" class="form-label">Lastname</label>
-                      <input type="text" class="form-control" id="lastname" name="last_name" required placeholder="Enter Your Lastname">
+                      <label for="postdecription" class="form-label">Post Description</label>
+                      <input type="text" class="form-control" id="lastname" name="last_name" required placeholder="Enter Post Description">
                     </div>
                     <div class="col-md-6">
-                      <label for="inputState" class="form-label">Gender</label>
+                      <label for="inputState" class="form-label">Choose Category</label>
                       <select id="inputState" class="form-select" name="gender">
-                        <option selected>Gender</option>
+                        <option selected>Block Chain</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                       </select>
                     </div>
                     <div class="col-md-6">
-
-                      <label for="inputEmail4" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Enter Your Email">
+                      <label for="image" class="form-label">ADD ATTACHEMENT </label>
+                      <input type="file" class="form-control" name="upload" id="image">
                     </div>
 
                     <div class="col-md-6">
-                      <label for="inputPassword4" class="form-label">Password</label>
-                      <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Enter Your Password">
+                      <label for="inputState" class="form-label">POST STATUS</label>
+                      <select id="inputState" class="form-select" name="gender">
+                        <option value="Male">ACTIVE</option>
+                        <option value="Female">INACTIVE</option>
+                      </select>
                     </div>
 
                     <div class="col-md-6">
-                      <label for="date" class="form-label">Date-of-Birth</label>
-                      <input type="date" class="form-control" name="dob" id="date">
+                      <label for="inputState" class="form-label">Comment Permission</label>
+                      <select id="inputState" class="form-select" name="gender">
+                        <option value="Male">YES</option>
+                        <option value="Female">NO</option>
+                      </select>
                     </div>
                     <div class="col-md-6">
-                      <label for="image" class="form-label">Upload Profile</label>
+                      <label for="image" class="form-label">Upload Featured Image</label>
                       <input type="file" class="form-control" name="upload" id="image">
                     </div>
                     <div class="col-md-6">
-                      <label for="address" class="form-label">Address</label>
-                      <input type="text" class="form-control" name="address" id="address" placeholder="Enter Your Address">
+                      <label for="posttitle" class="form-label">Post Summary</label>
+                      <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="Enter Post Title">
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -156,7 +160,7 @@
 
         </div>
         <div class class="row">
-          <div class="col-lg-8 col-md-12">
+          <div style="margin-left:-10px;" class="col-lg-12 col-md-12">
             <center>
               <h1>ALL POSTS</h1>
             </center>
@@ -179,7 +183,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  
+
                   <tr>
                     <th>1</th>
                     <td>1</td>
@@ -355,45 +359,48 @@
             </div>
           </div>
         </div>
-        <footer class="footer-main bg-dark text-light">
-          <div class="container py-5">
-            <div class="row">
-              <div class="col-md-8">
-                <h5 class="mb-3">About Us</h5>
-                <center>
-                  <p class="text-white" style="text-align:justify;">We are an online blogging application developed by Developer Baboo Kumar 19938 Intern @ HIST Jamshoro. Our goal is to provide a platform for people to share their thoughts and ideas with the world.</p>
-                </center>
-              </div>
-              <div class="col-md-4">
-                <h5 class="mb-3">Contact Us</h5>
-                <ul class="list-unstyled">
-                  <li>Address: 123 Main St, Anytown USA</li>
-                  <li>Phone: (555) 555-5555</li>
-                  <li>Email: info@onlineblogging.com</li>
-                </ul>
-              </div>
-            </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer-main bg-dark text-light">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-8">
+          <h5 class="mb-3">About Us</h5>
+          <center>
+            <p class="text-white" style="text-align:justify;">We are an online blogging application developed by Developer Baboo Kumar 19938 Intern @ HIST Jamshoro. Our goal is to provide a platform for people to share their thoughts and ideas with the world.</p>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <h5 class="mb-3">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li>Address: 123 Main St, Anytown USA</li>
+            <li>Phone: (555) 555-5555</li>
+            <li>Email: info@onlineblogging.com</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bg-secondary text-light py-3">
+      <div class="container">
+        <div class="row d-flex align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">&copy; <script>
+                document.write(new Date().getFullYear())
+              </script> All rights reserved | Online Blogging Application</p>
           </div>
-          <div class="bg-secondary text-light py-3">
-            <div class="container">
-              <div class="row d-flex align-items-center">
-                <div class="col-md-6 text-center text-md-start">
-                  <p class="mb-0">&copy; <script>
-                      document.write(new Date().getFullYear())
-                    </script> All rights reserved | Online Blogging Application</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end text-white">
-                  <ul class="list-inline mb-0">
-                    <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none;">Privacy Policy</a></li>
-                    <li class="list-inline-item">·</li>
-                    <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none; ">Terms &amp; Conditions</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div class="col-md-6 text-center text-md-end text-white">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none;">Privacy Policy</a></li>
+              <li class="list-inline-item">·</li>
+              <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none; ">Terms &amp; Conditions</a></li>
+            </ul>
           </div>
-        </footer>
-        <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

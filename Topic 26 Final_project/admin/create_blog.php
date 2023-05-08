@@ -27,7 +27,227 @@
 </head>
 
 <body>
-  <!-- <center>
+  <div class="row">
+    <div class="col-lg-4 col-md-4">
+      <main>
+        <h1 class="visually-hidden">Sidebars examples</h1>
+
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; background-color: #5DADE2">
+          <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <img src="../images/logo.png" width="50px">
+            <span class="fs-10">Online Blogging Application</span>
+          </a>
+          <hr>
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16">
+                  <use xlink:href="#speedometer2" />
+                </svg>
+                Admin Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./posts.php" class="nav-link active" aria-current="page">
+                <svg class="bi me-2" width="16" height="16">
+                  <use xlink:href="#writing" />
+                </svg>
+                MANAGE POSTS
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16">
+                  <use xlink:href="#speedometer2" />
+                </svg>
+                MANAGE CATEGORIES
+              </a>
+            </li>
+            <li>
+              <a href="./all_users.php" class="nav-link text-white">
+                <!-- <svg class="bi me-2" width="16" height="16">
+                  <use xlink:href="#grid" />
+                </svg> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                </svg>
+                MANAGE USERS
+              </a>
+            </li>
+            <li>
+              <i class="fas fa-comment"></i>
+              <a href="./all_comments.php" class="nav-link text-white">
+                MANAGE COMMENTS
+              </a>
+            </li>
+            <li>
+              <a href="./feedbacks.php" class="nav-link text-white">
+                MANAGE FEEDBACKS
+              </a>
+            </li>
+            <li>
+              <a href="./follower.php" class="nav-link text-white">
+                MANAGE FOLLOWERS
+              </a>
+            </li>
+            <li>
+              <a href="./create_blog.php" class="nav-link text-white">
+                MANAGE BLOGS
+              </a>
+            </li>
+          </ul>
+          <hr>
+          <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../images/profile_image_1683396936.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
+              <strong>Baboo Kumar</strong>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <i class="fas fa-angle-right"></i>
+                <a class="dropdown-item" href="#">Sign out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+
+    </div>
+
+    <div class="col-lg-8 col-md-8">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <center>
+            <h1>ALL Created BLOGS </h1>
+          </center>
+          <div class="table-responsive">
+            <table class="table-striped " id="table" style="width:100%" cellpadding="4px">
+              <thead>
+                <tr>
+                  <th>BLOG ID</th>
+                  <th>USER ID</th>
+                  <th>BLOG TITLE</th>
+                  <th>POST PER PAGE</th>
+                  <th>BLOG STATUS</th>
+                  <th>Created At</th>
+                  <th>Updated At</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>Health</td>
+                  <td>2</td>
+                  <td>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Active
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        InActive
+                      </label>
+                    </div>
+                  </td>
+                  <td>2023-9-1</td>
+                  <td>2023-9-1</td>
+                  <td>
+                    <a href="">Edit</a> || <a href="">Delete</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>1</td>
+                  <td>Technology</td>
+                  <td>3</td>
+                  <td>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Active
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        InActive
+                      </label>
+                    </div>
+                  </td>
+                  <td>2023-10-1</td>
+                  <td>2023-9-1</td>
+                  <td>
+                    <a href="">Edit</a> || <a href="">Delete</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>2</td>
+                  <td>Sports</td>
+                  <td>5</td>
+                  <td>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Active
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        InActive
+                      </label>
+                    </div>
+                  </td>
+                  <td>2023-10-15</td>
+                  <td>2023-9-1</td>
+                  <td>
+                    <a href="">Edit</a> || <a href="">Delete</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>3</td>
+                  <td>Travel</td>
+                  <td>4</td>
+                  <td>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Active
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        InActive
+                      </label>
+                    </div>
+                  </td>
+                  <td>2023-11-1</td>
+                  <td>2023-9-1</td>
+                  <td>
+                    <a href="">Edit</a> || <a href="">Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <center>
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -64,129 +284,8 @@
       </div>
       <br>
     </form> -->
-    
-  </center>
-  <!-- all Comments -->
-  <center>
-    <h1>ALL Created BLOGS </h1>
-  </center>
-  <div class="table-responsive">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th>BLOG ID</th>
-          <th>USER ID</th>
-          <th>BLOG TITLE</th>
-          <th>POST PER PAGE</th>
-          <th>BLOG STATUS</th>
-          <th>Created At</th>
-          <th>Updated At</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>1</td>
-          <td>Health</td>
-          <td>2</td>
-          <td>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-              <label class="form-check-label" for="flexRadioDefault1">
-                Active
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-              <label class="form-check-label" for="flexRadioDefault2">
-                InActive
-              </label>
-            </div>
-          </td>
-          <td>2023-9-1</td>
-          <td>2023-9-1</td>
-          <td>
-            <a href="">Edit</a> || <a href="">Delete</a>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>1</td>
-          <td>Technology</td>
-          <td>3</td>
-          <td>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-              <label class="form-check-label" for="flexRadioDefault1">
-                Active
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-              <label class="form-check-label" for="flexRadioDefault2">
-                InActive
-              </label>
-            </div>
-          </td>
-          <td>2023-10-1</td>
-          <td>2023-9-1</td>
-          <td>
-            <a href="">Edit</a> || <a href="">Delete</a>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>2</td>
-          <td>Sports</td>
-          <td>5</td>
-          <td>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-              <label class="form-check-label" for="flexRadioDefault1">
-                Active
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-              <label class="form-check-label" for="flexRadioDefault2">
-                InActive
-              </label>
-            </div>
-          </td>
-          <td>2023-10-15</td>
-          <td>2023-9-1</td>
-          <td>
-            <a href="">Edit</a> || <a href="">Delete</a>
-          </td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>3</td>
-          <td>Travel</td>
-          <td>4</td>
-          <td>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-              <label class="form-check-label" for="flexRadioDefault1">
-                Active
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-              <label class="form-check-label" for="flexRadioDefault2">
-                InActive
-              </label>
-            </div>
-          </td>
-          <td>2023-11-1</td>
-          <td>2023-9-1</td>
-          <td>
-            <a href="">Edit</a> || <a href="">Delete</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+
+    <!-- all Comments -->
   </div>
 
   <footer class="footer-main bg-dark text-light">

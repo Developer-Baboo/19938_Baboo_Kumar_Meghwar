@@ -2,10 +2,10 @@
 include("database/include/connection.php");
 
 if (isset($_REQUEST['register'])) {
-  
+
   if (isset($_FILES['upload'])) {
     $file = $_FILES['upload'];
-    $file_name = "profile_image_" . time().substr($file['name'], strpos($file['name'], "."));
+    $file_name = "profile_image_" . time() . substr($file['name'], strpos($file['name'], "."));
 
     if (move_uploaded_file($file['tmp_name'], "images/" . $file_name)) {
       $date = date('Y-m-d', strtotime($_REQUEST['dob']));
@@ -15,14 +15,14 @@ if (isset($_REQUEST['register'])) {
       $query1 = "INSERT into user (first_name, last_name, email, password, gender, date_of_birth, user_image, address, created_at) VALUES('" . $_REQUEST['first_name'] . "','" . $_REQUEST['last_name'] . "','" . $_REQUEST['email'] . "','" . $_REQUEST['password'] . "','" . $_REQUEST['gender'] . "','" . $date . "', '" . $file_name . "', '" . $_REQUEST['address'] . "', '" . $current_time . "')";
 
       $result1 = mysqli_query($connection, $query1);
-        if ($result1) {
-        ?>
-          <script type="text/javascript">
-            confirm('your  Account Registration Successfully!...');
-          </script>
+      if ($result1) {
+?>
+        <script type="text/javascript">
+          confirm('your  Account Registration Successfully!...');
+        </script>
 
-      <?php
-        }
+<?php
+      }
     }
   }
 }
@@ -31,6 +31,31 @@ if (isset($_REQUEST['register'])) {
 <html>
 
 <head>
+  <style>
+    form {
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.2s ease-in-out;
+      border-radius: 20px;
+    }
+
+    form:hover {
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+  </style>
   <link rel="stylesheet" href="style.css">
   <title>Register Here</title>
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -62,8 +87,6 @@ if (isset($_REQUEST['register'])) {
       var result_email = pattern_email.test(email);
 
       var pattern_password = /^[a-z]{3}[0-9]{1,10}$/;
-      // var pattern_password=/^[A-Z]{1}[a-z]{2,}$/; 
-      // var pattern_password=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{5,}$/gm; 
       var result_password = pattern_password.test(password);
 
       var pattern_date_of_birth = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/
@@ -214,7 +237,7 @@ if (isset($_REQUEST['register'])) {
       </div>
     </div>
 
-    <form method="POST" action="#" enctype="multipart/form-data">
+    <form style="width:50%; margin-bottom: 20px;" method="POST" action="#" enctype="multipart/form-data">
 
       <table cellpadding="10px" cellspacing="0px" style="background: skyblue;width: 100%;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px">
         <tr>
