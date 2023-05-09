@@ -84,7 +84,7 @@
               <li><a class="dropdown-item" href="#"> <img src="../images/icons/user.svg" width="10%" height="10%"> Profile</a></li>
               <li>
                 <i class="fas fa-angle-right"></i>
-                <a class="dropdown-item" href="#"><img src="../images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
+                <a class="dropdown-item" href="../logout.php"><img src="../images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
               </li>
             </ul>
           </div>

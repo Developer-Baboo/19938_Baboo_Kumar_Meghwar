@@ -32,6 +32,33 @@ if (isset($_REQUEST['register'])) {
 <a href="../images/"></a>
 
 <head>
+  <!-- datab table  -->
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable({
+        paging: true,
+        lengthChange: true,
+        lengthMenu: [10, 25, 50, 75, 100],
+        searching: true,
+      });
+    });
+  </script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+  <!-- data table  -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
   <title> .: Online Blogging Application :. </title>
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -113,7 +140,7 @@ if (isset($_REQUEST['register'])) {
               <li><a class="dropdown-item" href="#"> <img src="../images/icons/user.svg" width="10%" height="10%"> Profile</a></li>
               <li>
                 <i class="fas fa-angle-right"></i>
-                <a class="dropdown-item" href="#"><img src="../images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
+                <a class="dropdown-item" href="../logout.php"><img src="../images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
               </li>
             </ul>
           </div>
@@ -194,7 +221,7 @@ if (isset($_REQUEST['register'])) {
       if ($result->num_rows) {
       ?>
         <center>
-          <table style="border: 4px solid red;" style="width:100%">
+          <table id="example" class="table table-striped table-bordered" style="width:100%">
             <div id="response"></div>
             <thead>
               <th>Image</th>
@@ -219,7 +246,6 @@ if (isset($_REQUEST['register'])) {
                   <td><?php echo $row['email'] ?></td>
                   <td><?php echo $row['address'] ?></td>
                   <td><?php echo $row['role_type'] ?></td>
-                  ?>
                   <?php
                   ?>
                   <td>
