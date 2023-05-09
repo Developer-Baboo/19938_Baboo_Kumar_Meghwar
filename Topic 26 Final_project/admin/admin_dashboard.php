@@ -1,3 +1,12 @@
+<?php
+session_start();
+// print_r($_SESSION['Admin']['role_type']);
+// die();
+
+if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
+    header("location:../index_01.php");
+}
+?>
 <!doctype html>
 <html lang="en">
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -132,12 +141,30 @@
                 MANAGE CATEGORIES
               </a>
             </li>
-            <li>
+
+            <div style="margin-left: 15px" class="dropdown">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../images/icons/user.svg" width="10%" height="10%">
+              <strong>Manage Users</strong>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+              <li><a class="dropdown-item" href="#"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Active Users</a></li>
+              <li><a class="dropdown-item" href="all_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
+              <li>
+                <i class="fas fa-angle-right"></i>
+                <a class="dropdown-item" href="../logout.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
+              </li>
+            </ul>
+          </div>
+
+
+
+            <!-- <li>
               <a href="all_users.php" class="nav-link text-white">
                 <img src="../images/icons/user.svg" width="10%" height="10%">
                 MANAGE USERS
               </a>
-            </li>
+            </li> -->
             <li>
               <a href="all_comments.php" class="nav-link text-white">
                 <img src="../images/icons/comment.svg" width="10%" height="10%">

@@ -1,7 +1,31 @@
+<?php
+session_start();
+// print_r($_SESSION['Admin']['role_type']);
+// die();
+
+if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
+    header("location:../index_01.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+  <!-- data table  -->
   <title> .: Online Blogging Application :. </title>
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -54,6 +78,14 @@
                 MANAGE COMMENTS
               </a>
             </li>
+            <li>
+              <i class="fas fa-comment"></i>
+              <a href="./all_attachements.php" class="nav-link text-white">
+                <img src="../images/icons/comment.svg" width="10%" height="10%">
+                MANAGE ATTACHEMENTS
+              </a>
+            </li>
+
             <li>
               <a href="./feedbacks.php" class="nav-link text-white">
                 <img src="../images/icons/feedback.svg" width="10%" height="10%">
@@ -126,8 +158,12 @@
                       </select>
                     </div>
                     <div class="col-md-6">
-                      <label for="image" class="form-label">ADD ATTACHEMENT </label>
-                      <input type="file" class="form-control" name="upload" id="image">
+                      <label for="inputState" class="form-label">Choose Blog</label>
+                      <select id="inputState" class="form-select" name="gender">
+                        <option selected>Block Chain</option>
+                        <option value="Male">IOT</option>
+                        <option value="Female">Information</option>
+                      </select>
                     </div>
 
                     <div class="col-md-6">
@@ -172,7 +208,7 @@
               <h1>ALL POSTS</h1>
             </center>
             <div style="margin-left: -100px; " class="table-responsive">
-              <table class="table table-bordered table-striped table-hover">
+              <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead class="thead-dark">
                   <tr>
                     <th>POST ID</th>
@@ -180,7 +216,6 @@
                     <th scope="col">POST Title</th>
                     <th scope="col">POST Summary</th>
                     <th scope="col">POST Description </th>
-                    <th scope="col">POST Attachement</th>
                     <th scope="col">Featured Image</th>
                     <th scope="col">POST Status</th>
                     <th scope="col">Comment Allowed</th>
@@ -197,7 +232,7 @@
                     <td>Block Chain</td>
                     <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
                     <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
-                    <td>files/cv.pdf</td>
+                    <!-- <td>files/cv.pdf</td> -->
                     <td>tech.jpg</td>
                     <td>
                       <div class="form-check">
@@ -239,7 +274,7 @@
                     <td>Block Chain</td>
                     <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
                     <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
-                    <td>files/cv.pdf</td>
+                    <!-- <td>files/cv.pdf</td> -->
                     <td>tech.jpg</td>
                     <td>
                       <div class="form-check">
@@ -281,7 +316,7 @@
                     <td>Block Chain</td>
                     <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
                     <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
-                    <td>files/cv.pdf</td>
+                    <!-- <td>files/cv.pdf</td> -->
                     <td>tech.jpg</td>
                     <td>
                       <div class="form-check">
@@ -323,7 +358,7 @@
                     <td>Block Chain</td>
                     <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
                     <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
-                    <td>files/cv.pdf</td>
+                    <!-- <td>files/cv.pdf</td> -->
                     <td>tech.jpg</td>
                     <td>
                       <div class="form-check">
@@ -372,6 +407,16 @@
   </div>
   <?php require_once("../General/footer.php") ?>
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable({
+        paging: true,
+        lengthChange: true,
+        lengthMenu: [10, 25, 50, 75, 100],
+        searching: true,
+      });
+    });
+  </script>
 </body>
 
 </html>

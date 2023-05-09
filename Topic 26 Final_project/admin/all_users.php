@@ -1,5 +1,14 @@
 <?php
-include("../database/include/connection.php");
+session_start();
+// print_r($_SESSION['Admin']['role_type']);
+// die();
+
+if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
+    header("location:../index_01.php");
+}
+?>
+<?php
+include("../require/connection.php");
 
 if (isset($_REQUEST['register'])) {
 
@@ -33,16 +42,7 @@ if (isset($_REQUEST['register'])) {
 
 <head>
   <!-- datab table  -->
-  <script>
-    $(document).ready(function() {
-      $('#example').DataTable({
-        paging: true,
-        lengthChange: true,
-        lengthMenu: [10, 25, 50, 75, 100],
-        searching: true,
-      });
-    });
-  </script>
+  
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
 
@@ -58,6 +58,7 @@ if (isset($_REQUEST['register'])) {
   <!-- Bootstrap JS -->
   <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
   <!-- data table  -->
+  
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
   <title> .: Online Blogging Application :. </title>
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -277,6 +278,17 @@ if (isset($_REQUEST['register'])) {
   <?php require_once("../General/footer.php") ?>
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
+  
+    $(document).ready(function() {
+      $('#example').DataTable({
+        paging: true,
+        lengthChange: true,
+        lengthMenu: [10, 25, 50, 75, 100],
+        searching: true,
+      });
+    });
+
+
     var user_id = "";
 
     function is_approve(obj) {

@@ -11,14 +11,12 @@
             font-size: 50px;
             font-family: Arial, sans-serif;
             font-weight: bold;
-            /* color: #FFF; */
             text-transform: uppercase;
             transition: color 0.2s ease;
         }
 
         .nav-link:hover {
             color: red;
-            /* text-decoration: none; */
         }
 
         .search-input {
@@ -219,12 +217,12 @@
                 </div>
                 <div class="modal-body">
 
-                    <form class="row g-3 needs-validation" novalidate>
+                    <form method="POST" action="login_process.php" class="row g-3 needs-validation" novalidate>
                         <div class="col-md-12 position-relative">
                             <label for="validationTooltipUsername" class="form-label">Email</label>
                             <div class="input-group has-validation">
                                 <!-- <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span> -->
-                                <input type="email" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                                <input type="email" name="email"  class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
                                 <div class="invalid-tooltip">
                                     Please choose a unique and valid username.
                                 </div>
@@ -233,7 +231,7 @@
                         <div class="col-md-12 position-relative">
                             <label for="validationTooltipPassword" class="form-label">Password</label>
                             <div class="input-group has-validation">
-                                <input type="password" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required>
+                                <input name="password" type="password" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required>
                                 <div class="invalid-tooltip">
                                     Password Must 8 to 12 Character
                                 </div>
@@ -244,7 +242,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button class="btn btn-primary" type="submit">Login Here</button>
+                    <button name="login" id="login" class="btn btn-primary" type="submit">Login Here</button>
                 </div>
                 </form>
             </div>

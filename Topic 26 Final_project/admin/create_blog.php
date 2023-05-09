@@ -1,7 +1,30 @@
+<?php
+session_start();
+// print_r($_SESSION['Admin']['role_type']);
+// die();
+
+if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
+    header("location:../index_01.php");
+}
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
+    <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+  <!-- data table  -->
   <title> .::Online Blogging Application::. </title>
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -29,7 +52,7 @@
 <body>
   <div class="row">
     <!-- side bar start -->
-    <div class="col-lg-4 col-md-4">
+    <div  style="margin-right: -2px" class="col-lg-4 col-md-4">
       <main>
         <h1 class="visually-hidden">Sidebars examples</h1>
 
@@ -190,7 +213,7 @@
             <h1>ALL Created BLOGS </h1>
           </center>
           <div class="table-responsive">
-            <table class="table-striped " id="table" style="width:100%" cellpadding="4px">
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
               <thead>
                 <tr>
                   <th>BLOG ID</th>
@@ -354,7 +377,17 @@
   </div>
 
   <?php require_once("../General/footer.php") ?>
-  <script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable({
+        paging: true,
+        lengthChange: true,
+        lengthMenu: [10, 25, 50, 75, 100],
+        searching: true,
+      });
+    });
+  </script>
 </body>
 
 </html>
