@@ -116,19 +116,19 @@
             <li>
 
               <a href="admin_dashboard.php" class="nav-link text-white">
-                <img src="../images/icons/dashboard.svg" width="10%" height="10%"  >
+                <img src="../images/icons/dashboard.svg" width="10%" height="10%">
                 Admin Dashboard
               </a>
             </li>
             <li class="nav-item">
               <a href="posts.php" class="nav-link active" aria-current="page">
-                <img src="../images/icons/post.svg" width="10%" height="10%"  >
+                <img src="../images/icons/post.svg" width="10%" height="10%">
                 MANAGE POSTS
               </a>
             </li>
             <li>
               <a href="category.php" class="nav-link text-white">
-                <img src="../images/icons/category.svg" width="10%" height="10%"  >
+                <img src="../images/icons/category.svg" width="10%" height="10%">
                 MANAGE CATEGORIES
               </a>
             </li>
@@ -164,7 +164,7 @@
             </li>
           </ul>
           <hr>
-          <div style="padding-top: 100px;"  class="dropdown">
+          <div style="padding-top: 100px;" class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="../images/profile_image_1683396936.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
               <strong>Baboo Kumar</strong>
@@ -211,44 +211,7 @@
     </div>
   </div>
 
-  <footer class="footer-main bg-dark text-light">
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-md-8">
-          <h5 class="mb-3">About Us</h5>
-          <center>
-            <p class="text-white" style="text-align:justify;">We are an online blogging application developed by Developer Baboo Kumar 19938 Intern @ HIST Jamshoro. Our goal is to provide a platform for people to share their thoughts and ideas with the world.</p>
-          </center>
-        </div>
-        <div class="col-md-4">
-          <h5 class="mb-3">Contact Us</h5>
-          <ul class="list-unstyled">
-            <li>Address: 123 Main St, Anytown USA</li>
-            <li>Phone: (555) 555-5555</li>
-            <li>Email: info@onlineblogging.com</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="bg-secondary text-light py-3">
-      <div class="container">
-        <div class="row d-flex align-items-center">
-          <div class="col-md-6 text-center text-md-start">
-            <p class="mb-0">&copy; <script>
-                document.write(new Date().getFullYear())
-              </script> All rights reserved | Online Blogging Application</p>
-          </div>
-          <div class="col-md-6 text-center text-md-end text-white">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none;">Privacy Policy</a></li>
-              <li class="list-inline-item">·</li>
-              <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none; ">Terms &amp; Conditions</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <?php require_once("../General/footer.php") ?>
 
 
 
