@@ -1,5 +1,5 @@
 <?php
-include("database/include/connection.php");
+include("../10_may/require/connection.php");
 
 if (isset($_REQUEST['register'])) {
 

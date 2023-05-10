@@ -60,7 +60,7 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link text-white">
+              <a href="category.php" class="nav-link text-white">
                 <img src="../images/icons/category.svg" width="10%" height="10%">
                 MANAGE CATEGORIES
               </a>

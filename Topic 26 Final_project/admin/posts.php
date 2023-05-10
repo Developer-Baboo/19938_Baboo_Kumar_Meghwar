@@ -60,7 +60,7 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link text-white">
+              <a href="category.php" class="nav-link text-white">
                 <img src="../images/icons/category.svg" width="10%" height="10%">
                 MANAGE CATEGORIES
               </a>
@@ -128,7 +128,9 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
     <div class="col-lg-8 col-md-8">
       <div class="row">
         <div class="col-md-12">
-          <div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button>
+          <div>
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button> -->
+
           </div>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -202,10 +204,48 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
 
         </div>
 
+
+
         <div class class="row">
+
+          <!-- view post model -->
+          <div class="col-md-12">
+          <div>
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button> -->
+
+          </div>
+          <div class="modal fade" id="viewPOstModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content" style="width: 100%">
+                <div class="modal-header">
+                  <center>
+                    <h3 style="font-family: times;color: green; text-align: center; ">View POST</h3>
+                  </center>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h1>Post Id : 01</h1>
+                    <h1>Blog Id : 01</h1>
+                    <h1>Post Title: Blockchin</h1>
+                    <h1>Post Summary</h1>
+                    <p> lorem lsdfj lsdkjf lksdjfl lksdjfl lksdjf ls sdlkfjlsdjflsdkjflskdflskdjflskdjflskdjflsdkjflds kdsjfljsd ksdjflsdj sdlkfsld lkdsjfl ksldjfl lksdjfl kdsjf   </p>
+                    <h1>Post Description</h1>
+                    <p> lorem lsdfj lsdkjf lksdjfl lksdjfl lksdjf ls sdlkfjlsdjflsdkjflskdflskdjflskdjflskdjflsdkjflds kdsjfljsd ksdjflsdj sdlkfsld lkdsjfl ksldjfl lksdjfl kdsjf   </p>
+                    <h1>Image</h1>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+          <!-- view post model end -->
           <div style="margin-left:-10px;" class="col-lg-12 col-md-12">
-            <center>
-              <h1>ALL POSTS</h1>
+            <center >
+              <span><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button></span>
+              <span style="font-size: 20px" >All POSTS</span>
+              <!-- <h1></h1> -->
+              
             </center>
             <div style="margin-left: -100px; " class="table-responsive">
               <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -216,6 +256,7 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
                     <th scope="col">POST Title</th>
                     <th scope="col">POST Summary</th>
                     <th scope="col">POST Description </th>
+                    <th scope="col">View Post</th>
                     <th scope="col">Featured Image</th>
                     <th scope="col">POST Status</th>
                     <th scope="col">Comment Allowed</th>
@@ -230,8 +271,9 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
                     <th>1</th>
                     <td>1</td>
                     <td>Block Chain</td>
-                    <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
-                    <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                    <td>Lorem ipsum is a ... </td>
+                    <td>Lorem ipsum is a ...</td>
+                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewPOstModal" data-bs-whatever="@mdo">View POST</button></td>
                     <!-- <td>files/cv.pdf</td> -->
                     <td>tech.jpg</td>
                     <td>
@@ -272,9 +314,9 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
                     <th>1</th>
                     <td>1</td>
                     <td>Block Chain</td>
-                    <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
-                    <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
-                    <!-- <td>files/cv.pdf</td> -->
+                    <td>Lorem ipsum is a ... </td>
+                    <td>Lorem ipsum is a ...</td>
+                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewPOstModal" data-bs-whatever="@mdo">View POST</button></td>
                     <td>tech.jpg</td>
                     <td>
                       <div class="form-check">
@@ -314,9 +356,9 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
                     <th>1</th>
                     <td>1</td>
                     <td>Block Chain</td>
-                    <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
-                    <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
-                    <!-- <td>files/cv.pdf</td> -->
+                    <td>Lorem ipsum is a ... </td>
+                    <td>Lorem ipsum is a ...</td>
+                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewPOstModal" data-bs-whatever="@mdo">View POST</button></td>
                     <td>tech.jpg</td>
                     <td>
                       <div class="form-check">
@@ -356,9 +398,9 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
                     <th>1</th>
                     <td>1</td>
                     <td>Block Chain</td>
-                    <td>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a documen</td>
-                    <td> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
-                    <!-- <td>files/cv.pdf</td> -->
+                    <td>Lorem ipsum is a ... </td>
+                    <td>Lorem ipsum is a ...</td>
+                   <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewPOstModal" data-bs-whatever="@mdo">View POST</button></td>
                     <td>tech.jpg</td>
                     <td>
                       <div class="form-check">
