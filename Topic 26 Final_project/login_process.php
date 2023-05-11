@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('./require/connection.php');
+require_once('./require/connection.php'); //connnection to database
 if (isset($_REQUEST['login'])) {
     // extract($_POST);
     $email = $_POST['email'];

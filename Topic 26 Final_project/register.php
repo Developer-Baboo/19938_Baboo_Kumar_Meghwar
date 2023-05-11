@@ -2,7 +2,6 @@
 include("../10_may/require/connection.php");
 
 if (isset($_REQUEST['register'])) {
-
   if (isset($_FILES['upload'])) {
     $file = $_FILES['upload'];
     $file_name = "profile_image_" . time() . substr($file['name'], strpos($file['name'], "."));

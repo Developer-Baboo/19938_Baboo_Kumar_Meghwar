@@ -27,13 +27,14 @@
             margin-top: 10px;
         }
     </style>
-    <title> .: Online Blogging Application :. </title>
+    <title> .::Online Blogging Application::.</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 
 <body>
+    <!-- 1nd nav start -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index_01.php"><img src="images/logo.png" style="width: 100px;"></a>
@@ -58,7 +59,6 @@
             </div>
         </div>
     </nav>
-
     <!-- 1nd nav end -->
     <!-- 2nd nav start -->
     <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #5DADE2">
@@ -95,7 +95,7 @@
             </div>
         </div>
     </nav>
-    <!-- Nav End Here -->
+    <!-- 2nd Nav End Here -->
     <!-- Slider -->
     <div class="container mt-10">
         <div class="row">
@@ -122,6 +122,7 @@
                     </button>
                 </div>
             </div>
+            <!-- Tending Post  -->
             <div class="col-md-4">
                 <div class="row">
                     <center>
@@ -147,12 +148,16 @@
                     </div>
                 </div>
             </div>
+            <!-- Trending pOst ends  -->
         </div>
     </div>
-    <marquee style="color:green; font-size: 20px; background-color: white; ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel dolorum cupiditate delectus </marquee>
     <!-- Slider End -->
+    <marquee style="color:green; font-size: 20px; background-color: white; ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel dolorum cupiditate delectus </marquee>
+    
+    <!-- New Section Start-->
     <div class="container mt-10">
         <div class="row">
+            <!-- Recent News Sections  -->
             <div class="col-md-6">
                 <div class="row">
                     <center>
@@ -178,6 +183,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Top Stories -->
             <div class="col-md-6">
                 <div class="row">
                     <center>
@@ -205,8 +211,6 @@
             </div>
         </div>
     </div>
-    <!-- <marquee>This is basic example of marquee</marquee> -->
-    <!-- Slider End -->
     <!-- Login Model Here -->
     <div class="modal fade" id="staticBackdropLogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -248,7 +252,7 @@
             </div>
         </div>
     </div>
-    <!-- login model end -->
+    <!-- login Model end -->
 
     <!-- Modal Contact Us -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -281,6 +285,8 @@
         </div>
     </div>
     <!-- Modal Contact Us End -->
+
+    <!-- Footer  -->
     <footer class="footer-main bg-dark text-light">
         <div class="container py-5">
             <div class="row">
@@ -319,6 +325,7 @@
             </div>
         </div>
     </footer>
+    <!-- Footer Ends -->
     <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
