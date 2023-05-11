@@ -11,15 +11,26 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
 <?php
 include("../require/connection.php");
 if (isset($_GET['approve'])) {
-    $user_id = $_GET['approve'];
-    $fetchQuery = "SELECT * FROM user WHERE user_id = $user_id";
-    $result = mysqli_query($connection, $fetchQuery);
-    if (mysqli_num_rows($result) > 0) {
-          //Updated Query Here Will be insert
-      //Database man us ka status Approve show kra penindg sa 
-        }
+  $user_id = $_GET['approve'];
+  $fetchQuery = "SELECT * FROM user WHERE user_id = $user_id";
+  $result = mysqli_query($connection, $fetchQuery);
+  if (mysqli_num_rows($result) > 0) {
+    // User exists, update the status to "approved"
+    $updateQuery = "UPDATE user SET is_approved = 'approved' WHERE user_id = $user_id";
+    mysqli_query($connection, $updateQuery);
+  }
 }
-// mysqli_close($connection);
+
+if (isset($_GET['reject'])) {
+  $user_id = $_GET['reject'];
+  $fetchQuery = "SELECT * FROM user WHERE user_id = $user_id";
+  $result = mysqli_query($connection, $fetchQuery);
+  if (mysqli_num_rows($result) > 0) {
+    // User exists, update the status to "rejected"
+    $updateQuery = "UPDATE user SET is_approved = 'rejected' WHERE user_id = $user_id";
+    mysqli_query($connection, $updateQuery);
+  }
+}
 ?>
 <!-- Approve User Code Code End -->
 <?php
@@ -55,6 +66,25 @@ if (isset($_REQUEST['register'])) {
 <!-- <a href="../images/"></a> -->
 
 <head>
+  <style>
+    .btn-approve {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: green;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .btn-reject {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: red;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
   <!-- datab table  -->
 
   <!-- Bootstrap CSS -->
@@ -112,12 +142,20 @@ if (isset($_REQUEST['register'])) {
                 MANAGE CATEGORIES
               </a>
             </li>
-            <li>
-              <a href="./all_users.php" class="nav-link text-white">
+            <div style="margin-left: 15px" class="dropdown">
+              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="../images/icons/user.svg" width="10%" height="10%">
-                MANAGE USERS
+                <strong>Manage Users</strong>
               </a>
-            </li>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="./approved_users.php"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Approved Users</a></li>
+                <li><a class="dropdown-item" href="pending_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
+                <li>
+                  <i class="fas fa-angle-right"></i>
+                  <a class="dropdown-item" href="rejected_users.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
+                </li>
+              </ul>
+            </div>
             <li>
               <i class="fas fa-comment"></i>
               <a href="./all_comments.php" class="nav-link text-white">
@@ -241,7 +279,7 @@ if (isset($_REQUEST['register'])) {
         </div>
       </div>
       <?php
-      $query = "SELECT * FROM user,role WHERE role.`role_id`= user.`role_id`";
+      $query = "SELECT * FROM user INNER JOIN role ON role.role_id = user.role_id WHERE user.is_approved = 'Pending'";
       $result = mysqli_query($connection, $query);
       if ($result->num_rows) {
       ?>
@@ -273,10 +311,15 @@ if (isset($_REQUEST['register'])) {
                     <td><?php echo $row['address'] ?></td>
                     <td><?php echo $row['role_type'] ?></td>
                     <?php
-                    echo "<td><a href=?approve='".$row['user_id']."'>Approve</a></td>";
+                    echo "<td>
+                        <a href=?approve='" . $row['user_id'] . "' class='btn-approve'>Approve</a>
+                        <a href=?reject='" . $row['user_id'] . "' class='btn-reject'>Reject</a>
+                      </td>";
                     ?>
+
+
                     <!-- <td> -->
-                      <!-- <a href="">Approved</a> || <a href="">Rejected</a> -->
+                    <!-- <a href="">Approved</a> || <a href="">Rejected</a> -->
                     <!-- <button class="btn btn-success">Approve</button> || -->
                     <!-- <button class="btn btn-danger">Reject</button> || -->
                     <!-- </td> -->
@@ -288,7 +331,7 @@ if (isset($_REQUEST['register'])) {
               }
               ?>
             </table>
-            </div>
+          </div>
         </center>
 
       <?php

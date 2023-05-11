@@ -3,8 +3,8 @@ session_start();
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
-    header("location:../index_01.php");
+if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
+  header("location:../index_01.php");
 }
 ?>
 <!DOCTYPE html>
@@ -65,12 +65,20 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
                 MANAGE CATEGORIES
               </a>
             </li>
-            <li>
-              <a href="./all_users.php" class="nav-link text-white">
+            <div style="margin-left: 15px" class="dropdown">
+              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="../images/icons/user.svg" width="10%" height="10%">
-                MANAGE USERS
+                <strong>Manage Users</strong>
               </a>
-            </li>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="./approved_users.php"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Approved Users</a></li>
+                <li><a class="dropdown-item" href="pending_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
+                <li>
+                  <i class="fas fa-angle-right"></i>
+                  <a class="dropdown-item" href="rejected_users.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
+                </li>
+              </ul>
+            </div>
             <li>
               <i class="fas fa-comment"></i>
               <a href="./all_comments.php" class="nav-link text-white">

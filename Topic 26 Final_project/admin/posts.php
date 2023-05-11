@@ -3,8 +3,8 @@ session_start();
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
-    header("location:../index_01.php");
+if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
+  header("location:../index_01.php");
 }
 ?>
 <!DOCTYPE html>
@@ -65,12 +65,20 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
                 MANAGE CATEGORIES
               </a>
             </li>
-            <li>
-              <a href="./all_users.php" class="nav-link text-white">
+            <div style="margin-left: 15px" class="dropdown">
+              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="../images/icons/user.svg" width="10%" height="10%">
-                MANAGE USERS
+                <strong>Manage Users</strong>
               </a>
-            </li>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="./approved_users.php"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Approved Users</a></li>
+                <li><a class="dropdown-item" href="pending_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
+                <li>
+                  <i class="fas fa-angle-right"></i>
+                  <a class="dropdown-item" href="rejected_users.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
+                </li>
+              </ul>
+            </div>
             <li>
               <i class="fas fa-comment"></i>
               <a href="./all_comments.php" class="nav-link text-white">
@@ -210,42 +218,42 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
 
           <!-- view post model -->
           <div class="col-md-12">
-          <div>
-            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button> -->
+            <div>
+              <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button> -->
 
-          </div>
-          <div class="modal fade" id="viewPOstModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content" style="width: 100%">
-                <div class="modal-header">
-                  <center>
-                    <h3 style="font-family: times;color: green; text-align: center; ">View POST</h3>
-                  </center>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+            </div>
+            <div class="modal fade" id="viewPOstModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content" style="width: 100%">
+                  <div class="modal-header">
+                    <center>
+                      <h3 style="font-family: times;color: green; text-align: center; ">View POST</h3>
+                    </center>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
                     <h1>Post Id : 01</h1>
                     <h1>Blog Id : 01</h1>
                     <h1>Post Title: Blockchin</h1>
                     <h1>Post Summary</h1>
-                    <p> lorem lsdfj lsdkjf lksdjfl lksdjfl lksdjf ls sdlkfjlsdjflsdkjflskdflskdjflskdjflskdjflsdkjflds kdsjfljsd ksdjflsdj sdlkfsld lkdsjfl ksldjfl lksdjfl kdsjf   </p>
+                    <p> lorem lsdfj lsdkjf lksdjfl lksdjfl lksdjf ls sdlkfjlsdjflsdkjflskdflskdjflskdjflskdjflsdkjflds kdsjfljsd ksdjflsdj sdlkfsld lkdsjfl ksldjfl lksdjfl kdsjf </p>
                     <h1>Post Description</h1>
-                    <p> lorem lsdfj lsdkjf lksdjfl lksdjfl lksdjf ls sdlkfjlsdjflsdkjflskdflskdjflskdjflskdjflsdkjflds kdsjfljsd ksdjflsdj sdlkfsld lkdsjfl ksldjfl lksdjfl kdsjf   </p>
+                    <p> lorem lsdfj lsdkjf lksdjfl lksdjfl lksdjf ls sdlkfjlsdjflsdkjflskdflskdjflskdjflskdjflsdkjflds kdsjfljsd ksdjflsdj sdlkfsld lkdsjfl ksldjfl lksdjfl kdsjf </p>
                     <h1>Image</h1>
+                  </div>
                 </div>
+
               </div>
-
             </div>
-          </div>
 
-        </div>
+          </div>
           <!-- view post model end -->
           <div style="margin-left:-10px;" class="col-lg-12 col-md-12">
-            <center >
+            <center>
               <span><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button></span>
-              <span style="font-size: 20px" >All POSTS</span>
+              <span style="font-size: 20px">All POSTS</span>
               <!-- <h1></h1> -->
-              
+
             </center>
             <div style="margin-left: -100px; " class="table-responsive">
               <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -400,7 +408,7 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
                     <td>Block Chain</td>
                     <td>Lorem ipsum is a ... </td>
                     <td>Lorem ipsum is a ...</td>
-                   <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewPOstModal" data-bs-whatever="@mdo">View POST</button></td>
+                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewPOstModal" data-bs-whatever="@mdo">View POST</button></td>
                     <td>tech.jpg</td>
                     <td>
                       <div class="form-check">

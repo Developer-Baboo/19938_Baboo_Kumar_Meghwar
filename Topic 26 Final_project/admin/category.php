@@ -3,8 +3,8 @@ session_start();
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
-    header("location:../index_01.php");
+if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
+  header("location:../index_01.php");
 }
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
 
 <head>
   <!-- datab table  -->
-  
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
 
@@ -69,12 +69,20 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
                 MANAGE CATEGORIES
               </a>
             </li>
-            <li>
-              <a href="./all_users.php" class="nav-link text-white">
+            <div style="margin-left: 15px" class="dropdown">
+              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="../images/icons/user.svg" width="10%" height="10%">
-                MANAGE USERS
+                <strong>Manage Users</strong>
               </a>
-            </li>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="./approved_users.php"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Approved Users</a></li>
+                <li><a class="dropdown-item" href="pending_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
+                <li>
+                  <i class="fas fa-angle-right"></i>
+                  <a class="dropdown-item" href="rejected_users.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
+                </li>
+              </ul>
+            </div>
             <li>
               <i class="fas fa-comment"></i>
               <a href="./all_comments.php" class="nav-link text-white">
@@ -121,7 +129,7 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
     </div>
     <!-- /END SIDE BAR/ -->
     <div class="col-lg-8 col-md-8">
-      <div class="row" >
+      <div class="row">
         <div class="col-md-12">
           <div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW Category</button>
           </div>
@@ -163,15 +171,15 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
             </div>
           </div>
         </div>
-      <div class="row" >
-        <div class="col-md-12">
-          <center>
-        <h1>ALL Categories</h1>
-    </center>
-    <div class="table-responsive">
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
-            <thead class="thead-dark">
-                <tr>
+        <div class="row">
+          <div class="col-md-12">
+            <center>
+              <h1>ALL Categories</h1>
+            </center>
+            <div class="table-responsive">
+              <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead class="thead-dark">
+                  <tr>
                     <th>Categories ID</th>
                     <th>Category Title</th>
                     <th scope="col">Category Description </th>
@@ -179,116 +187,116 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
                     <th scope="col">Created At</th>
                     <th scope="col">Updated At</th>
                     <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
                     <th>1</th>
                     <td>Block Chain</td>
                     <td>Block Chain</td>
                     <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Active
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                InActive
-                            </label>
-                        </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Active
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          InActive
+                        </label>
+                      </div>
                     </td>
                     <td>2023-9-1</td>
                     <td>2023-9-8</td>
                     <td>
-                        <a href="">Edit</a> || <a href="">Delete</a>
+                      <a href="">Edit</a> || <a href="">Delete</a>
                     </td>
-                </tr>
-                <tr>
+                  </tr>
+                  <tr>
                     <th>1</th>
                     <td>Block Chain</td>
                     <td>Block Chain</td>
                     <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Active
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                InActive
-                            </label>
-                        </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Active
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          InActive
+                        </label>
+                      </div>
                     </td>
                     <td>2023-9-1</td>
                     <td>2023-9-8</td>
                     <td>
-                        <a href="">Edit</a> || <a href="">Delete</a>
+                      <a href="">Edit</a> || <a href="">Delete</a>
                     </td>
-                </tr>
-                <tr>
+                  </tr>
+                  <tr>
                     <th>1</th>
                     <td>Block Chain</td>
                     <td>Block Chain</td>
                     <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Active
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                InActive
-                            </label>
-                        </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Active
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          InActive
+                        </label>
+                      </div>
                     </td>
                     <td>2023-9-1</td>
                     <td>2023-9-8</td>
                     <td>
-                        <a href="">Edit</a> || <a href="">Delete</a>
+                      <a href="">Edit</a> || <a href="">Delete</a>
                     </td>
-                </tr>
-                <tr>
+                  </tr>
+                  <tr>
                     <th>1</th>
                     <td>Block Chain</td>
                     <td>Block Chain</td>
                     <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Active
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                InActive
-                            </label>
-                        </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Active
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          InActive
+                        </label>
+                      </div>
                     </td>
                     <td>2023-9-1</td>
                     <td>2023-9-8</td>
                     <td>
-                        <a href="">Edit</a> || <a href="">Delete</a>
+                      <a href="">Edit</a> || <a href="">Delete</a>
                     </td>
-                </tr>
-            </tbody>
-        </table>
-        </div>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div> 
-</div>
-            <!-- all end users -->
-            <!-- Nav End Here -->
-            <!-- Footer Start-->
+  </div>
+  <!-- all end users -->
+  <!-- Nav End Here -->
+  <!-- Footer Start-->
 
   <?php require_once("../General/footer.php") ?>
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>

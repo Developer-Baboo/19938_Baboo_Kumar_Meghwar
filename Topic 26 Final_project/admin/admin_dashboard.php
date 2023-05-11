@@ -148,11 +148,11 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
               <strong>Manage Users</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="#"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Active Users</a></li>
-              <li><a class="dropdown-item" href="all_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
+              <li><a class="dropdown-item" href="./approved_users.php"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Approved Users</a></li>
+              <li><a class="dropdown-item" href="pending_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
               <li>
                 <i class="fas fa-angle-right"></i>
-                <a class="dropdown-item" href="../logout.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
+                <a class="dropdown-item" href="rejected_users.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
               </li>
             </ul>
           </div>

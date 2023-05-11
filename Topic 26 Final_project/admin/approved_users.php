@@ -72,12 +72,20 @@ include("../require/connection.php");
                 MANAGE CATEGORIES
               </a>
             </li>
-            <li>
-              <a href="./all_users.php" class="nav-link text-white">
+            <div style="margin-left: 15px" class="dropdown">
+              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="../images/icons/user.svg" width="10%" height="10%">
-                MANAGE USERS
+                <strong>Manage Users</strong>
               </a>
-            </li>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="./approved_users.php"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Approved Users</a></li>
+                <li><a class="dropdown-item" href="pending_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
+                <li>
+                  <i class="fas fa-angle-right"></i>
+                  <a class="dropdown-item" href="rejected_users.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
+                </li>
+              </ul>
+            </div>
             <li>
               <i class="fas fa-comment"></i>
               <a href="./all_comments.php" class="nav-link text-white">
@@ -125,35 +133,50 @@ include("../require/connection.php");
     </div>
 
     <div class="col-sm-8 mt-4">
-      <center>
-        <h1>All Approved Users</h1>
+      <?php
+      $query = "SELECT * FROM user INNER JOIN role ON role.role_id = user.role_id WHERE user.is_approved = 'Approved'";
+      $result = mysqli_query($connection, $query);
+      if ($result->num_rows) {
+      ?>
+        <center>
+          <h2>All Approved Users</h2>
           <div style="margin-left: -100px; " class="table-responsive">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
               <div id="response"></div>
               <thead>
                 <th>Image</th>
+                <th>User ID</th>
                 <th>Firstname</th>
                 <th>Lastname</th>
                 <th>Email</th>
                 <th>HomeTown</th>
-                <th>Status</th>
-                <th>Rejected At</th>
+                <th>Approved At</th>
                 <!-- <th>Updated At</th> -->
               </thead>
+              <?php
+              while ($row = mysqli_fetch_assoc($result)) {
+              ?>
                 <tbody>
                   <tr>
-                    <td>xcv.jpb</td>
-                    <td>First Name</td>
-                    <td>Last</td>
-                    <td>Email</td>
-                    <td>mithi Tharparkar</td>
-                    <td style=" color:red; " >Rejected</td>
-                    <td>199999</td>
+                    <td><img src="../images/<?php echo $row['user_image'] ?>" width="50px" style="border-radius: 50px"></td>
+                    <td><?php echo $row['user_id'] ?></td>
+                    <td><?php echo $row['first_name'] ?></td>
+                    <td><?php echo $row['last_name'] ?></td>
+                    <td><?php echo $row['email'] ?></td>
+                    <td><?php echo $row['address'] ?></td>
+                    <td><?php echo $row['created_at'] ?></td>
                   </tr>
                 </tbody>
+              <?php
+              }
+              ?>
             </table>
-            </div>
+          </div>
         </center>
+
+      <?php
+      }
+      ?>
     </div>
   </div>
   <?php require_once("../General/footer.php") ?>

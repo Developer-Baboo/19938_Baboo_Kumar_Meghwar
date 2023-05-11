@@ -3,14 +3,15 @@ session_start();
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
-    header("location:../index_01.php");
+if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
+  header("location:../index_01.php");
 }
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-    <!-- Bootstrap CSS -->
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
 
   <!-- DataTables CSS -->
@@ -52,7 +53,7 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
 <body>
   <div class="row">
     <!-- side bar start -->
-    <div  style="margin-right: -2px" class="col-lg-4 col-md-4">
+    <div style="margin-right: -2px" class="col-lg-4 col-md-4">
       <main>
         <h1 class="visually-hidden">Sidebars examples</h1>
 
@@ -82,12 +83,20 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
                 MANAGE CATEGORIES
               </a>
             </li>
-            <li>
-              <a href="./all_users.php" class="nav-link text-white">
+            <div style="margin-left: 15px" class="dropdown">
+              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="../images/icons/user.svg" width="10%" height="10%">
-                MANAGE USERS
+                <strong>Manage Users</strong>
               </a>
-            </li>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="./approved_users.php"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Approved Users</a></li>
+                <li><a class="dropdown-item" href="pending_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
+                <li>
+                  <i class="fas fa-angle-right"></i>
+                  <a class="dropdown-item" href="rejected_users.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
+                </li>
+              </ul>
+            </div>
             <li>
               <i class="fas fa-comment"></i>
               <a href="./all_comments.php" class="nav-link text-white">
@@ -137,7 +146,7 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
     <div class="col-lg-8 col-md-8">
       <div class="row">
         <div class="col-md-12">
-          <div><button style="margin-top: 200px"  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD BLOG</button>
+          <div><button style="margin-top: 200px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD BLOG</button>
           </div>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
