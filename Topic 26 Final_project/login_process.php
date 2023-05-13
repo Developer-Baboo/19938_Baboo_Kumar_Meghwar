@@ -16,6 +16,13 @@ if (isset($_REQUEST['login'])) {
         }
         else if ($row['role_id'] == 2){
             $_SESSION['User'] = $row;
+            if($row['is_approved'] == 'Approved')
+            {
+                header("Location:./user/index.php");
+            }
+            else{
+                header("Location:./login.php?msg = You are not Approved by administrator");
+            }
             header("Location:./user/index.php");       
         }
     } else {

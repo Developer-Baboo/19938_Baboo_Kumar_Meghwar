@@ -125,6 +125,8 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
       </main>
     </div>
     <!-- /END SIDE BAR/ -->
+
+    <!-- Users Feedback Table -->
     <div class="col-lg-9 col-md-9">
       <center>
         <h1 class="text-primary font-weight-bold animated fadeInDown" style="font-family: 'Courier New', Courier, monospace; font-size: 48px;">ALL USERS FEEDBACKS</h1>
@@ -173,6 +175,7 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
         </table>
       </div>
     </div>
+    <!-- User Feedback Table End Here -->
   </div>
   <!-- Footer Start-->
   <?php require_once("../General/footer.php") ?>

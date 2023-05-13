@@ -126,6 +126,8 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
       </main>
     </div>
     <!-- /END SIDE BAR/ -->
+
+    <!-- Comment Details Table -->
     <div class="col-lg-9 col-md-9">
       <center>
         <h1>ALL USERS COMMENTS</h1>
@@ -231,9 +233,8 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
         </table>
       </div>
     </div>
+    <!-- Comment Details Table End -->
   </div>
-  <!-- Footer Start-->
-
   <?php require_once("../General/footer.php") ?>
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -247,5 +248,4 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
     });
   </script>
 </body>
-
 </html>

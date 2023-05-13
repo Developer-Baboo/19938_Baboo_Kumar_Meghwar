@@ -1,0 +1,23 @@
+prepared statement
+server side validation
+responsive tables
+email sending
+active and inactive
+admin and can edit user information
+User can edit profile
+ajax, code comment with alignment 
+12,13,14
+show ui to sir and suggestions
+
+
+
+
+exceptions
+OOP
+prepared statement
+ajax
+
+
+
+Heading and button have to set
+responsive and Table

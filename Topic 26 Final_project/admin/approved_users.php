@@ -8,12 +8,10 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
 }
 ?>
 <?php
-include("../require/connection.php");
+  include("../require/connection.php");
 ?>
 <!DOCTYPE html>
 <html>
-<a href="../images/"></a>
-
 <head>
   <!-- datab table  -->
 
@@ -42,6 +40,7 @@ include("../require/connection.php");
 
 <body>
   <div class="row">
+    <!-- Side Bar  -->
     <div class="col-lg-4 col-md-4">
       <main>
         <h1 class="visually-hidden">Sidebars examples</h1>
@@ -129,54 +128,138 @@ include("../require/connection.php");
           </div>
         </div>
       </main>
-
     </div>
+    <!-- Side bar End -->
+    <div class="col-lg-8 col-md-8">
+      <div class="row">
+        <!-- Edit User Model -->
+        <div class="col-md-12">
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content" style="width: 100%">
+                <div class="modal-header">
+                  <center>
+                    <h3 style="font-family: times;color: green; text-align: center; ">Edit User Data</h3>
+                  </center>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="row g-3" method="POST" action="" enctype="multipart/form-data">
+                    <div class="col-md-6">
+                        <label for="firstname" class="form-label">Firstname</label>
+                        <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="Enter Your Firstname">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="lastname" class="form-label">Lastname</label>
+                        <input type="text" class="form-control" id="lastname" name="last_name" required placeholder="Enter Your Lastname">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="inputState" class="form-label">Gender</label>
+                        <select id="inputState" class="form-select" name="gender">
+                          <option selected>Gender</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
 
-    <div class="col-sm-8 mt-4">
-      <?php
-      $query = "SELECT * FROM user INNER JOIN role ON role.role_id = user.role_id WHERE user.is_approved = 'Approved'";
-      $result = mysqli_query($connection, $query);
-      if ($result->num_rows) {
-      ?>
-        <center>
-          <h2>All Approved Users</h2>
-          <div style="margin-left: -100px; " class="table-responsive">
-            <table id="example" class="table table-striped table-bordered" style="width:100%">
-              <div id="response"></div>
-              <thead>
-                <th>Image</th>
-                <th>User ID</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>HomeTown</th>
-                <th>Approved At</th>
-                <!-- <th>Updated At</th> -->
-              </thead>
-              <?php
-              while ($row = mysqli_fetch_assoc($result)) {
-              ?>
-                <tbody>
-                  <tr>
-                    <td><img src="../images/<?php echo $row['user_image'] ?>" width="50px" style="border-radius: 50px"></td>
-                    <td><?php echo $row['user_id'] ?></td>
-                    <td><?php echo $row['first_name'] ?></td>
-                    <td><?php echo $row['last_name'] ?></td>
-                    <td><?php echo $row['email'] ?></td>
-                    <td><?php echo $row['address'] ?></td>
-                    <td><?php echo $row['created_at'] ?></td>
-                  </tr>
-                </tbody>
-              <?php
-              }
-              ?>
-            </table>
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Enter Your Email">
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="inputPassword4" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Enter Your Password">
+                      </div>
+
+
+                      <div class="col-md-6">
+                        <label for="date" class="form-label">Date-of-Birth</label>
+                        <input type="date" class="form-control" name="dob" id="date">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="image" class="form-label">Upload Profile</label>
+                        <input type="file" class="form-control" name="upload" id="image">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Enter Your Address">
+                      </div>
+                          
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" name="register">Edit</button>
+                          </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
           </div>
-        </center>
+        </div>
+        <!-- Edit User Data Model End -->
+        <!-- Approved User Table -->
+        <div class="row" >
+          <div class="col-lg-12" >
+             <?php
+                $query = "SELECT * FROM user INNER JOIN role ON role.role_id = user.role_id WHERE user.is_approved = 'Approved' ORDER BY `user`.`user_id` DESC ";
+                $result = mysqli_query($connection, $query);
+                if ($result->num_rows) {
+                ?>
+                <center>
+                  <h2>All Approved Users</h2>
+                  <div style="margin-left: -100px; " class="table-responsive">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                      <div id="response"></div>
+                      <thead>
+                        <th>Image</th>
+                        <th>User ID</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>DOB</th>
+                        <th>Approved At</th>
+                        <th>Is Active</th>
+                        <th>Action</th>
+                        <!-- <th>Updated At</th> -->
+                      </thead>
+                      <?php
+                      while ($row = mysqli_fetch_assoc($result)) {
+                      ?>
+                        <tbody>
+                          <tr>
+                            <td><img src="../images/<?php echo $row['user_image'] ?>" width="50px" style="border-radius: 50px"></td>
+                            <td><?php echo $row['user_id'] ?></td>
+                            <td><?php echo $row['first_name'] ?></td>
+                            <td><?php echo $row['last_name'] ?></td>
+                            <td><?php echo $row['gender'] ?></td>
+                            <td><?php echo $row['email'] ?></td>
+                            <td><?php echo $row['address'] ?></td>
+                            <td><?php echo $row['date_of_birth'] ?></td>
+                            <td><?php echo $row['created_at'] ?></td>
+                            <td>
+                              Active: <input type="radio" name="active" value="Active" > || 
+                              InActive: <input type="radio" name="active" value="InActive" >
+                            </td>
+                            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Edit</button></td>
+                          </tr>
+                        </tbody>
+                      <?php
+                      }
+                      ?>
+                    </table>
+                  </div>
+                </center>
 
-      <?php
-      }
-      ?>
+              <?php
+                }
+              ?>
+          </div>
+        </div>
+        <!-- Approved User Data End -->
+      </div>
     </div>
   </div>
   <?php require_once("../General/footer.php") ?>

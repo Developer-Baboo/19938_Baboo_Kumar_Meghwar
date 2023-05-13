@@ -12,8 +12,6 @@ include("../require/connection.php");
 ?>
 <!DOCTYPE html>
 <html>
-<a href="../images/"></a>
-
 <head>
   <!-- datab table  -->
 
@@ -42,6 +40,7 @@ include("../require/connection.php");
 
 <body>
   <div class="row">
+    <!-- Side Bar -->
     <div class="col-lg-4 col-md-4">
       <main>
         <h1 class="visually-hidden">Sidebars examples</h1>
@@ -129,12 +128,13 @@ include("../require/connection.php");
           </div>
         </div>
       </main>
-
     </div>
+    <!-- Side Bar End -->
 
+    <!-- Rejected Use Table -->
     <div class="col-sm-8 mt-4">
       <?php
-      $query = "SELECT * FROM user INNER JOIN role ON role.role_id = user.role_id WHERE user.is_approved = 'Rejected'";
+      $query = "SELECT * FROM user INNER JOIN role ON role.role_id = user.role_id WHERE user.is_approved = 'Rejected' ORDER BY `user`.`user_id` DESC ";
       $result = mysqli_query($connection, $query);
       if ($result->num_rows) {
       ?>
@@ -150,7 +150,7 @@ include("../require/connection.php");
                 <th>Lastname</th>
                 <th>Email</th>
                 <th>HomeTown</th>
-                <th>Approved At</th>
+                <th>Rejected At</th>
                 <!-- <th>Updated At</th> -->
               </thead>
               <?php
@@ -178,6 +178,7 @@ include("../require/connection.php");
       }
       ?>
     </div>
+    <!-- Rejected User Table End-->
   </div>
   <?php require_once("../General/footer.php") ?>
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -190,16 +191,11 @@ include("../require/connection.php");
         searching: true,
       });
     });
-
-
     var user_id = "";
-
     function is_approve(obj) {
-
       status = obj.value;
       user_id = obj.getAttribute("user_id");
     }
-
     function done() {
       var ajax;
 
@@ -212,10 +208,7 @@ include("../require/connection.php");
         if (ajax.readyState == 4 && ajax.status == 200) {
           var data = ajax.responseText;
           document.getElementById("response").innerHTML = data;
-
           location.reload();
-
-
         }
       }
       ajax.open('POST', 'users.php');

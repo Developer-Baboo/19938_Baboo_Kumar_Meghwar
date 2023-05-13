@@ -145,6 +145,7 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
 
     <div class="col-lg-8 col-md-8">
       <div class="row">
+        <!-- Add Blog Modal -->
         <div class="col-md-12">
           <div><button style="margin-top: 200px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD BLOG</button>
           </div>
@@ -187,9 +188,11 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
 
             </div>
           </div>
-
         </div>
+        <!-- Add Blog Modal -->
       </div>
+
+      <!-- Table Data start here -->
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <center>
@@ -314,49 +317,9 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
             </table>
           </div>
         </div>
-
       </div>
+      <!-- Table data end here -->
     </div>
-
-    <!-- <center>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h1 class="display-6">Add BLOG</h1>
-          <hr>
-        </div>
-      </div>
-    </div>
-    <form style="width:50%;" class="row g-3 needs-validation border rounded shadow-lg my-5 " novalidate>
-      <div class="col-md-6">
-        <label for="firstName" class="form-label">BLOG Title</label>
-        <input type="text" class="form-control" id="firstName" required>
-        <div class="invalid-feedback">
-          Please enter BLOG title.
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label for="address" class="form-label">POST PER PAGE</label>
-        <input type="number" class="form-control" id="post_per_page" required>
-        <div class="invalid-feedback">
-          Please enter post per page.
-        </div>
-      </div>
-
-      <div class="col-md-12">
-        <label for="profilePic" class="form-label">Upload Background Image</label>
-        <input type="file" class="form-control" id="profilePic" required>
-        <div class="invalid-feedback">
-          Please upload a Background Image.
-        </div>
-      </div>
-      <div class="col-12">
-        <button class="btn btn-primary mx-5" type="submit" onclick="register()">ADD BLOG</button>
-      </div>
-      <br>
-    </form> -->
-
-    <!-- all Comments -->
   </div>
 
   <?php require_once("../General/footer.php") ?>

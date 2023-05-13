@@ -81,6 +81,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Top Stories -->
             <div class="col-md-6">
                 <div class="row">
                     <center>
@@ -106,6 +107,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Top Stories End -->
         </div>
     </div>
 
@@ -123,7 +125,6 @@
                         <div class="col-md-12 position-relative">
                             <label for="validationTooltipUsername" class="form-label">Email</label>
                             <div class="input-group has-validation">
-                                <!-- <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span> -->
                                 <input type="email" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
                                 <div class="invalid-tooltip">
                                     Please choose a unique and valid username.

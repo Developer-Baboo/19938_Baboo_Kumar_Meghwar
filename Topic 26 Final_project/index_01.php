@@ -34,6 +34,21 @@
 </head>
 
 <body>
+    <div>
+            <?php 
+                if(isset($_GET['msg']))
+                {
+                    ?>
+                        <center>
+                            <h1 style="background-color: <?php echo $_GET['color']; ?>">
+                            <?php echo $_GET['msg']; ?>
+                            </h1>
+                        </center>
+                    <?php
+                }
+
+            ?>
+        </div>
     <!-- 1nd nav start -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">

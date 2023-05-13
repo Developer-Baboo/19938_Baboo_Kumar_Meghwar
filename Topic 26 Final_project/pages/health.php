@@ -26,6 +26,7 @@
                     </button>
                 </div>
             </div>
+            <!-- Trending Posts Section -->
             <div class="col-md-4">
                 <div class="row">
                     <center>
@@ -51,10 +52,13 @@
                     </div>
                 </div>
             </div>
+            <!-- Trending Posts Section End -->
         </div>
     </div>
     <marquee style="color:green; font-size: 20px; background-color: white; ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel dolorum cupiditate delectus </marquee>
     <!-- Slider End -->
+
+    <!-- News Sections Start -->
     <div class="container mt-10">
         <div class="row">
             <div class="col-md-6">
@@ -109,7 +113,8 @@
             </div>
         </div>
     </div>
-    <!-- Slider End -->
+    <!-- News Sections End -->
+
     <!-- Login Model Here -->
     <div class="modal fade" id="staticBackdropLogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -152,6 +157,7 @@
         </div>
     </div>
     <!-- login model end -->
+    
     <!-- Modal Contact Us -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">

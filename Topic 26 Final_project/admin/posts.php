@@ -131,15 +131,12 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
         </div>
       </main>
     </div>
-    <!-- /END SIDE BAR/ -->
+    <!-- SIDE BAR End -->
 
     <div class="col-lg-8 col-md-8">
       <div class="row">
+        <!-- Add Post Modal -->
         <div class="col-md-12">
-          <div>
-            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button> -->
-
-          </div>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content" style="width: 100%">
@@ -209,19 +206,11 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
 
             </div>
           </div>
-
         </div>
-
-
-
-        <div class class="row">
-
+        <!-- Add Post Modal End -->
+        <div class="row">
           <!-- view post model -->
           <div class="col-md-12">
-            <div>
-              <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button> -->
-
-            </div>
             <div class="modal fade" id="viewPOstModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content" style="width: 100%">
@@ -245,9 +234,10 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
 
               </div>
             </div>
-
           </div>
           <!-- view post model end -->
+          
+          <!-- Post Table -->
           <div style="margin-left:-10px;" class="col-lg-12 col-md-12">
             <center>
               <span><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button></span>
@@ -450,10 +440,10 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
               </div>
             </div>
           </div>
+          <!-- Post Modal Table -->
         </div>
       </div>
     </div>
-
   </div>
   <?php require_once("../General/footer.php") ?>
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>

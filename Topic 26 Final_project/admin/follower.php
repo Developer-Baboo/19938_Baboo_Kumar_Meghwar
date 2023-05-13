@@ -123,6 +123,9 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
         </div>
       </main>
     </div>
+    <!-- Side Bar End Here -->
+
+    <!-- Follower Table Start -->
     <div class="col-lg-8 col-md-8">
       <center>
 
@@ -177,8 +180,8 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
         </table>
       </div>
     </div>
+    <!-- Follower Table End Here -->
   </div>
-  <!-- Footer Start-->
   <?php require_once("../General/footer.php") ?>
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
   <script>

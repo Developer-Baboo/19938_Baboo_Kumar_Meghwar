@@ -127,9 +127,10 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
         </div>
       </main>
     </div>
-    <!-- /END SIDE BAR/ -->
+    <!-- SIDE BAR End -->
     <div class="col-lg-8 col-md-8">
       <div class="row">
+        <!-- Add Category Modal -->
         <div class="col-md-12">
           <div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW Category</button>
           </div>
@@ -171,6 +172,9 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
             </div>
           </div>
         </div>
+      <!-- Add Category Modal End -->
+
+      <!-- Category data table -->
         <div class="row">
           <div class="col-md-12">
             <center>
@@ -291,12 +295,10 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
             </div>
           </div>
         </div>
+        <!-- Category Data table end -->
       </div>
     </div>
   </div>
-  <!-- all end users -->
-  <!-- Nav End Here -->
-  <!-- Footer Start-->
 
   <?php require_once("../General/footer.php") ?>
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
