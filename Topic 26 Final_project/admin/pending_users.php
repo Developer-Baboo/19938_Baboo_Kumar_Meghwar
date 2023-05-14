@@ -71,20 +71,25 @@ $query = "SELECT * FROM user WHERE user_id = $user_id";
 $result = mysqli_query($connection, $query);
 
 if ($row = mysqli_fetch_assoc($result)) {
-//Read an HTML message body
-$msg1 = "<b style='color:green'>Congratulations Dear....! Your Account has been Approved Successfully Now you can Login into Your Account <br/> Here is Your Login Details:";
-$msg2 = $row['email'];
-// $msg .= "jhjkhkjhkj";
-$msg3 = $row['password']
+    //Read an HTML message body
+    $msg1 = "<div style='background-color: #f1f1f1; padding: 20px; border-radius: 5px;'>
+            <h2 style='color: green; text-align: center;'>Congratulations, Dear!</h2>
+            <p>Your account has been approved successfully. Now you can login to your account.</p>
+            <h3 style='color: #555;'>Here are your login details:</h3>
+            <ul style='list-style-type: none; padding: 0;'>
+                <li><strong>Email:</strong> " . $row['email'] . "</li>
+                <li><strong>Password:</strong> " . $row['password'] . "</li>
+            </ul>
+            <p style='text-align: center; margin-top: 30px;'>Thank you for joining our platform!</p>
+        </div>";
 
-$final_message = $msg1.$msg2.$msg3;
-
-
-$mail->msgHTML("$final_message");
+    $mail->Body = $msg1;
+    $mail->IsHTML(true);
 }
 
 //Attach an image file (optional)
-//$mail->addAttachment('images/img.jpg');
+$mail->addAttachment('../images/cong.jpg');
+$mail->addAttachment('../images/appoval_latter.txt');
 //send the message, check for errors
 if (!$mail->send()) {
     echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -92,7 +97,6 @@ if (!$mail->send()) {
     //echo 'Message sent!';
 }
 
-// $user_id = $_GET['reject'];
 $fetchQuery = "SELECT * FROM user WHERE user_id = $user_id";
 $result = mysqli_query($connection, $fetchQuery);
 if (mysqli_num_rows($result) > 0) {
@@ -101,7 +105,12 @@ $updateQuery = "UPDATE user SET is_approved = 'approved' WHERE user_id = $user_i
 mysqli_query($connection, $updateQuery);
 }
   }
+// approved user code end
+
+
+// reject user code
 if (isset($_GET['reject'])) {
+  $user_id = $_GET['reject'];
  /**
  * This example shows settings to use when sending via Google's Gmail servers.
  * This uses traditional id & password authentication - look at the gmail_xoauth.phps
@@ -147,17 +156,33 @@ $mail->addReplyTo('babookumar15@gmail.com', 'Developer Baboo');
 $mail->addAddress('babookumar15@gmail.com', 'Developer Baboo');
 //Set the subject line
 $mail->Subject = 'Account Rejection';
-//Read an HTML message body
-$mail->msgHTML("<b style='color:red' >We Are Sorry...! Your Account been Rejected Due to Missing Requirement");
-//Attach an image file (optional)
-//$mail->addAttachment('images/img.jpg');
-//send the message, check for errors
-if (!$mail->send()) {
+  //Read an HTML message body
+  $query = "SELECT * FROM user WHERE user_id = $user_id";
+  $result = mysqli_query($connection, $query);
+
+  if ($row = mysqli_fetch_assoc($result)) {
+    //Read an HTML message body
+    $msg1 = "<div style='background-color: #f1f1f1; padding: 20px; border-radius: 5px;'>
+            <h2 style='color: red; text-align: center;'>Account Rejection Notification</h2>
+            <p>Dear User,</p>
+            <p>We regret to inform you that your account has been rejected by the admin.</p>
+            <p>Please contact our support team for further assistance.</p>
+            <p style='text-align: center; margin-top: 30px;'>Thank you.</p>
+        </div>";
+
+    $mail->Body = $msg1;
+    $mail->IsHTML(true);
+  }
+
+  //Attach an image file (optional)
+  $mail->addAttachment('../images/rej.png');
+  $mail->addAttachment('../images/rejection_latter.txt');
+  //send the message, check for errors
+  if (!$mail->send()) {
     echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'Message sent!';
-}  
-$user_id = $_GET['reject'];
+  } else {
+    //echo 'Message sent!';
+  }
 $fetchQuery = "SELECT * FROM user WHERE user_id = $user_id";
 $result = mysqli_query($connection, $fetchQuery);
 if (mysqli_num_rows($result) > 0) {
@@ -167,7 +192,7 @@ mysqli_query($connection, $updateQuery);
 }
 }
 ?>
-<!-- Approve User Code Code End -->
+<!-- Reject User Code Code End -->
 <?php
 // include("../require/connection.php");
 

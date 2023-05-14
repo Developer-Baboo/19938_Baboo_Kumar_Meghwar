@@ -2,15 +2,12 @@ prepared statement
 server side validation
 responsive tables
 email sending
-active and inactive
+active and inactive the email sending
 admin and can edit user information
 User can edit profile
 ajax, code comment with alignment 
-12,13,14
 show ui to sir and suggestions
-
-
-
+if user(check) thencheck approved or not and then active or not
 
 exceptions
 OOP
