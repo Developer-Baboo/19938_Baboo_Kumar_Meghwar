@@ -147,8 +147,8 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
       <div class="row">
         <!-- Add Blog Modal -->
         <div class="col-md-12">
-          <div><button style="margin-top: 200px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD BLOG</button>
-          </div>
+          <!-- <div>
+          </div> -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content" style="width: 100%">
@@ -195,9 +195,14 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
       <!-- Table Data start here -->
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-          <center>
-            <h1>ALL Created BLOGS </h1>
-          </center>
+          <div class="row">
+            <div class="col-lg-6">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD BLOG</button>
+            </div>
+            <div class="col-lg-6">
+                <h1>ALL Created BLOGS </h1>
+            </div>
+          </div>
           <div class="table-responsive">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
               <thead>

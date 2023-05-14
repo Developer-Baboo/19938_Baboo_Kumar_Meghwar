@@ -3,8 +3,8 @@ session_start();
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
-    header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
+if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
+  header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
 <!doctype html>
@@ -84,19 +84,19 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
             </li>
 
             <div style="margin-left: 15px" class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../images/icons/user.svg" width="10%" height="10%">
-              <strong>Manage Users</strong>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="./approved_users.php"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Approved Users</a></li>
-              <li><a class="dropdown-item" href="pending_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
-              <li>
-                <i class="fas fa-angle-right"></i>
-                <a class="dropdown-item" href="rejected_users.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
-              </li>
-            </ul>
-          </div>
+              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../images/icons/user.svg" width="10%" height="10%">
+                <strong>Manage Users</strong>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="./approved_users.php"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Approved Users</a></li>
+                <li><a class="dropdown-item" href="pending_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
+                <li>
+                  <i class="fas fa-angle-right"></i>
+                  <a class="dropdown-item" href="rejected_users.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
+                </li>
+              </ul>
+            </div>
 
 
 
@@ -155,7 +155,7 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
     <!-- Dashboard body -->
     <div class="col-lg-8 col-md-8">
       <div class="row">
-        <div style="margin-top: 10px"  class="card" style="width: 18rem;">
+        <div style="margin-top: 10px" class="card" style="width: 18rem;">
           <img class="card-img-top" src="..." alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
@@ -170,7 +170,7 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
-      </div>
+        </div>
       </div>
       <div class="row">
         <div class="col-md-6 border rounded shadow-lg my-5">
@@ -188,4 +188,5 @@ if (!isset($_SESSION['Admin']['role_type']) =='Admin') {
   <script src="../bootstrap-5.0.2-examples/assets/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../bootstrap-5.0.2-examples/sidebars/sidebars.js"></script>
 </body>
+
 </html>

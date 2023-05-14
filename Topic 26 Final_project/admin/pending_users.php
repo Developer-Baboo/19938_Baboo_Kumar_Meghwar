@@ -22,55 +22,55 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
 if (isset($_GET['approve'])) {
   $user_id = $_GET['approve'];
   /**
- * This example shows settings to use when sending via Google's Gmail servers.
- * This uses traditional id & password authentication - look at the gmail_xoauth.phps
- * example to see how to use XOAUTH2.
- * The IMAP section shows how to save this message to the 'Sent Mail' folder using IMAP commands.
- */
-//Import PHPMailer classes into the global namespace
-
-  
-
-//Create a new PHPMailer instance
-$mail = new PHPMailer();
-//Tell PHPMailer to use SMTP
-$mail->isSMTP();
-
-//Enable SMTP debugging
-// SMTP::DEBUG_OFF = off (for production use)
-// SMTP::DEBUG_CLIENT = client messages
-// SMTP::DEBUG_SERVER = client and server messages
-//$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-//Set the hostname of the mail server
-$mail->Host = 'smtp.gmail.com';
-// use
-// $mail->Host = gethostbyname('smtp.gmail.com');
-// if your network does not support SMTP over IPv6
-//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-$mail->Port = 587;
-//Set the encryption mechanism to use - STARTTLS or SMTPS
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-//Whether to use SMTP authentication
-$mail->SMTPAuth = true;
-//Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = 'babookumar15@gmail.com';
-//Password to use for SMTP authentication
-$mail->Password = 'aawgarezfgobzaoh';
+   * This example shows settings to use when sending via Google's Gmail servers.
+   * This uses traditional id & password authentication - look at the gmail_xoauth.phps
+   * example to see how to use XOAUTH2.
+   * The IMAP section shows how to save this message to the 'Sent Mail' folder using IMAP commands.
+   */
+  //Import PHPMailer classes into the global namespace
 
 
-//Set who the message is to be sent from
-$mail->setFrom('babookumar15@gmail.com', 'Developer Baboo');
-//Set an alternative reply-to address
-$mail->addReplyTo('babookumar15@gmail.com', 'Developer Baboo');
-//Set who the message is to be sent to
-$mail->addAddress('babookumar15@gmail.com', 'Developer Baboo');
-//Set the subject line
-$mail->Subject = 'Account Approval Message';
 
-$query = "SELECT * FROM user WHERE user_id = $user_id";
-$result = mysqli_query($connection, $query);
+  //Create a new PHPMailer instance
+  $mail = new PHPMailer();
+  //Tell PHPMailer to use SMTP
+  $mail->isSMTP();
 
-if ($row = mysqli_fetch_assoc($result)) {
+  //Enable SMTP debugging
+  // SMTP::DEBUG_OFF = off (for production use)
+  // SMTP::DEBUG_CLIENT = client messages
+  // SMTP::DEBUG_SERVER = client and server messages
+  //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+  //Set the hostname of the mail server
+  $mail->Host = 'smtp.gmail.com';
+  // use
+  // $mail->Host = gethostbyname('smtp.gmail.com');
+  // if your network does not support SMTP over IPv6
+  //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+  $mail->Port = 587;
+  //Set the encryption mechanism to use - STARTTLS or SMTPS
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  //Whether to use SMTP authentication
+  $mail->SMTPAuth = true;
+  //Username to use for SMTP authentication - use full email address for gmail
+  $mail->Username = 'babookumar15@gmail.com';
+  //Password to use for SMTP authentication
+  $mail->Password = 'aawgarezfgobzaoh';
+
+
+  //Set who the message is to be sent from
+  $mail->setFrom('babookumar15@gmail.com', 'Developer Baboo');
+  //Set an alternative reply-to address
+  $mail->addReplyTo('babookumar15@gmail.com', 'Developer Baboo');
+  //Set who the message is to be sent to
+  $mail->addAddress('babookumar15@gmail.com', 'Developer Baboo');
+  //Set the subject line
+  $mail->Subject = 'Account Approval Message';
+
+  $query = "SELECT * FROM user WHERE user_id = $user_id";
+  $result = mysqli_query($connection, $query);
+
+  if ($row = mysqli_fetch_assoc($result)) {
     //Read an HTML message body
     $msg1 = "<div style='background-color: #f1f1f1; padding: 20px; border-radius: 5px;'>
             <h2 style='color: green; text-align: center;'>Congratulations, Dear!</h2>
@@ -85,77 +85,77 @@ if ($row = mysqli_fetch_assoc($result)) {
 
     $mail->Body = $msg1;
     $mail->IsHTML(true);
-}
-
-//Attach an image file (optional)
-$mail->addAttachment('../images/cong.jpg');
-$mail->addAttachment('../images/appoval_latter.txt');
-//send the message, check for errors
-if (!$mail->send()) {
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    //echo 'Message sent!';
-}
-
-$fetchQuery = "SELECT * FROM user WHERE user_id = $user_id";
-$result = mysqli_query($connection, $fetchQuery);
-if (mysqli_num_rows($result) > 0) {
-// User exists, update the status to "rejected"
-$updateQuery = "UPDATE user SET is_approved = 'approved' WHERE user_id = $user_id";
-mysqli_query($connection, $updateQuery);
-}
   }
+
+  //Attach an image file (optional)
+  $mail->addAttachment('../images/cong.jpg');
+  $mail->addAttachment('../images/appoval_latter.txt');
+  //send the message, check for errors
+  if (!$mail->send()) {
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+  } else {
+    //echo 'Message sent!';
+  }
+
+  $fetchQuery = "SELECT * FROM user WHERE user_id = $user_id";
+  $result = mysqli_query($connection, $fetchQuery);
+  if (mysqli_num_rows($result) > 0) {
+    // User exists, update the status to "rejected"
+    $updateQuery = "UPDATE user SET is_approved = 'approved' WHERE user_id = $user_id";
+    mysqli_query($connection, $updateQuery);
+  }
+}
 // approved user code end
 
 
 // reject user code
 if (isset($_GET['reject'])) {
   $user_id = $_GET['reject'];
- /**
- * This example shows settings to use when sending via Google's Gmail servers.
- * This uses traditional id & password authentication - look at the gmail_xoauth.phps
- * example to see how to use XOAUTH2.
- * The IMAP section shows how to save this message to the 'Sent Mail' folder using IMAP commands.
- */
-//Import PHPMailer classes into the global namespace
-
-  
-
-//Create a new PHPMailer instance
-$mail = new PHPMailer();
-//Tell PHPMailer to use SMTP
-$mail->isSMTP();
-
-//Enable SMTP debugging
-// SMTP::DEBUG_OFF = off (for production use)
-// SMTP::DEBUG_CLIENT = client messages
-// SMTP::DEBUG_SERVER = client and server messages
-//$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-//Set the hostname of the mail server
-$mail->Host = 'smtp.gmail.com';
-// use
-// $mail->Host = gethostbyname('smtp.gmail.com');
-// if your network does not support SMTP over IPv6
-//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-$mail->Port = 587;
-//Set the encryption mechanism to use - STARTTLS or SMTPS
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-//Whether to use SMTP authentication
-$mail->SMTPAuth = true;
-//Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = 'babookumar15@gmail.com';
-//Password to use for SMTP authentication
-$mail->Password = 'aawgarezfgobzaoh';
+  /**
+   * This example shows settings to use when sending via Google's Gmail servers.
+   * This uses traditional id & password authentication - look at the gmail_xoauth.phps
+   * example to see how to use XOAUTH2.
+   * The IMAP section shows how to save this message to the 'Sent Mail' folder using IMAP commands.
+   */
+  //Import PHPMailer classes into the global namespace
 
 
-//Set who the message is to be sent from
-$mail->setFrom('babookumar15@gmail.com', 'Developer Baboo');
-//Set an alternative reply-to address
-$mail->addReplyTo('babookumar15@gmail.com', 'Developer Baboo');
-//Set who the message is to be sent to
-$mail->addAddress('babookumar15@gmail.com', 'Developer Baboo');
-//Set the subject line
-$mail->Subject = 'Account Rejection';
+
+  //Create a new PHPMailer instance
+  $mail = new PHPMailer();
+  //Tell PHPMailer to use SMTP
+  $mail->isSMTP();
+
+  //Enable SMTP debugging
+  // SMTP::DEBUG_OFF = off (for production use)
+  // SMTP::DEBUG_CLIENT = client messages
+  // SMTP::DEBUG_SERVER = client and server messages
+  //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+  //Set the hostname of the mail server
+  $mail->Host = 'smtp.gmail.com';
+  // use
+  // $mail->Host = gethostbyname('smtp.gmail.com');
+  // if your network does not support SMTP over IPv6
+  //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+  $mail->Port = 587;
+  //Set the encryption mechanism to use - STARTTLS or SMTPS
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  //Whether to use SMTP authentication
+  $mail->SMTPAuth = true;
+  //Username to use for SMTP authentication - use full email address for gmail
+  $mail->Username = 'babookumar15@gmail.com';
+  //Password to use for SMTP authentication
+  $mail->Password = 'aawgarezfgobzaoh';
+
+
+  //Set who the message is to be sent from
+  $mail->setFrom('babookumar15@gmail.com', 'Developer Baboo');
+  //Set an alternative reply-to address
+  $mail->addReplyTo('babookumar15@gmail.com', 'Developer Baboo');
+  //Set who the message is to be sent to
+  $mail->addAddress('babookumar15@gmail.com', 'Developer Baboo');
+  //Set the subject line
+  $mail->Subject = 'Account Rejection';
   //Read an HTML message body
   $query = "SELECT * FROM user WHERE user_id = $user_id";
   $result = mysqli_query($connection, $query);
@@ -183,13 +183,13 @@ $mail->Subject = 'Account Rejection';
   } else {
     //echo 'Message sent!';
   }
-$fetchQuery = "SELECT * FROM user WHERE user_id = $user_id";
-$result = mysqli_query($connection, $fetchQuery);
-if (mysqli_num_rows($result) > 0) {
-// User exists, update the status to "rejected"
-$updateQuery = "UPDATE user SET is_approved = 'rejected' WHERE user_id = $user_id";
-mysqli_query($connection, $updateQuery);
-}
+  $fetchQuery = "SELECT * FROM user WHERE user_id = $user_id";
+  $result = mysqli_query($connection, $fetchQuery);
+  if (mysqli_num_rows($result) > 0) {
+    // User exists, update the status to "rejected"
+    $updateQuery = "UPDATE user SET is_approved = 'rejected' WHERE user_id = $user_id";
+    mysqli_query($connection, $updateQuery);
+  }
 }
 ?>
 <!-- Reject User Code Code End -->
@@ -458,26 +458,30 @@ if (isset($_REQUEST['register'])) {
               </thead>
               <?php
               while ($row = mysqli_fetch_assoc($result)) {
+                // var_dump($row);
+                if ($row['role_id'] !== 1) {
+                  // print_r($row);
               ?>
-                <tbody>
-                  <tr>
-                    <td><img src="../images/<?php echo $row['user_image'] ?>" width="50px" style="border-radius: 50px"></td>
-                    <td><?php echo $row['first_name'] ?></td>
-                    <td><?php echo $row['last_name'] ?></td>
-                    <td><?php echo $row['email'] ?></td>
-                    <td><?php echo $row['address'] ?></td>
-                    <td><?php echo $row['role_type'] ?></td>
-                    <?php
-                    echo "<td>
-                        <a href=?approve='" . $row['user_id'] . "' class='btn-approve'>Approve</a>
-                        <a href=?reject='" . $row['user_id'] . "' class='btn-reject'>Reject</a>
-                      </td>";
-                    ?>
-                    <td style=" color:red; ">Pending</td>
-                    <td><?php echo $row['created_at'] ?></td>
-                  </tr>
-                </tbody>
+                  <tbody>
+                    <tr>
+                      <td><img src="../images/<?php echo $row['user_image'] ?>" width="50px" style="border-radius: 50px"></td>
+                      <td><?php echo $row['first_name'] ?></td>
+                      <td><?php echo $row['last_name'] ?></td>
+                      <td><?php echo $row['email'] ?></td>
+                      <td><?php echo $row['address'] ?></td>
+                      <td><?php echo $row['role_type'] ?></td>
+                      <?php
+                      echo "<td>
+                  <a href=?approve='" . $row['user_id'] . "' class='btn-approve'>Approve</a>
+              <a href=?reject='" . $row['user_id'] . "' class='btn-reject'>Reject</a>
+            </td>";
+                      ?>
+                      <td style="color:red;">Pending</td>
+                      <td><?php echo $row['created_at'] ?></td>
+                    </tr>
+                  </tbody>
               <?php
+                }
               }
               ?>
             </table>
