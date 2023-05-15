@@ -212,23 +212,24 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
           <!-- view post model -->
           <div class="col-md-12">
             <div class="modal fade" id="viewPOstModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content" style="width: 100%">
+              <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;">
+                <div class="modal-content">
                   <div class="modal-header">
                     <center>
-                      <h3 style="font-family: times;color: green; text-align: center; ">View POST</h3>
+                      <h3 style="font-family: times; color: green; text-align: center;">View POST</h3>
                     </center>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
-                    <h1>Post Id : 01</h1>
-                    <h1>Blog Id : 01</h1>
-                    <h1>Post Title: Blockchin</h1>
-                    <h1>Post Summary</h1>
-                    <p> lorem lsdfj lsdkjf lksdjfl lksdjfl lksdjf ls sdlkfjlsdjflsdkjflskdflskdjflskdjflskdjflsdkjflds kdsjfljsd ksdjflsdj sdlkfsld lkdsjfl ksldjfl lksdjfl kdsjf </p>
-                    <h1>Post Description</h1>
-                    <p> lorem lsdfj lsdkjf lksdjfl lksdjfl lksdjf ls sdlkfjlsdjflsdkjflskdflskdjflskdjflskdjflsdkjflds kdsjfljsd ksdjflsdj sdlkfsld lkdsjfl ksldjfl lksdjfl kdsjf </p>
-                    <h1>Image</h1>
+                  <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+                    <h1 style="font-size: 24px; font-weight: bold;">Post Id: 01</h1>
+                    <h1 style="font-size: 24px; font-weight: bold;">Blog Id: 01</h1>
+                    <h1 style="font-size: 24px; font-weight: bold;">Post Title: Blockchain</h1>
+                    <h1 style="font-size: 24px; font-weight: bold;">Post Summary</h1>
+                    <p style="font-size: 16px; line-height: 1.5; text-align: justify; ">Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator</p>
+                    <h1 style="font-size: 24px; font-weight: bold; ">Post Description</h1>
+                    <p style="font-size: 16px; line-height: 1.5; text-align: justify">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+                    <h1 style="font-size: 24px; font-weight: bold;">Image</h1>
+                    <img src="../images/12.jpg" alt="" height="100%" width="100%" >
                   </div>
                 </div>
 
@@ -236,7 +237,7 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
             </div>
           </div>
           <!-- view post model end -->
-          
+
           <!-- Post Table -->
           <div style="margin-left:-10px;" class="col-lg-12 col-md-12">
             <center>

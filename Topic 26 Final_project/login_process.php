@@ -14,19 +14,24 @@ if (isset($_REQUEST['login'])) {
             $_SESSION['Admin'] = $row;
             header("Location:./admin/admin_dashboard.php");
         }
-        else if ($row['role_id'] == 2){
+        if ($row['role_id'] == 2) {
             $_SESSION['User'] = $row;
-            if($row['is_approved'] == 'Approved')
-            {
-                header("Location:./user/index.php");
+            if ($row['is_approved'] == 'Approved') {
+                if ($row['is_active'] === 'Active') {
+                    header("Location: ./user/index.php");
+                } elseif($row['is_active'] === 'InActive') {
+                    header("Location: ./index_01.php?color=red&msg=You are not activated yet by the administrator");
+                }
+            } else if ($row['is_approved'] == 'Rejected'){
+                header("Location: ./index_01.php?color=red&msg=You are Rejected by the administrator");
+            } else if ($row['is_approved'] == 'Pending') {
+                header("Location: ./index_01.php?color=red&msg= You can't login Because you are in Pending");
             }
-            else{
-                header("Location:./login.php?msg = You are not Approved by administrator");
-            }
-            header("Location:./user/index.php");       
         }
     } else {
-        echo " <h6 style='color:red;font-family:times'>Invalid Email or Password</h6> ";
+        // $msg = "Invalid email or password";
+        // $color="red";
+        header("Location:./index_01.php?msg = Invalid email or password");
     }
 }
 ?>
