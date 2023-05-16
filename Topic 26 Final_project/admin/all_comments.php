@@ -247,5 +247,23 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
       });
     });
   </script>
+  <script>
+    // Get all the navigation links
+    var navLinks = document.querySelectorAll("#navList .nav-link");
+
+    // Add a click event listener to each navigation link
+    navLinks.forEach(function(navLink) {
+      navLink.addEventListener("click", function(event) {
+        // Remove the "active" class from all navigation links
+        navLinks.forEach(function(link) {
+          link.classList.remove("active");
+        });
+
+        // Assign the "active" class to the clicked navigation link
+        this.classList.add("active");
+      });
+    });
+  </script>
 </body>
+
 </html>

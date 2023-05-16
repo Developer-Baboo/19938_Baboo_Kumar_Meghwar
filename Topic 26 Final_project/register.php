@@ -1,5 +1,5 @@
 <?php
-include("../10_may/require/connection.php");
+include("require/connection.php");
 
 if (isset($_REQUEST['register'])) {
   if (isset($_FILES['upload'])) {

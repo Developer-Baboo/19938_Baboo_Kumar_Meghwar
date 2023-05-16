@@ -7,6 +7,9 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
   header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
+<?php
+include("../require/connection.php");
+?>
 <!doctype html>
 <html lang="en">
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -47,9 +50,20 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
   <!-- Custom styles for this template -->
   <link href="sidebars.css" rel="stylesheet">
   <link rel="stylesheet" href="../bootstrap-5.0.2-examples/sidebars/sidebars.css">
+
 </head>
 
 <body>
+  <?php
+  if (isset($_GET["user_id"])) {
+    $user_id = $_GET["user_id"];
+    $query = "SELECT * FROM user WHERE user_id = $user_id";
+    $result = mysqli_query($connection, $query);
+    $row = mysqli_fetch_assoc($result);
+  ?>
+  <?php
+  }
+  ?>
   <div class="row">
     <!-- Sider bar  -->
     <div class="col-lg-4 col-md-4">
@@ -62,7 +76,7 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
             <span class="fs-10">Online Blogging Application</span>
           </a>
           <hr>
-          <ul class="nav nav-pills flex-column mb-auto">
+          <ul class="nav nav-pills flex-column mb-auto" id="navList">
             <li>
 
               <a href="admin_dashboard.php" class="nav-link text-white">
@@ -71,7 +85,7 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
               </a>
             </li>
             <li class="nav-item">
-              <a href="posts.php" class="nav-link active" aria-current="page">
+              <a href="posts.php" class="nav-link" aria-current="page">
                 <img src="../images/icons/post.svg" width="10%" height="10%">
                 MANAGE POSTS
               </a>
@@ -134,8 +148,9 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
           <hr>
           <div style="padding-top: 100px;" class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../images/profile_image_1683396936.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
-              <strong>Baboo Kumar</strong>
+              <img src="../images/<?php echo $row['user_image'] ?>" width="32px" height="32" class="rounded-circle me-2">
+              <!-- <img src="../images/profile_image_1683396936.jpeg" alt="" width="32" height="32" class="rounded-circle me-2"> -->
+              <strong><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
               <li><a class="dropdown-item" href="#"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Settings</a></li>
@@ -187,6 +202,24 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
   <?php require_once("../General/footer.php") ?>
   <script src="../bootstrap-5.0.2-examples/assets/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../bootstrap-5.0.2-examples/sidebars/sidebars.js"></script>
+
+  <script>
+    // Get all the navigation links
+    var navLinks = document.querySelectorAll("#navList .nav-link");
+
+    // Add a click event listener to each navigation link
+    navLinks.forEach(function(navLink) {
+      navLink.addEventListener("click", function(event) {
+        // Remove the "active" class from all navigation links
+        navLinks.forEach(function(link) {
+          link.classList.remove("active");
+        });
+
+        // Assign the "active" class to the clicked navigation link
+        this.classList.add("active");
+      });
+    });
+  </script>
 </body>
 
 </html>

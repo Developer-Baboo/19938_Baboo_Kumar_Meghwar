@@ -459,7 +459,7 @@ if (isset($_REQUEST['register'])) {
               <?php
               while ($row = mysqli_fetch_assoc($result)) {
                 // var_dump($row);
-                // if ($row['role_id'] !== 1) {
+                if ($row['role_id'] == 2) {
                   // print_r($row);
               ?>
                   <tbody>
@@ -481,7 +481,7 @@ if (isset($_REQUEST['register'])) {
                     </tr>
                   </tbody>
               <?php
-                // }
+                }
               }
               ?>
             </table>

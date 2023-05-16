@@ -194,7 +194,7 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `role_id` int(11) DEFAULT NULL,
+  `role_id` int(11) DEFAULT 2,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
@@ -210,7 +210,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`user_id`),
   KEY `role_id` (`role_id`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
 
@@ -219,10 +219,13 @@ insert  into `user`(`user_id`,`role_id`,`first_name`,`last_name`,`email`,`passwo
 (8,2,'Akash','Kumar','akash@gmail.com','12345','Male','2002-02-02','profile_image_1683397041.png','Diplo Tharparkar','Approved','Active','2023-05-11 17:34:33',NULL),
 (9,2,'Arti','Kumari','arti@gmail.com','12345','Female','2001-01-01','profile_image_1683397142.png','Umerkot Sindh','Approved','Active','2023-05-11 17:39:51',NULL),
 (10,2,'Rabia','Ansari','rabia@gmail.com','12345','Male','3003-03-31','profile_image_1683398105.png','Hyderabad Sindh','Rejected','Active','2023-05-12 01:24:58',NULL),
-(11,2,'Aneel','Kumar','babookumar15@gmail.com','12345','Male','2023-04-05','profile_image_1683597295.jpg','Digri Umerkot ','Pending','Active','2023-05-13 12:40:50',NULL),
-(12,2,'Sangeeta','Kumari','sangeeta@gmail.com','12345','Female','2008-01-09','profile_image_1683597487.png','Hyderabad Sindh','Pending','Active','2023-05-09 06:59:09',NULL),
-(14,2,'Munesh','Kumar','munesh@gmail.com','12345','Male','2000-06-09','profile_image_1683608137.png','Parmar Colony Mithi','Approved','Active','2023-05-12 14:23:25',NULL),
-(15,2,'Parkash','Kumar','parkash@gmail.com','12345','Male','1111-01-01','profile_image_1683883524.jpeg','Dharmani Colony Mith ','Approved','Active','2023-05-13 10:11:56',NULL);
+(11,2,'Aneel','Kumar','babookumar15@gmail.com','12345','Male','2023-04-05','profile_image_1683597295.jpg','Digri Umerkot ','Pending','Active','2023-05-15 14:44:29',NULL),
+(12,2,'Sangeeta','Kumari','sangeeta@gmail.com','12345','Female','2008-01-09','profile_image_1683597487.png','Hyderabad Sindh','Rejected','Active','2023-05-14 17:46:39',NULL),
+(14,2,'Munesh','Kumar','munesh@gmail.com','12345','Male','2000-06-09','profile_image_1683608137.png','Parmar Colony Mithi','Rejected','Active','2023-05-14 17:46:45',NULL),
+(15,2,'Parkash','Kumar','parkash@gmail.com','12345','Male','1111-01-01','profile_image_1683883524.jpeg','Dharmani Colony Mith ','Approved','InActive','2023-05-14 22:56:46',NULL),
+(16,2,'Mohan',' Lal','mohan@gmail.com','12345','Male','2000-07-07','profile_image_1684065448.png','New Kot Sindh pakistan','Pending','Active','2023-05-14 17:41:34',NULL),
+(18,2,'Naima','Ansari','naima@gmail.com','12345','Male','6000-06-06','profile_image_1684118799.png','Marvi Town Hyderabad','Pending','Active','2023-05-15 07:46:39',NULL),
+(19,1,'Mineeta','Kumari','mineeta@gmail.com','12345','Female','2009-09-09','profile_image_1684150248.png','Chelhar District Tharparkar','Pending','Active','2023-05-15 16:31:37',NULL);
 
 /*Table structure for table `user_feedback` */
 

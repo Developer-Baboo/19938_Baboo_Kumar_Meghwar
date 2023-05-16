@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -34,21 +37,20 @@
 </head>
 
 <body>
-    <div>
-            <?php 
-                if(isset($_GET['msg']))
-                {
-                    ?>
-                        <center>
-                            <h1 style="background-color: <?php echo $_GET['color']; ?>">
-                            <?php echo $_GET['msg']; ?>
-                            </h1>
-                        </center>
-                    <?php
-                }
 
-            ?>
-        </div>
+    <div>
+        <?php
+        if (isset($_GET['msg'])) {
+        ?>
+            <center>
+                <p style="background-color: <?php echo $_GET['color']; ?>">
+                    <?php echo $_GET['msg']; ?>
+                </p>
+            </center>
+        <?php
+        }
+        ?>
+    </div>
     <!-- 1nd nav start -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -62,15 +64,39 @@
                 </div>
             </form>
             <div class="d-flex">
-                <button class="btn btn-outline-secondary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin" style="margin-right: 10px;">Login</button>
-                <button class="btn btn-outline-primary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin"><a class="nav-link active " aria-current="page" href="register.php">Register</a></button>
-                <div class="social-media-icons mx-2">
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-twitter"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                    <a href="#"><i class="bi bi-youtube"></i></a>
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                </div>
+                <?php if (isset($_SESSION['User']['role_type']) && $_SESSION['User']['role_type'] == 'User') {
+                    // var_dump($_SESSION['User']['user_image']);
+                ?>
+                    <!-- User is logged in -->
+                    <div class="logged-in-user">
+                        <span>Welcome, <?php echo $_SESSION['User']['first_name']; ?></span>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="view-profile.php">View Profile</a></li>
+                                <li><a class="dropdown-item" href="change-profile.php">Change Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="./logout.php">Logout</a></li>
+                            </ul>
+                        </div>
+                        <img src="<?php echo $_SESSION['User']['user_image']; ?>" alt="">
+                    </div>
+                <?php } else { ?>
+                    <!-- User is not logged in -->
+                    <button class="btn btn-outline-secondary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin" style="margin-right: 10px;">Login</button>
+                    <button class="btn btn-outline-primary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin"><a class="nav-link active " aria-current="page" href="register.php">Register</a></button>
+                    <div class="social-media-icons mx-2">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </nav>
@@ -168,7 +194,7 @@
     </div>
     <!-- Slider End -->
     <marquee style="color:green; font-size: 20px; background-color: white; ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel dolorum cupiditate delectus </marquee>
-    
+
     <!-- New Section Start-->
     <div class="container mt-10">
         <div class="row">
@@ -241,7 +267,7 @@
                             <label for="validationTooltipUsername" class="form-label">Email</label>
                             <div class="input-group has-validation">
                                 <!-- <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span> -->
-                                <input type="email" name="email"  class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                                <input type="email" name="email" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
                                 <div class="invalid-tooltip">
                                     Please choose a unique and valid username.
                                 </div>

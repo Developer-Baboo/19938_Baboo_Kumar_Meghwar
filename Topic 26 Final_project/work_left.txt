@@ -1,6 +1,17 @@
+****************************************************************************************************************
+admin dashboard have to design
+inactive can't login query ka through hoga
+user login register and login buton don't show user edit is profile(pr reject jis ko qn han un ka nam bhi show ho rha ha)
+side bar active classs
+home page 
+*************************************************************************************************************
+
+
+
 prepared statement
 server side validation
 responsive tables
+forgot password
 email sending
 active and inactive the email sending
 admin and can edit user information
@@ -18,3 +29,37 @@ ajax
 
 Heading and button have to set
 responsive and Table
+
+
+
+
+
+
+
+
+
+<li class="nav-item">
+              <a href="./posts.php" class="nav-link active" aria-current="page">
+                <img src="../images/icons/post.svg" width="10%" height="10%">
+                MANAGE POSTS
+              </a>
+            </li>
+
+
+nav-link active
+
+target using this
+first remove active class
+then assign using current
+
+
+
+
+
+
+
+
+
+
+
+

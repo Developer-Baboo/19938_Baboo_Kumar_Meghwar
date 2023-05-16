@@ -242,12 +242,9 @@ include("../require/connection.php");
                           <td><?php echo $row['address'] ?></td>
                           <td><?php echo $row['date_of_birth'] ?></td>
                           <td><?php echo $row['created_at'] ?></td>
-                          <?php echo $is_active = $row['is_active']; ?>
+                          <?php //echo $is_active = $row['is_active']; ?>
                           <td>
-                            Active:<input type="radio" name="is_active" value="Active" 
-                            <?php if ($is_active == "Active") {?> checked = "true" <?php } ?> /> ||
-                            InActive: <input type="radio" name="is_active" value="InActive" 
-                            <?php if ($is_active == "InActive") {?> checked = "true" <?php } ?> />
+                            <?php echo $row['is_active'] ?>
                           </td>
                           <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Edit</button></td>
                         </tr>
