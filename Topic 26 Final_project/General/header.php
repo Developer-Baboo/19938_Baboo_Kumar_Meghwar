@@ -34,27 +34,52 @@
 </head>
 
 <body>
+    <!-- 1st Nav Bar Start -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="../index_01.php"><img src="../images/logo.png" style="width: 100px;"></a>
             <form class="d-flex mx-auto">
                 <div class="col-sm-12 col-md-8">
-                    <input class="form-control w-100" type="search" placeholder="Search news here" aria-label="Search">
+                    <input class="form-control w-100 search-input" type="search" placeholder="Search news here" aria-label="Search">
                 </div>
                 <div class="col-sm-12 col-md-4 mt-3 mt-md-0">
                     <button class="btn btn-outline-secondary w-100" type="submit"><i class="bi bi-search"></i></button>
                 </div>
             </form>
             <div class="d-flex">
-                <button class="btn btn-outline-secondary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin" style="margin-right: 10px;">Login</button>
-                <button class="btn btn-outline-primary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin"><a class="nav-link active " aria-current="page" href="../register.php">Register</a></button>
-                <div class="social-media-icons mx-2">
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-twitter"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                    <a href="#"><i class="bi bi-youtube"></i></a>
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                </div>
+                <?php if (isset($_SESSION['User']['role_type']) && $_SESSION['User']['role_type'] == 'User') {
+                    // var_dump($_SESSION['User']['user_image']);
+                ?>
+                    <!-- User is logged in -->
+
+                    <!-- update -->
+                    <div class="dropdown" style="margin-right: 90px;" >
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                          <img src="../images/<?php echo $_SESSION['User']['user_image']; ?>" width="32px" height="32" class="rounded-circle me-2">
+                          <strong style="color:black" ><?php echo $_SESSION['User']['first_name'].' '.$_SESSION['User']['last_name']; ?></strong>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-blue text-small shadow" aria-labelledby="dropdownUser1">
+                          <li><a class="dropdown-item" href="#"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Settings</a></li>
+                          <li><a class="dropdown-item" href="../user/edit_profile.php"> <img src="./images/icons/user.svg" width="10%" height="10%"> Edit Profile</a></li>
+                          <li>
+                            <i class="fas fa-angle-right"></i>
+                            <a class="dropdown-item" href="../logout.php"><img src="../images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
+                          </li>
+                        </ul>
+                    </div>
+                    </div>
+                <?php } else { ?>
+                    <!-- User is not logged in -->
+                    <button class="btn btn-outline-secondary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin" style="margin-right: 10px;">Login</button>
+                    <button class="btn btn-outline-primary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin"><a class="nav-link active " aria-current="page" href="../register.php">Register</a></button>
+                    <div class="social-media-icons mx-2">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </nav>

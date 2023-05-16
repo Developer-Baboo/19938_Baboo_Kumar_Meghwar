@@ -21,8 +21,10 @@ if ($result->num_rows) {
                 <th>Lastname</th>
                 <th>Email</th>
                 <th>Role</th>
+                <!-- here -->
                 <th>Status</th>
                 <th>Action</th>
+                <!-- here -->
 
 
             </tr>
@@ -42,6 +44,7 @@ if ($result->num_rows) {
                     <td><?php echo $row['email'] ?></td>
 
                     <td><?php echo $row['role_type'] ?></td>
+                    <!-- here -->
                     <td>
                         <?php
 
@@ -76,6 +79,7 @@ if ($result->num_rows) {
                         ?>
 
                     </td>
+                    <!-- here -->
                 </tr>
             </tbody>
         <?php

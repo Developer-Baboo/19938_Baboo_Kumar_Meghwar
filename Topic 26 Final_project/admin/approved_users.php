@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+//use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
@@ -9,6 +17,96 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
 ?>
 <?php
 include("../require/connection.php");
+?>
+<!-- Approve User Code -->
+<?php
+if (isset($_GET['user_id'])) {
+  $user_id = $_GET['user_id'];
+  /**
+   * This example shows settings to use when sending via Google's Gmail servers.
+   * This uses traditional id & password authentication - look at the gmail_xoauth.phps
+   * example to see how to use XOAUTH2.
+   * The IMAP section shows how to save this message to the 'Sent Mail' folder using IMAP commands.
+   */
+  //Import PHPMailer classes into the global namespace
+
+
+
+  //Create a new PHPMailer instance
+  $mail = new PHPMailer();
+  //Tell PHPMailer to use SMTP
+  $mail->isSMTP();
+
+  //Enable SMTP debugging
+  // SMTP::DEBUG_OFF = off (for production use)
+  // SMTP::DEBUG_CLIENT = client messages
+  // SMTP::DEBUG_SERVER = client and server messages
+  //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+  //Set the hostname of the mail server
+  $mail->Host = 'smtp.gmail.com';
+  // use
+  // $mail->Host = gethostbyname('smtp.gmail.com');
+  // if your network does not support SMTP over IPv6
+  //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+  $mail->Port = 587;
+  //Set the encryption mechanism to use - STARTTLS or SMTPS
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  //Whether to use SMTP authentication
+  $mail->SMTPAuth = true;
+  //Username to use for SMTP authentication - use full email address for gmail
+  $mail->Username = 'babookumar15@gmail.com';
+  //Password to use for SMTP authentication
+  $mail->Password = 'aawgarezfgobzaoh';
+
+
+  //Set who the message is to be sent from
+  $mail->setFrom('babookumar15@gmail.com', 'Developer Baboo');
+  //Set an alternative reply-to address
+  $mail->addReplyTo('babookumar15@gmail.com', 'Developer Baboo');
+  //Set who the message is to be sent to
+  $mail->addAddress('babookumar15@gmail.com', 'Developer Baboo');
+  //Set the subject line
+  $mail->Subject = 'Account Approval Message';
+
+  $query = "SELECT * FROM user WHERE user_id = $user_id";
+  $result = mysqli_query($connection, $query);
+
+  if ($row = mysqli_fetch_assoc($result)) {
+    //Read an HTML message body
+    $msg1 = "<div style='background-color: #f1f1f1; padding: 20px; border-radius: 5px;'>
+            <h2 style='color: green; text-align: center;'>Congratulations, Dear!</h2>
+            <p>Your account has been approved successfully. Now you can login to your account.</p>
+            <h3 style='color: #555;'>Here are your login details:</h3>
+            <ul style='list-style-type: none; padding: 0;'>
+                <li><strong>Email:</strong> " . $row['email'] . "</li>
+                <li><strong>Password:</strong> " . $row['password'] . "</li>
+            </ul>
+            <p style='text-align: center; margin-top: 30px;'>Thank you for joining our platform!</p>
+        </div>";
+
+    $mail->Body = $msg1;
+    $mail->IsHTML(true);
+  }
+
+  //Attach an image file (optional)
+  $mail->addAttachment('../images/cong.jpg');
+  $mail->addAttachment('../images/appoval_latter.txt');
+  //send the message, check for errors
+  if (!$mail->send()) {
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+  } else {
+    //echo 'Message sent!';
+  }
+
+  // $fetchQuery = "SELECT * FROM user WHERE user_id = $user_id";
+  // $result = mysqli_query($connection, $fetchQuery);
+  // if (mysqli_num_rows($result) > 0) {
+  //   // User exists, update the status to "rejected"
+  //   $updateQuery = "UPDATE user SET is_approved = 'approved' WHERE user_id = $user_id";
+  //   mysqli_query($connection, $updateQuery);
+  // }
+}
+// approved user code end
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,94 +140,7 @@ include("../require/connection.php");
 <body>
   <div class="row">
     <!-- Side Bar  -->
-    <div class="col-lg-4 col-md-4">
-      <main>
-        <h1 class="visually-hidden">Sidebars examples</h1>
-
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; background-color: #5DADE2">
-          <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <img src="../images/logo.png" width="50px">
-            <span class="fs-10">Online Blogging Application</span>
-          </a>
-          <hr>
-          <ul class="nav nav-pills flex-column mb-auto">
-            <li>
-
-              <a href="./admin_dashboard.php" class="nav-link text-white">
-                <img src="../images/icons/dashboard.svg" width="10%" height="10%">
-                Admin Dashboard
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="./posts.php" class="nav-link active" aria-current="page">
-                <img src="../images/icons/post.svg" width="10%" height="10%">
-                MANAGE POSTS
-              </a>
-            </li>
-            <li>
-              <a href="category.php" class="nav-link text-white">
-                <img src="../images/icons/category.svg" width="10%" height="10%">
-                MANAGE CATEGORIES
-              </a>
-            </li>
-            <div style="margin-left: 15px" class="dropdown">
-              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="../images/icons/user.svg" width="10%" height="10%">
-                <strong>Manage Users</strong>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                <li><a class="dropdown-item" href="./approved_users.php"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Approved Users</a></li>
-                <li><a class="dropdown-item" href="pending_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
-                <li>
-                  <i class="fas fa-angle-right"></i>
-                  <a class="dropdown-item" href="rejected_users.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
-                </li>
-              </ul>
-            </div>
-            <li>
-              <i class="fas fa-comment"></i>
-              <a href="./all_comments.php" class="nav-link text-white">
-                <img src="../images/icons/comment.svg" width="10%" height="10%">
-                MANAGE COMMENTS
-              </a>
-            </li>
-            <li>
-              <a href="./feedbacks.php" class="nav-link text-white">
-                <img src="../images/icons/feedback.svg" width="10%" height="10%">
-                MANAGE FEEDBACKS
-              </a>
-            </li>
-            <li>
-              <a href="./follower.php" class="nav-link text-white">
-                <img src="../images/icons/thumb.png" width="10%" height="10%">
-                MANAGE FOLLOWERS
-              </a>
-            </li>
-            <li>
-              <a href="./create_blog.php" class="nav-link text-white">
-                <img src="../images/icons/blog.svg" width="10%" height="10%">
-                MANAGE BLOGS
-              </a>
-            </li>
-          </ul>
-          <hr>
-          <div style="padding-top: 100px;" class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../images/profile_image_1683396936.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
-              <strong>Baboo Kumar</strong>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="#"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Settings</a></li>
-              <li><a class="dropdown-item" href="#"> <img src="../images/icons/user.svg" width="10%" height="10%"> Profile</a></li>
-              <li>
-                <i class="fas fa-angle-right"></i>
-                <a class="dropdown-item" href="../logout.php"><img src="../images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </main>
-    </div>
+    <?php require_once("../General/side_bar.php");?>
     <!-- Side bar End -->
     <div class="col-lg-8 col-md-8">
       <div class="row">
@@ -222,14 +233,15 @@ include("../require/connection.php");
                       <th>Address</th>
                       <th>DOB</th>
                       <th>Approved At</th>
-                      <th>Is Active</th>
+                        <!-- here -->
+                      <th>Status</th>
+                      <th>Change Status</th>
+                      <!-- Here -->
                       <th>Action</th>
-                      <!-- <th>Updated At</th> -->
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_assoc($result)) {
                       // print_r($row);
-
                     ?>
                       <tbody>
                         <tr>
@@ -242,11 +254,39 @@ include("../require/connection.php");
                           <td><?php echo $row['address'] ?></td>
                           <td><?php echo $row['date_of_birth'] ?></td>
                           <td><?php echo $row['created_at'] ?></td>
-                          <?php //echo $is_active = $row['is_active']; ?>
+                          <!-- here -->
                           <td>
-                            <?php echo $row['is_active'] ?>
+                            <?php
+                              if ($row['is_active'] == "Active") {
+                            ?>
+                              <span class="btn btn-success p-2"><?php echo $row['is_active'] ?></span>
+                            <?php
+                              } else if ($row['is_active'] == "InActive") {
+                            ?>
+                              <span class="btn btn-danger p-2"><?php echo $row['is_active'] ?></span>
+                            <?php
+                              }
+                            ?>
                           </td>
-                          <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Edit</button></td>
+                          <td>
+                        <?php
+                          if ($row['is_active'] == "Active") {
+                        ?>
+                          <a style="padding:5px;" class="btn btn-info" href="approved_users.php?action=update&user_id=<?php echo $row['user_id'] ?>&is_active = 'InActive'">InActive</a>
+                        <?php
+                          } else if ($row['is_active'] == "InActive") {
+                        ?>
+                            <a style="padding:5px;" class="btn btn-info" href="approved_users.php?action=update&user_id=<?php echo $row['user_id'] ?>&is_active = 'active'">Active</a>
+                        <?php
+                        }
+                        ?>
+                    </td>
+                            <!-- here -->
+                          <td>
+                            <!-- <?php //echo $row['user_id'];?> -->
+                            <a href="approved_users.php?user_id=<?php echo $row['user_id']; ?>" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" >Edit</a>
+                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Edit</button> -->
+                          </td>
                         </tr>
                       </tbody>
                     <?php

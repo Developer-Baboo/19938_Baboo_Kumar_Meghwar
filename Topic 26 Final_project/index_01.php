@@ -68,22 +68,22 @@ session_start();
                     // var_dump($_SESSION['User']['user_image']);
                 ?>
                     <!-- User is logged in -->
-                    <div class="logged-in-user">
-                        <span>Welcome, <?php echo $_SESSION['User']['first_name']; ?></span>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                Menu
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item" href="view-profile.php">View Profile</a></li>
-                                <li><a class="dropdown-item" href="change-profile.php">Change Profile</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="./logout.php">Logout</a></li>
-                            </ul>
-                        </div>
-                        <img src="<?php echo $_SESSION['User']['user_image']; ?>" alt="">
+
+                    <!-- update -->
+                    <div class="dropdown" style="margin-right: 90px;" >
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                          <img src="./images/<?php echo $_SESSION['User']['user_image']; ?>" width="32px" height="32" class="rounded-circle me-2">
+                          <strong style="color:black" ><?php echo $_SESSION['User']['first_name'].' '.$_SESSION['User']['last_name']; ?></strong>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-blue text-small shadow" aria-labelledby="dropdownUser1">
+                          <li><a class="dropdown-item" href="#"> <img src="./images/icons/setting.svg" width="10%" height="10%"> Settings</a></li>
+                          <li><a class="dropdown-item" href="./user/edit_profile.php"> <img src="./images/icons/user.svg" width="10%" height="10%"> Edit Profile</a></li>
+                          <li>
+                            <i class="fas fa-angle-right"></i>
+                            <a class="dropdown-item" href="logout.php"><img src="./images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
+                          </li>
+                        </ul>
+                    </div>
                     </div>
                 <?php } else { ?>
                     <!-- User is not logged in -->
@@ -102,7 +102,7 @@ session_start();
     </nav>
     <!-- 1nd nav end -->
     <!-- 2nd nav start -->
-    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #5DADE2">
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #5DADE2;z-index:0">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.php">
             </a>
@@ -287,6 +287,8 @@ session_start();
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- <button name="forgot_password" id="forgot_password" class="btn btn-success" type="submit">Forgot Password</button> -->
+                    <a href="forgot_password.php"  class="btn btn-success">Forgot Password</a>
                     <button name="login" id="login" class="btn btn-primary" type="submit">Login Here</button>
                 </div>
                 </form>

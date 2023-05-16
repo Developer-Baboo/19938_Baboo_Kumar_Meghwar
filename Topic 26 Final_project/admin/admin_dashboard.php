@@ -28,7 +28,7 @@ include("../require/connection.php");
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
   <!-- Bootstrap core CSS -->
   <!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="../bootstrap-5.0.2-examples/assets/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 
   <style>
     .bd-placeholder-img {
@@ -66,105 +66,7 @@ include("../require/connection.php");
   ?>
   <div class="row">
     <!-- Sider bar  -->
-    <div class="col-lg-4 col-md-4">
-      <main>
-        <h1 class="visually-hidden">Sidebars examples</h1>
-
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; background-color: #5DADE2">
-          <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <img src="../images/logo.png" width="50px">
-            <span class="fs-10">Online Blogging Application</span>
-          </a>
-          <hr>
-          <ul class="nav nav-pills flex-column mb-auto" id="navList">
-            <li>
-
-              <a href="admin_dashboard.php" class="nav-link text-white">
-                <img src="../images/icons/dashboard.svg" width="10%" height="10%">
-                Admin Dashboard
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="posts.php" class="nav-link" aria-current="page">
-                <img src="../images/icons/post.svg" width="10%" height="10%">
-                MANAGE POSTS
-              </a>
-            </li>
-            <li>
-              <a href="category.php" class="nav-link text-white">
-                <img src="../images/icons/category.svg" width="10%" height="10%">
-                MANAGE CATEGORIES
-              </a>
-            </li>
-
-            <div style="margin-left: 15px" class="dropdown">
-              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="../images/icons/user.svg" width="10%" height="10%">
-                <strong>Manage Users</strong>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                <li><a class="dropdown-item" href="./approved_users.php"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Approved Users</a></li>
-                <li><a class="dropdown-item" href="pending_users.php"> <img src="../images/icons/user.svg" width="10%" height="10%">Pending Users</a></li>
-                <li>
-                  <i class="fas fa-angle-right"></i>
-                  <a class="dropdown-item" href="rejected_users.php"><img src="../images/icons/logout.svg" width="10%" height="10%">Rejected Users</a>
-                </li>
-              </ul>
-            </div>
-
-
-
-            <!-- <li>
-              <a href="all_users.php" class="nav-link text-white">
-                <img src="../images/icons/user.svg" width="10%" height="10%">
-                MANAGE USERS
-              </a>
-            </li> -->
-            <li>
-              <a href="all_comments.php" class="nav-link text-white">
-                <img src="../images/icons/comment.svg" width="10%" height="10%">
-                MANAGE COMMENTS
-              </a>
-            </li>
-            <li>
-              <a href="feedbacks.php" class="nav-link text-white">
-                <img src="../images/icons/feedback.svg" width="10%" height="10%">
-                MANAGE FEEDBACKS
-              </a>
-            </li>
-            <li>
-              <a href="follower.php" class="nav-link text-white">
-                <img src="../images/icons/thumb.png" width="10%" height="10%">
-                MANAGE FOLLOWERS
-              </a>
-            </li>
-            <li>
-              <a href="./create_blog.php" class="nav-link text-white">
-                <img src="../images/icons/blog.svg" width="10%" height="10%">
-                MANAGE BLOGS
-              </a>
-            </li>
-          </ul>
-          <hr>
-          <div style="padding-top: 100px;" class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../images/<?php echo $row['user_image'] ?>" width="32px" height="32" class="rounded-circle me-2">
-              <!-- <img src="../images/profile_image_1683396936.jpeg" alt="" width="32" height="32" class="rounded-circle me-2"> -->
-              <strong><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></strong>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="#"> <img src="../images/icons/setting.svg" width="10%" height="10%"> Settings</a></li>
-              <li><a class="dropdown-item" href="#"> <img src="../images/icons/user.svg" width="10%" height="10%"> Profile</a></li>
-              <li>
-                <i class="fas fa-angle-right"></i>
-                <a class="dropdown-item" href="../logout.php"><img src="../images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </main>
-
-    </div>
+    <?php require_once("../General/side_bar.php");?>
     <!-- Side bar End -->
 
     <!-- Dashboard body -->
