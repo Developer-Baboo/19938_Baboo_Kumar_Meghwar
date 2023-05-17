@@ -12,8 +12,8 @@ require 'PHPMailer/src/SMTP.php';
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
-  header("location:../index_01.php");
+if (!isset($_SESSION['Admin'])) {
+  header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
 

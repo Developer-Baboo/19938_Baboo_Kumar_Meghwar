@@ -11,8 +11,8 @@ require 'PHPMailer/src/SMTP.php';
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
-  header("location:../index_01.php");
+if (!isset($_SESSION['Admin'])) {
+  header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
 <?php
@@ -140,11 +140,20 @@ if (isset($_GET['user_id'])) {
 <body>
   <div class="row">
     <!-- Side Bar  -->
-    <?php require_once("../General/side_bar.php");?>
+    <?php require_once("../General/side_bar.php"); ?>
     <!-- Side bar End -->
     <div class="col-lg-8 col-md-8">
       <div class="row">
         <!-- Edit User Model -->
+        <?php
+        if(isset($_GET[''])){
+          // echo 
+        }
+        // $user_id = UserId;
+        // $query = "SELECT * FROM user WHERE user.user_id = '" . UserId . "'";
+        // $result = mysqli_query($connection, $query);
+        // $row = mysqli_fetch_assoc($result)
+        ?>
         <div class="col-md-12">
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -159,7 +168,7 @@ if (isset($_GET['user_id'])) {
                   <form class="row g-3" method="POST" action="" enctype="multipart/form-data">
                     <div class="col-md-6">
                       <label for="firstname" class="form-label">Firstname</label>
-                      <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="Enter Your Firstname">
+                      <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="Enter Your Firstname" value="<?php echo $row['first_name']; ?>">
                     </div>
                     <div class="col-md-6">
                       <label for="lastname" class="form-label">Lastname</label>
@@ -233,7 +242,7 @@ if (isset($_GET['user_id'])) {
                       <th>Address</th>
                       <th>DOB</th>
                       <th>Approved At</th>
-                        <!-- here -->
+                      <!-- here -->
                       <th>Status</th>
                       <th>Change Status</th>
                       <!-- Here -->
@@ -257,36 +266,44 @@ if (isset($_GET['user_id'])) {
                           <!-- here -->
                           <td>
                             <?php
-                              if ($row['is_active'] == "Active") {
+                            if ($row['is_active'] == "Active") {
                             ?>
                               <span class="btn btn-success p-2"><?php echo $row['is_active'] ?></span>
                             <?php
-                              } else if ($row['is_active'] == "InActive") {
+                            } else if ($row['is_active'] == "InActive") {
                             ?>
                               <span class="btn btn-danger p-2"><?php echo $row['is_active'] ?></span>
                             <?php
-                              }
+                            }
                             ?>
                           </td>
                           <td>
-                        <?php
-                          if ($row['is_active'] == "Active") {
-                        ?>
-                          <a style="padding:5px;" class="btn btn-info" href="approved_users.php?action=update&user_id=<?php echo $row['user_id'] ?>&is_active = 'InActive'">InActive</a>
-                        <?php
-                          } else if ($row['is_active'] == "InActive") {
-                        ?>
-                            <a style="padding:5px;" class="btn btn-info" href="approved_users.php?action=update&user_id=<?php echo $row['user_id'] ?>&is_active = 'active'">Active</a>
-                        <?php
-                        }
-                        ?>
-                    </td>
-                            <!-- here -->
-                          <td>
-                            <!-- <?php //echo $row['user_id'];?> -->
-                            <a href="approved_users.php?user_id=<?php echo $row['user_id']; ?>" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" >Edit</a>
-                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Edit</button> -->
+                            <?php
+                            if ($row['is_active'] == "Active") {
+                            ?>
+                              <a style="padding:5px;" class="btn btn-info" href="approved_users.php?action=update&user_id=<?php echo $row['user_id'] ?>&is_active = 'InActive'">InActive</a>
+                            <?php
+                            } else if ($row['is_active'] == "InActive") {
+                            ?>
+                              <a style="padding:5px;" class="btn btn-info" href="approved_users.php?action=update&user_id=<?php echo $row['user_id'] ?>&is_active = 'active'">Active</a>
+                            <?php
+                            }
+                            ?>
                           </td>
+                          <!-- here -->
+                          <td>
+                            <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="getUserID(<?php echo $row['user_id']; ?>)">Edit</a>
+                          </td>
+
+                          <script>
+                            function getUserID(userID) {
+                              // Perform any desired operations with the user ID
+                              console.log("User ID:", userID);
+                              // You can also pass the user ID to a function or make an AJAX request, etc.
+                              // For example, to redirect to the approved_users.php page with the user ID:
+                              // window.location.href = "approved_users.php?user_id=" + userID;
+                            }
+                          </script>
                         </tr>
                       </tbody>
                     <?php

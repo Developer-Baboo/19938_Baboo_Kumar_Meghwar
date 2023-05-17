@@ -1,4 +1,17 @@
 <?php
+session_start();
+// print_r($_SESSION['Admin']['role_type']);
+// die();
+
+if (isset($_SESSION['Admin'])) {
+  header("location:./admin/admin_dashboard.php");
+}else if(isset($_SESSION['User'])){
+  header("location:index_01.php");
+}
+?>
+
+
+<?php
 include("require/connection.php");
 
 if (isset($_REQUEST['register'])) {

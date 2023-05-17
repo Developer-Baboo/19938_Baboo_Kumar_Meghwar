@@ -3,8 +3,8 @@ session_start();
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
-  header("location:../index_01.php");
+if (!isset($_SESSION['Admin'])) {
+  header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
 <!DOCTYPE html>
@@ -37,7 +37,13 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
     <!-- SIDE BAR START -->
     <?php require_once("../General/side_bar.php");?>
     <!-- SIDE BAR End -->
+      <?php
 
+      if(isset($_Request[''])){
+
+      }
+
+      ?>
     <div class="col-lg-8 col-md-8">
       <div class="row">
         <!-- Add Post Modal -->
@@ -47,23 +53,22 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
               <div class="modal-content" style="width: 100%">
                 <div class="modal-header">
                   <center>
-                    <h3 style="font-family: times;color: green; text-align: center; ">Add POST</h3>
-                  </center>
+?                  </center>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <form class="row g-3" method="POST" action="" enctype="multipart/form-data">
                     <div class="col-md-6">
                       <label for="posttitle" class="form-label">Post Title</label>
-                      <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="Enter Post Title">
+                      <input type="text" class="form-control"  name="post_title" required placeholder="Enter Post Title">
                     </div>
                     <div class="col-md-6">
                       <label for="postdecription" class="form-label">Post Description</label>
-                      <input type="text" class="form-control" id="lastname" name="last_name" required placeholder="Enter Post Description">
+                      <input type="text" class="form-control" name="poast_descrption" required placeholder="Enter Post Description">
                     </div>
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">Choose Category</label>
-                      <select id="inputState" class="form-select" name="gender">
+                      <select id="inputState" class="form-select" name="choose_query">
                         <option selected>Block Chain</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -71,7 +76,7 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
                     </div>
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">Choose Blog</label>
-                      <select id="inputState" class="form-select" name="gender">
+                      <select class="form-select" name="gender">
                         <option selected>Block Chain</option>
                         <option value="Male">IOT</option>
                         <option value="Female">Information</option>
@@ -80,7 +85,7 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
 
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">POST STATUS</label>
-                      <select id="inputState" class="form-select" name="gender">
+                      <select id="inputState" class="form-select" name="is_active">
                         <option value="Male">ACTIVE</option>
                         <option value="Female">INACTIVE</option>
                       </select>
@@ -88,7 +93,7 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
 
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">Comment Permission</label>
-                      <select id="inputState" class="form-select" name="gender">
+                      <select id="inputState" class="form-select" name="comment_permission">
                         <option value="Male">YES</option>
                         <option value="Female">NO</option>
                       </select>
@@ -99,11 +104,11 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
                     </div>
                     <div class="col-md-6">
                       <label for="posttitle" class="form-label">Post Summary</label>
-                      <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="Enter Post Title">
+                      <input type="text" class="form-control" id="firstname" name="summaryt_s" required placeholder="Enter Post Title">
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary" name="register">Add POST</button>
+                      <button type="submit" class="btn btn-primary" name="add_post">Add POST</button>
                     </div>
                   </form>
                 </div>
@@ -121,7 +126,7 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
                 <div class="modal-content">
                   <div class="modal-header">
                     <center>
-                      <h3 style="font-family: times; color: green; text-align: center;">View POST</h3>
+                      <h3 style="font-family times; color: green; text-align: center;">View POST</h3>
                     </center>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>

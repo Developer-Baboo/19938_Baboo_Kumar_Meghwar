@@ -3,7 +3,10 @@ session_start();
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
+// var_dump($_SESSION['Admin']);
+// die();
+
+if (!isset($_SESSION['Admin'])) {
   header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
@@ -54,6 +57,22 @@ include("../require/connection.php");
 </head>
 
 <body>
+
+  <!-- <div id="message">
+        <?php
+        //if (isset($_GET['msg'])) {
+        ?>
+            <center>
+                <p style="color:white; font-size: 20px; padding: 10px ;background-color: <?php //echo $_GET['color']; ?>">
+                    <?php //echo $_GET['msg']; ?>
+                </p>
+            </center>
+        <?php
+        //}
+        ?>
+    </div> -->
+
+
   <?php
   if (isset($_GET["user_id"])) {
     $user_id = $_GET["user_id"];
@@ -66,7 +85,7 @@ include("../require/connection.php");
   ?>
   <div class="row">
     <!-- Sider bar  -->
-    <?php require_once("../General/side_bar.php");?>
+    <?php require_once("../General/side_bar.php"); ?>
     <!-- Side bar End -->
 
     <!-- Dashboard body -->
@@ -102,8 +121,7 @@ include("../require/connection.php");
   </div>
 
   <?php require_once("../General/footer.php") ?>
-  <script src="../bootstrap-5.0.2-examples/assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../bootstrap-5.0.2-examples/sidebars/sidebars.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <script>
     // Get all the navigation links

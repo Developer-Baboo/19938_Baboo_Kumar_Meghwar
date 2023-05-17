@@ -3,7 +3,7 @@ session_start();
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (!isset($_SESSION['User']['role_type']) == 'User') {
+if (!isset($_SESSION['User'])) {
   header("location:../index_01.php?msg=Sorry! Only Registered User can Access It !...&color=red");
 }
 require_once("../require/connection.php");

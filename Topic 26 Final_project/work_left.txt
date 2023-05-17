@@ -1,33 +1,44 @@
 ****************************************************************************************************************
 admin dashboard have to design
-inactive can't login query ka through hoga
 side bar active classs
-dasboard dropdown dont' work
-user update ka bad wapis updated hokr nhi arha arha ha
 email sending man email static de ha wo change krne ha
-message ul wala pa timer lgio
 invalid password pa messge echo qn nhi ho rha ha
-home pa ilawa bakeen sb pa dropdown profile ka neecha arha tha
 table sa user search ho
-inactive pa email jaya us ko edit krna ha
+USER ACTIVE AND INACTIVE NHI HO RHA HAN
+USER EDIT NHI HO RHA HAN
+inactive pa email jaya us ko edit krna ha (inactive wali query set hojaya bus)
+Heading and button have to set in one row like add blog and all blogs
+pagination on tables
+make website responsive
+server side validation
+prepared statement
+After Successful Creation of Account a report should be generated with login Credentials in pdf format
+feedback ka bad email jaya to admin
 *************************************************************************************************************
+Attractive UI
+Responsive
 
-
-
+*******************************************************
 prepared statement
 server side validation
 responsive tables
-ajax, code comment with alignment 
+ajax
 show ui to sir and suggestions
 
 exceptions
 	OOP
 	prepared statement
 	ajax
-
-Heading and button have to set
-responsive and Table
-
+************Major task*****************************
+blogs(create,read,update,delete)
+posts
+category
+follower
+comments
+theme customization
+feedbacks
+further check erd and srs
+**********************************
 
 
 

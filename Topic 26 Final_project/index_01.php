@@ -1,6 +1,15 @@
 <?php
 session_start();
 ?>
+<?php
+// session_start();
+// print_r($_SESSION['Admin']['role_type']);
+// die();
+
+if (isset($_SESSION['Admin'])) {
+  header("location:./admin/admin_dashboard.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -38,12 +47,12 @@ session_start();
 
 <body>
 
-    <div>
+    <div id="message">
         <?php
         if (isset($_GET['msg'])) {
         ?>
             <center>
-                <p style="background-color: <?php echo $_GET['color']; ?>">
+                <p style="color:white; font-size: 20px; padding: 10px ;background-color: <?php echo $_GET['color']; ?>">
                     <?php echo $_GET['msg']; ?>
                 </p>
             </center>
@@ -64,40 +73,40 @@ session_start();
                 </div>
             </form>
             <div class="d-flex">
-                <?php if (isset($_SESSION['User']['role_type']) && $_SESSION['User']['role_type'] == 'User') {
+                <?php if (isset($_SESSION['User']) && $_SESSION['User']['is_approved'] == 'Approved' && $_SESSION['User']['is_active'] === 'Active') {
                     // var_dump($_SESSION['User']['user_image']);
                 ?>
                     <!-- User is logged in -->
 
                     <!-- update -->
-                    <div class="dropdown" style="margin-right: 90px;" >
+                    <div class="dropdown" style="margin-right: 90px;">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                          <img src="./images/<?php echo $_SESSION['User']['user_image']; ?>" width="32px" height="32" class="rounded-circle me-2">
-                          <strong style="color:black" ><?php echo $_SESSION['User']['first_name'].' '.$_SESSION['User']['last_name']; ?></strong>
+                            <img src="./images/<?php echo $_SESSION['User']['user_image']; ?>" width="32px" height="32" class="rounded-circle me-2">
+                            <strong style="color:black"><?php echo $_SESSION['User']['first_name'] . ' ' . $_SESSION['User']['last_name']; ?></strong>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-blue text-small shadow" aria-labelledby="dropdownUser1">
-                          <li><a class="dropdown-item" href="#"> <img src="./images/icons/setting.svg" width="10%" height="10%"> Settings</a></li>
-                          <li><a class="dropdown-item" href="./user/edit_profile.php"> <img src="./images/icons/user.svg" width="10%" height="10%"> Edit Profile</a></li>
-                          <li>
-                            <i class="fas fa-angle-right"></i>
-                            <a class="dropdown-item" href="logout.php"><img src="./images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
-                          </li>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="background-color: #5DADE2;">
+                            <li><a class="dropdown-item" href="#"> <img src="./images/icons/setting.svg" width="10%" height="10%"> Settings</a></li>
+                            <li><a class="dropdown-item" href="./user/edit_profile.php"> <img src="./images/icons/user.svg" width="10%" height="10%"> Edit Profile</a></li>
+                            <li>
+                                <i class="fas fa-angle-right"></i>
+                                <a class="dropdown-item" href="logout.php"><img src="./images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
+                            </li>
                         </ul>
                     </div>
-                    </div>
-                <?php } else { ?>
-                    <!-- User is not logged in -->
-                    <button class="btn btn-outline-secondary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin" style="margin-right: 10px;">Login</button>
-                    <button class="btn btn-outline-primary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin"><a class="nav-link active " aria-current="page" href="register.php">Register</a></button>
-                    <div class="social-media-icons mx-2">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-youtube"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                <?php } ?>
             </div>
+        <?php } else { ?>
+            <!-- User is not logged in -->
+            <button class="btn btn-outline-secondary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin" style="margin-right: 10px;">Login</button>
+            <button class="btn btn-outline-primary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin"><a class="nav-link active " aria-current="page" href="register.php">Register</a></button>
+            <div class="social-media-icons mx-2">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+        <?php } ?>
+        </div>
         </div>
     </nav>
     <!-- 1nd nav end -->
@@ -288,7 +297,7 @@ session_start();
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <!-- <button name="forgot_password" id="forgot_password" class="btn btn-success" type="submit">Forgot Password</button> -->
-                    <a href="forgot_password.php"  class="btn btn-success">Forgot Password</a>
+                    <a href="forgot_password.php" class="btn btn-success">Forgot Password</a>
                     <button name="login" id="login" class="btn btn-primary" type="submit">Login Here</button>
                 </div>
                 </form>
@@ -370,6 +379,14 @@ session_start();
     </footer>
     <!-- Footer Ends -->
     <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        setTimeout(function() {
+            var messageElement = document.getElementById('message');
+            if (messageElement) {
+                messageElement.style.display = 'none';
+            }
+        }, 1000); // 1 seconds in milliseconds
+    </script>
 </body>
 
 </html>

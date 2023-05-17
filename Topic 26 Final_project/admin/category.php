@@ -3,8 +3,8 @@ session_start();
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
-  header("location:../index_01.php");
+if (!isset($_SESSION['Admin'])) {
+  header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
 <!DOCTYPE html>
@@ -37,6 +37,45 @@ if (!isset($_SESSION['Admin']['role_type']) == 'Admin') {
 </head>
 
 <body>
+
+ <?php
+  include("../require/connection.php");
+if (isset($_REQUEST['add_category'])) {
+  echo$_REQUEST['blog_title'];
+  // var_dump(expression)
+ 
+  if (isset($_FILES['upload'])) {
+    echo "hello world";
+    // $file = $_FILES['upload'];
+    echo $file = $_FILES['upload'];
+    echo $file_name = "blog_image_" . time() . substr($file['name'], strpos($file['name'], "."));
+
+    if (move_uploaded_file($file['tmp_name'], "../images/blogs/" . $file_name)) {
+      $date = date('Y-m-d');
+      date_default_timezone_set("Asia/Karachi");
+      $current_time = date('Y-m-d h:i:s');
+
+      echo $query1 = "INSERT into blog (user_id, blog_title, post_per_page, blog_background_image, created_at) VALUES('" . $_SESSION['Admin']['first_name'] . ' ' . $_SESSION['Admin']['last_name'] . "','" . $_REQUEST['blog_title'] . "','" . $_REQUEST['post_blog'] . "','" . $_REQUEST['blog_background_image'] . "','" . $current_time . "')";
+        // var_dump($query1);
+        $result1 = mysqli_query($connectio, $query1);
+        // var_dump($result1);
+        // echo "<pre>";
+        //   print_r($result1);
+        // echo "</pre>";
+        if ($result1) {
+          echo "string";
+        ?>
+        <script type="text/javascript">
+          alert('Blog Created Successfully!...');
+        </script>
+      <?php
+      }
+    }
+  }
+}
+?>
+
+
   <div class="row">
     <!-- SIDE BAR START -->
     <?php require_once("../General/side_bar.php");?>
