@@ -6,6 +6,7 @@ invalid password pa messge echo qn nhi ho rha ha
 table sa user search ho
 USER ACTIVE AND INACTIVE NHI HO RHA HAN
 USER EDIT NHI HO RHA HAN
+Category edit nhi ho rhi han
 inactive pa email jaya us ko edit krna ha (inactive wali query set hojaya bus)
 Heading and button have to set in one row like add blog and all blogs
 pagination on tables

@@ -41,37 +41,34 @@ if (!isset($_SESSION['Admin'])) {
  <?php
   include("../require/connection.php");
 if (isset($_REQUEST['add_category'])) {
-  echo$_REQUEST['blog_title'];
-  // var_dump(expression)
- 
-  if (isset($_FILES['upload'])) {
-    echo "hello world";
-    // $file = $_FILES['upload'];
-    echo $file = $_FILES['upload'];
-    echo $file_name = "blog_image_" . time() . substr($file['name'], strpos($file['name'], "."));
-
-    if (move_uploaded_file($file['tmp_name'], "../images/blogs/" . $file_name)) {
-      $date = date('Y-m-d');
+      // echo $_REQUEST['category_title'];
+      // echo $_REQUEST['category_description'];
+      // echo $_REQUEST['category_status'];
+      // $date = date('Y-m-d');
       date_default_timezone_set("Asia/Karachi");
       $current_time = date('Y-m-d h:i:s');
 
-      echo $query1 = "INSERT into blog (user_id, blog_title, post_per_page, blog_background_image, created_at) VALUES('" . $_SESSION['Admin']['first_name'] . ' ' . $_SESSION['Admin']['last_name'] . "','" . $_REQUEST['blog_title'] . "','" . $_REQUEST['post_blog'] . "','" . $_REQUEST['blog_background_image'] . "','" . $current_time . "')";
+      $query1 = "INSERT into category (category_title, category_description, category_status,created_at) VALUES('" . $_REQUEST['category_title'] . "','" . $_REQUEST['category_description'] . "','" . $_REQUEST['category_status'] . "','" . $current_time . "')";
         // var_dump($query1);
-        $result1 = mysqli_query($connectio, $query1);
+        $result1 = mysqli_query($connection, $query1);
+        // $result1 = mysqli_query($connection, $query1);
+        if (!$result1) {
+          echo "Query execution failed: " . mysqli_error($connection);
+        }
         // var_dump($result1);
         // echo "<pre>";
         //   print_r($result1);
         // echo "</pre>";
-        if ($result1) {
-          echo "string";
+        else {
+          // echo "string";
         ?>
         <script type="text/javascript">
-          alert('Blog Created Successfully!...');
+          alert('Category Created Successfully!...');
         </script>
       <?php
       }
-    }
-  }
+    // }
+  // }
 }
 ?>
 
@@ -99,23 +96,23 @@ if (isset($_REQUEST['add_category'])) {
                   <form class="row g-3" method="POST" action="" enctype="multipart/form-data">
                     <div class="col-md-6">
                       <label for="posttitle" class="form-label">Category Title</label>
-                      <input type="text" class="form-control" id="firstname" name="first_name" required placeholder="Enter Category Title">
+                      <input type="text" class="form-control" id="firstname" name="category_title" required placeholder="Enter Category Title">
                     </div>
 
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">Category STATUS</label>
-                      <select id="inputState" class="form-select" name="status">
+                      <select id="inputState" class="form-select" name="category_status">
                         <option value="active">ACTIVE</option>
                         <option value="Female">INACTIVE</option>
                       </select>
                     </div>
                     <div class="col-md-12">
                       <label for="postdecription" class="form-label">Category Description</label>
-                      <input type="text" class="form-control" id="lastname" name="last_name" required placeholder="Enter Category Description">
+                      <input type="text" class="form-control" id="lastname" name="category_description" required placeholder="Enter Category Description">
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary" name="register">Add Category</button>
+                      <button type="submit" class="btn btn-primary" name="add_category">Add Category</button>
                     </div>
                   </form>
                 </div>
@@ -126,9 +123,58 @@ if (isset($_REQUEST['add_category'])) {
         </div>
       <!-- Add Category Modal End -->
 
+
+      <!-- Edit Category Model -->
+      <div class="col-md-12">
+          <<!-- div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" data-bs-whatever="@mdo">Edit Category</button>
+          </div> -->
+          <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content" style="width: 100%">
+                <div class="modal-header">
+                  <center>
+                    <h3 style="font-family: times;color: green; text-align: center; ">Edit Category</h3>
+                  </center>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="row g-3" method="POST" action="" enctype="multipart/form-data">
+                    <div class="col-md-6">
+                      <label for="posttitle" class="form-label">Category Title</label>
+                      <input type="text" class="form-control" id="firstname" name="category_title" required placeholder="Enter Category Title">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="inputState" class="form-label">Category STATUS</label>
+                      <select id="inputState" class="form-select" name="category_status">
+                        <option value="active">ACTIVE</option>
+                        <option value="Female">INACTIVE</option>
+                      </select>
+                    </div>
+                    <div class="col-md-12">
+                      <label for="postdecription" class="form-label">Category Description</label>
+                      <input type="text" class="form-control" id="lastname" name="category_description" required placeholder="Enter Category Description">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary" name="add_category">Edit Category</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      <!-- edit Category Model -->
       <!-- Category data table -->
         <div class="row">
           <div class="col-md-12">
+            <?php
+            $query = "SELECT * FROM category";
+            $result = mysqli_query($connection, $query);
+            if ($result->num_rows) {
+            ?>
             <center>
               <h1>ALL Categories</h1>
             </center>
@@ -145,106 +191,33 @@ if (isset($_REQUEST['add_category'])) {
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
+                 <?php
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      // print_r($row);
+                  ?>
                 <tbody>
-                  <tr>
-                    <th>1</th>
-                    <td>Block Chain</td>
-                    <td>Block Chain</td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Active
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          InActive
-                        </label>
-                      </div>
-                    </td>
-                    <td>2023-9-1</td>
-                    <td>2023-9-8</td>
-                    <td>
-                      <a href="">Edit</a> || <a href="">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>1</th>
-                    <td>Block Chain</td>
-                    <td>Block Chain</td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Active
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          InActive
-                        </label>
-                      </div>
-                    </td>
-                    <td>2023-9-1</td>
-                    <td>2023-9-8</td>
-                    <td>
-                      <a href="">Edit</a> || <a href="">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>1</th>
-                    <td>Block Chain</td>
-                    <td>Block Chain</td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Active
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          InActive
-                        </label>
-                      </div>
-                    </td>
-                    <td>2023-9-1</td>
-                    <td>2023-9-8</td>
-                    <td>
-                      <a href="">Edit</a> || <a href="">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>1</th>
-                    <td>Block Chain</td>
-                    <td>Block Chain</td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Active
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          InActive
-                        </label>
-                      </div>
-                    </td>
-                    <td>2023-9-1</td>
-                    <td>2023-9-8</td>
-                    <td>
-                      <a href="">Edit</a> || <a href="">Delete</a>
-                    </td>
-                  </tr>
+                  <td><?php echo $row['category_id'] ?></td>
+                  <td><?php echo $row['category_title'] ?></td>
+                  <td><?php echo $row['category_description'] ?></td>
+                  <td><?php echo $row['category_status'] ?></td>
+                  <td><?php echo $row['created_at'] ?></td>
+                  <td>1999999</td>
+                  <!-- <td><?php //echo $row['category_id'] ?></td> -->
+                  <td><a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" data-bs-whatever="@mdo" onclick="getUserID(<?php echo $row['category_id']; ?>)" >Edit</a></td>
+                  <script>
+                            function getUserID(categoryID) {
+                              console.log("Catgory ID:", categoryID);
+                            }
+                          </script>
                 </tbody>
+                <?php
+                    }
+                    ?>
               </table>
             </div>
+            <?php
+          }
+            ?>
           </div>
         </div>
         <!-- Category Data table end -->

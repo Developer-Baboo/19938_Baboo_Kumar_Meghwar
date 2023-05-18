@@ -40,7 +40,7 @@ if (!isset($_SESSION['Admin'])) {
       <?php
 
       if(isset($_Request[''])){
-
+        
       }
 
       ?>
@@ -53,7 +53,8 @@ if (!isset($_SESSION['Admin'])) {
               <div class="modal-content" style="width: 100%">
                 <div class="modal-header">
                   <center>
-?                  </center>
+                        <h3 style="font-family: times;color: green; text-align: center; ">Create POST</h3>                  
+                  </center>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -175,176 +176,7 @@ if (!isset($_SESSION['Admin'])) {
                   </tr>
                 </thead>
                 <tbody>
-
-                  <tr>
-                    <th>1</th>
-                    <td>1</td>
-                    <td>Block Chain</td>
-                    <td>Lorem ipsum is a ... </td>
-                    <td>Lorem ipsum is a ...</td>
-                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewPOstModal" data-bs-whatever="@mdo">View POST</button></td>
-                    <!-- <td>files/cv.pdf</td> -->
-                    <td>tech.jpg</td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Active
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          InActive
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          YES
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          NO
-                        </label>
-                      </div>
-                    </td>
-                    <td>2023-9-1</td>
-                    <td>2023-9-8</td>
-                    <td>
-                      <a href="">Edit</a> || <a href="">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>1</th>
-                    <td>1</td>
-                    <td>Block Chain</td>
-                    <td>Lorem ipsum is a ... </td>
-                    <td>Lorem ipsum is a ...</td>
-                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewPOstModal" data-bs-whatever="@mdo">View POST</button></td>
-                    <td>tech.jpg</td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Active
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          InActive
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          YES
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          NO
-                        </label>
-                      </div>
-                    </td>
-                    <td>2023-9-1</td>
-                    <td>2023-9-8</td>
-                    <td>
-                      <a href="">Edit</a> || <a href="">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>1</th>
-                    <td>1</td>
-                    <td>Block Chain</td>
-                    <td>Lorem ipsum is a ... </td>
-                    <td>Lorem ipsum is a ...</td>
-                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewPOstModal" data-bs-whatever="@mdo">View POST</button></td>
-                    <td>tech.jpg</td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Active
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          InActive
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          YES
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          NO
-                        </label>
-                      </div>
-                    </td>
-                    <td>2023-9-1</td>
-                    <td>2023-9-8</td>
-                    <td>
-                      <a href="">Edit</a> || <a href="">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>1</th>
-                    <td>1</td>
-                    <td>Block Chain</td>
-                    <td>Lorem ipsum is a ... </td>
-                    <td>Lorem ipsum is a ...</td>
-                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewPOstModal" data-bs-whatever="@mdo">View POST</button></td>
-                    <td>tech.jpg</td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Active
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="post_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          InActive
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          YES
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="comment_status" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          NO
-                        </label>
-                      </div>
-                    </td>
-                    <td>2023-9-1</td>
-                    <td>2023-9-8</td>
-                    <td>
-                      <a href="">Edit</a> || <a href="">Delete</a>
-                    </td>
-                  </tr>
+                  
                 </tbody>
               </table>
               <div>

@@ -38,7 +38,6 @@ if (!isset($_SESSION['Admin'])) {
     <!-- SIDE BAR START -->
     <?php require_once("../General/side_bar.php");?>
     <!-- /END SIDE BAR/ -->
-
     <!-- Users Feedback Table -->
     <div class="col-lg-9 col-md-9">
       <center>
@@ -56,34 +55,7 @@ if (!isset($_SESSION['Admin'])) {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>1</td>
-              <td>baboo@gmail.com</td>
-              <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
-              <td>2023-9-1</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>1</td>
-              <td>baboo@gmail.com</td>
-              <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
-              <td>2023-9-1</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>1</td>
-              <td>baboo@gmail.com</td>
-              <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
-              <td>2023-9-1</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>1</td>
-              <td>baboo@gmail.com</td>
-              <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
-              <td>2023-9-1</td>
-            </tr>
+            
           </tbody>
         </table>
       </div>

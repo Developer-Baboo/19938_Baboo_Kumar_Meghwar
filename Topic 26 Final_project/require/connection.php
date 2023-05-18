@@ -4,7 +4,7 @@ mysqli_report(MYSQLI_REPORT_OFF);
 define("host_name", "localhost");
 define("user_name", "root");
 define("password", "");
-define("database_name", "online_blogging_application");
+define("database_name", "online_blogging_app");
 
 $connection = mysqli_connect(host_name,user_name,password,database_name);
 

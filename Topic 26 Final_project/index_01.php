@@ -86,7 +86,7 @@ if (isset($_SESSION['Admin'])) {
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="background-color: #5DADE2;">
                             <li><a class="dropdown-item" href="#"> <img src="./images/icons/setting.svg" width="10%" height="10%"> Settings</a></li>
-                            <li><a class="dropdown-item" href="./user/edit_profile.php"> <img src="./images/icons/user.svg" width="10%" height="10%"> Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="./user/edit_profile.php"> <img src="./images/icons/user.svg" width="10%" heigh?t="10%"> Edit Profile</a></li>
                             <li>
                                 <i class="fas fa-angle-right"></i>
                                 <a class="dropdown-item" href="logout.php"><img src="./images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
@@ -306,33 +306,64 @@ if (isset($_SESSION['Admin'])) {
     </div>
     <!-- login Model end -->
 
+
+
     <!-- Modal Contact Us -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <?
+            if(isset($_POST['login']));
+            {
+                echo $_REQUEST['email'];
+                =
+            }
+
+        ?>
+
+
+       div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Message Here</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Feedback Here</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                    </div>
 
+                    <form method="POST" action="login_process.php" class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-12 position-relative">
+                            <label for="validationTooltipUsername" class="form-label">Name</label>
+                            <div class="input-group has-validation">
+                                <!-- <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span> -->
+                                <input type="name" name="email" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                                <div class="invalid-tooltip">
+                                    Please choose a unique and valid username.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 position-relative">
+                            <label for="validationTooltipPassword" class="form-label">Email</label>
+                            <div class="input-group has-validation">
+                                <input name="email" type="password" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required>
+                                <div class="invalid-tooltip">
+                                    Password Enter Valid User Email
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                        <div class="col-md-12 position-relative">
+                            <label for="validationTooltipPassword" class="form-label">Feedback</label>
+                            <div class="input-group has-validation">
+                                <input name="password" type="password" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required>
+                                <div class="invalid-tooltip">
+                                    Please Enter Feedback in Proper Way
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send Message</button>
+                    <button name="login" id="login" class="btn btn-primary" type="submit">Send Feedback</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
