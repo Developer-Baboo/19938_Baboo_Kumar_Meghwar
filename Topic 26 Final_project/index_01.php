@@ -7,7 +7,7 @@ session_start();
 // die();
 
 if (isset($_SESSION['Admin'])) {
-  header("location:./admin/admin_dashboard.php");
+    header("location:./admin/admin_dashboard.php");
 }
 ?>
 <!DOCTYPE html>
@@ -57,6 +57,7 @@ if (isset($_SESSION['Admin'])) {
                 </p>
             </center>
         <?php
+            unset($_GET['msg']);
         }
         ?>
     </div>
@@ -309,17 +310,7 @@ if (isset($_SESSION['Admin'])) {
 
 
     <!-- Modal Contact Us -->
-        <?
-            if(isset($_POST['login']));
-            {
-                echo $_REQUEST['email'];
-                =
-            }
-
-        ?>
-
-
-       div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -328,12 +319,12 @@ if (isset($_SESSION['Admin'])) {
                 </div>
                 <div class="modal-body">
 
-                    <form method="POST" action="login_process.php" class="row g-3 needs-validation" novalidate>
+                    <form method="POST" action="feedback_process.php" class="row g-3 needs-validation" novalidate>
                         <div class="col-md-12 position-relative">
                             <label for="validationTooltipUsername" class="form-label">Name</label>
                             <div class="input-group has-validation">
                                 <!-- <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span> -->
-                                <input type="name" name="email" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                                <input type="text" name="name" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
                                 <div class="invalid-tooltip">
                                     Please choose a unique and valid username.
                                 </div>
@@ -342,73 +333,38 @@ if (isset($_SESSION['Admin'])) {
                         <div class="col-md-12 position-relative">
                             <label for="validationTooltipPassword" class="form-label">Email</label>
                             <div class="input-group has-validation">
-                                <input name="email" type="password" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required>
+                                <input name="email" type="email" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required>
                                 <div class="invalid-tooltip">
                                     Password Enter Valid User Email
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
-                        <div class="col-md-12 position-relative">
-                            <label for="validationTooltipPassword" class="form-label">Feedback</label>
-                            <div class="input-group has-validation">
-                                <input name="password" type="password" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required>
-                                <div class="invalid-tooltip">
-                                    Please Enter Feedback in Proper Way
+                            <div class="col-md-12 position-relative">
+                                <label for="validationTooltipPassword" class="form-label">Feedback</label>
+                                <div class="input-group has-validation">
+                                    <!-- <input name="feedback" type="password" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required> -->
+                                    <textarea class="form-control" name="feedback" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required cols="10" rows="1"></textarea>
+                                    <div class="invalid-tooltip">
+                                        Please Enter Feedback in Proper Way
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button name="feedback" id="login" class="btn btn-primary" type="submit">Send Feedback</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button name="login" id="login" class="btn btn-primary" type="submit">Send Feedback</button>
-                </div>
-                </form>
             </div>
         </div>
     </div>
     <!-- Modal Contact Us End -->
 
-    <!-- Footer  -->
-    <footer class="footer-main bg-dark text-light">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-md-8">
-                    <h5 class="mb-3">About Us</h5>
-                    <center>
-                        <p class="text-white" style="text-align:justify;">We are an online blogging application developed by Developer Baboo Kumar 19938 Intern @ HIST Jamshoro. Our goal is to provide a platform for people to share their thoughts and ideas with the world.</p>
-                    </center>
-                </div>
-                <div class="col-md-4">
-                    <h5 class="mb-3">Contact Us</h5>
-                    <ul class="list-unstyled">
-                        <li>Address: 123 Main St, Anytown USA</li>
-                        <li>Phone: (555) 555-5555</li>
-                        <li>Email: info@onlineblogging.com</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="bg-secondary text-light py-3">
-            <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="col-md-6 text-center text-md-start">
-                        <p class="mb-0">&copy; <script>
-                                document.write(new Date().getFullYear())
-                            </script> All rights reserved | Online Blogging Application</p>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end text-white">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none;">Privacy Policy</a></li>
-                            <li class="list-inline-item">·</li>
-                            <li class="list-inline-item"><a href="#" style="color:white; text-decoration: none; ">Terms &amp; Conditions</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Ends -->
+    <!-- Footer start -->
+    <?php require_once("./General/footer.php") ?>
+    <!-- footer end -->
     <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
         setTimeout(function() {

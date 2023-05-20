@@ -5,7 +5,8 @@ session_start();
 
 if (!isset($_SESSION['Admin'])) {
   header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
-kkun?>
+}
+?>
 <!DOCTYPE html>
 <html>
 

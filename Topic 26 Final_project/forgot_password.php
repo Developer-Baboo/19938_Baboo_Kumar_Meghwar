@@ -70,21 +70,34 @@
           //Set who the message is to be sent to
           $mail->addAddress('babookumar15@gmail.com', 'Developer Baboo');
           //Set the subject line
-          $mail->Subject = 'Account Rejection';
-          //Read an HTML message body
-            //Read an HTML message body
-            $msg1 = "Hello World";
-            $mail->Body = $msg1;
-            $mail->IsHTML(true);
+          $mail->Subject = 'Forgot password';
+        require_once("require/connection.php");
+        $query = "SELECT * FROM user WHERE email = '$email'";
+        $result = mysqli_query($connection, $query);
 
+        if ($result && $row = mysqli_fetch_assoc($result)) {
+          //Read an HTML message body
+          //Read an HTML message body
+          $msg1 = "<div style='font-family: Arial, sans-serif; font-size: 14px; background-color: #f5f5f5; padding: 20px; border-radius: 5px;'>
+          <p style='color: #333;'>Dear User,</p>
+          <p style='color: #333;'>We would like to provide you with the requested information. Please find below your password and additional details:</p>
+          <p style='color: #333;'>Password: <strong>" . $row['password'] . "</strong></p>
+          <p style='color: #333;'>We hope this assists you in accessing the necessary resources. If you have any further questions or require any additional assistance, please don't hesitate to reach out to our support team.</p>
+          <p style='color: #333;'>Best regards,</p>
+          <p style='color: #333;'><strong>Baboo Kumar</strong></p>
+          <p style='color: #333;'><em>HIST Jamshoro</em></p>
+        </div>";
+          $mail->Body = $msg1;
+          $mail->IsHTML(true);
+        }
           //Attach an image file (optional)
-          $mail->addAttachment('images/rej.png');
-          $mail->addAttachment('images/rejection_latter.txt');
+          $mail->addAttachment('images/forgot.jpeg');
+          // $mail->addAttachment('images/rejection_latter.txt');
           //send the message, check for errors
           if (!$mail->send()) {
             echo 'Mailer Error: ' . $mail->ErrorInfo;
           } else {
-            //echo 'Message sent!';
+            header("Location: ./index_01.php?color=green&msg= Email Sent Successfully...!");
           }
         //}
         }

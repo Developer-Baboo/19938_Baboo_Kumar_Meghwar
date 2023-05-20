@@ -63,7 +63,7 @@
                             <li><a class="dropdown-item" href="../user/edit_profile.php"> <img src="../images/icons/user.svg" width="10%" height="10%"> Edit Profile</a></li>
                             <li>
                                 <i class="fas fa-angle-right"></i>
-                                <a class="dropdown-item" href="logout.php"><img src="../images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
+                                <a class="dropdown-item" href="../logout.php"><img src="../images/icons/logout.svg" width="10%" height="10%"> Sign out</a>
                             </li>
                         </ul>
                     </div>

@@ -189,7 +189,9 @@
         </div>
     </div>
     <!-- Modal Contact Us End -->
+    <!-- Footer start -->
     <?php require_once("../General/footer.php") ?>
+    <!-- footer end -->
     <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 

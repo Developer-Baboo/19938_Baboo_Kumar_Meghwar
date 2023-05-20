@@ -51,7 +51,9 @@ if (!isset($_SESSION['Admin'])) {
 </head>
 
 <body>
+  <!-- <h1>hello world</h1> -->
   <?php
+  
 
   include("../require/connection.php");
 
@@ -94,6 +96,7 @@ if (!isset($_SESSION['Admin'])) {
     <!-- side bar end -->
 
     <div class="col-lg-8 col-md-8">
+      <!-- <h1>hello</h1> -->
       <div class="row">
         <!-- Add Blog Modal -->
         <div class="col-md-12">
@@ -105,6 +108,7 @@ if (!isset($_SESSION['Admin'])) {
                 <div class="modal-header">
                   <center>
                     <h3 style="font-family: times;color: green; text-align: center; ">Add BLOG</h3>
+                    <!-- <h3>Add Blog</h3> -->
                   </center>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -184,19 +188,16 @@ if (!isset($_SESSION['Admin'])) {
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       <button type="submit" class="btn btn-primary" name="add_blog">Edit Blog</button>
+                      <!-- <h1>POST EDIT</h1> -->
                     </div>
                   </form>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
-        <!-- Edit Blog Modal -->
-
-
+        <!-- Edit Blog Moda Endl -->
       </div>
-
       <!-- Table Data start here -->
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -242,16 +243,12 @@ if (!isset($_SESSION['Admin'])) {
                 <td><?php echo $row['created_at'] ?></td>
                 <td><?php echo $row['created_at'] ?></td>
                 <td>
-                    <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" data-bs-whatever="@mdo" onclick="getUserID(<?php echo $row['blog_id']; ?>)">Edit</a>
-                    <script>
+                <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" data-bs-whatever="@mdo" onclick="getUserID(<?php echo $row['blog_id']; ?>)">Edit</a>
+                <script>
                             function getUserID(blogID) {
-                              // Perform any desired operations with the user ID
                               console.log("Blog ID:", blogID);
-                              // You can also pass the user ID to a function or make an AJAX request, etc.
-                              // For example, to redirect to the approved_users.php page with the user ID:
-                              // window.location.href = "approved_users.php?user_id=" + userID;
                             }
-                          </script>
+                </script>
                 </td>
               </tbody>
               <?php

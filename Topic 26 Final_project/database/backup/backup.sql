@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.5.0 (64 bit)
-MySQL - 10.4.27-MariaDB : Database - online_blogging_app
+MySQL - 10.4.28-MariaDB : Database - online_blogging_app
 *********************************************************************
 */
 
@@ -32,7 +32,7 @@ CREATE TABLE `blog` (
   PRIMARY KEY (`blog_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `blog` */
 
@@ -48,9 +48,12 @@ CREATE TABLE `category` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `category` */
+
+insert  into `category`(`category_id`,`category_title`,`category_description`,`category_status`,`created_at`,`updated_at`) values 
+(1,'hello','dskfj','Active','2023-05-18 11:21:21',NULL);
 
 /*Table structure for table `following_blog` */
 
@@ -242,9 +245,14 @@ CREATE TABLE `user_feedback` (
   PRIMARY KEY (`feedback_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_feedback_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user_feedback` */
+
+insert  into `user_feedback`(`feedback_id`,`user_id`,`user_name`,`user_email`,`feedback`,`created_at`,`updated_at`) values 
+(1,NULL,'Baboo','babookumar15@gmail.com','','2023-05-19 06:52:50',NULL),
+(2,NULL,'Mohan','mohankumar15@gmail.com','','2023-05-19 07:15:35',NULL),
+(3,NULL,'Munesh','heerani@gmail.com','','2023-05-19 07:17:20',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
