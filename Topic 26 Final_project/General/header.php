@@ -85,7 +85,7 @@
     </nav>
     <!-- 1nd nav end -->
     <!-- 2 nav start -->
-    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #5DADE2; z-index: 0;">
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #5DADE2; z-index: 1;">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.php">
             </a>

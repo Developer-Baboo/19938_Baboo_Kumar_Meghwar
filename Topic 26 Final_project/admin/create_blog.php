@@ -84,7 +84,7 @@ if (!isset($_SESSION['Admin'])) {
           <script type="text/javascript">
             alert('Blog Created Successfully!...');
           </script>
-  <?php
+          <?php
         }
       }
     }
@@ -100,8 +100,6 @@ if (!isset($_SESSION['Admin'])) {
       <div class="row">
         <!-- Add Blog Modal -->
         <div class="col-md-12">
-          <!-- <div>
-          </div> -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content" style="width: 100%">
@@ -147,10 +145,8 @@ if (!isset($_SESSION['Admin'])) {
             </div>
           </div>
         </div>
-        <!-- Add Blog Modal -->
-
-
-         <!-- Edit Blog Modal -->
+        <!-- Add Blog Modal End -->
+         <!-- Edit Blog Modal Start -->
         <div class="col-md-12">
           <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -201,6 +197,7 @@ if (!isset($_SESSION['Admin'])) {
       <!-- Table Data start here -->
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
+          <!-- kgjgjhgj -->
           <?php
             $query = "SELECT * FROM blog";
             $result = mysqli_query($connection, $query);

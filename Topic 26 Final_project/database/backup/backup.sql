@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.5.0 (64 bit)
-MySQL - 10.4.28-MariaDB : Database - online_blogging_app
+MySQL - 10.4.27-MariaDB : Database - online_blogging_app
 *********************************************************************
 */
 
@@ -32,9 +32,14 @@ CREATE TABLE `blog` (
   PRIMARY KEY (`blog_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `blog` */
+
+insert  into `blog`(`blog_id`,`user_id`,`blog_title`,`post_per_page`,`blog_background_image`,`blog_status`,`created_at`,`updated_at`) values 
+(2,7,'Health',2,'blog_image_1684564721.jpg','InActive','2023-05-20 11:40:46',NULL),
+(3,7,'Politics',2,'blog_image_1684566872.png','Active','2023-05-20 12:14:33',NULL),
+(4,7,'Sport',2,'blog_image_1684568329.jpg','Active','2023-05-20 12:38:49',NULL);
 
 /*Table structure for table `category` */
 
@@ -93,9 +98,14 @@ CREATE TABLE `post` (
   PRIMARY KEY (`post_id`),
   KEY `blog_id` (`blog_id`),
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`blog_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `post` */
+
+insert  into `post`(`post_id`,`blog_id`,`post_title`,`post_summary`,`post_description`,`featured_image`,`post_status`,`is_comment_allowed`,`created_at`,`updated_at`) values 
+(1,NULL,'Today breaking news','lkjfds lskdjf lksdjf lksdjflsd lsdkjfd','POST DESCRIPTION','post_image_1684577355.jpeg','Active',0,'2023-05-20 15:28:09',NULL),
+(2,NULL,'Today breaking news','lkjfds lskdjf lksdjf lksdjflsd lsdkjfd','lorem lorem lorem','post_image_1684578030.jpeg','Active',0,'2023-05-20 15:28:31',NULL),
+(3,NULL,'POST TITLE','THIS IS IMAGE AND WHICH IS TAKEN DURING THE SURVEY IN HOSPITAL','POST DESCRIPTION','post_image_1684578437.jpeg','InActive',0,'2023-05-20 03:27:17',NULL);
 
 /*Table structure for table `post_atachment` */
 
@@ -213,7 +223,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`user_id`),
   KEY `role_id` (`role_id`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
 
@@ -228,7 +238,16 @@ insert  into `user`(`user_id`,`role_id`,`first_name`,`last_name`,`email`,`passwo
 (15,2,'Parkash','Kumar','parkash@gmail.com','12345','Male','1111-01-01','profile_image_1683883524.jpeg','Dharmani Colony Mith ','Approved','InActive','2023-05-14 22:56:46',NULL),
 (16,2,'Mohan',' Lal','mohan@gmail.com','12345','Male','2000-07-07','profile_image_1684065448.png','New Kot Sindh pakistan','Pending','Active','2023-05-14 17:41:34',NULL),
 (18,2,'Naima','Ansari','naima@gmail.com','12345','Male','6000-06-06','profile_image_1684118799.png','Marvi Town Hyderabad','Pending','Active','2023-05-15 07:46:39',NULL),
-(19,1,'Mineeta','Kumari','mineeta@gmail.com','12345','Female','2009-09-09','profile_image_1684150248.png','Chelhar District Tharparkar','Pending','Active','2023-05-15 16:31:37',NULL);
+(19,1,'Mineeta','Kumari','mineeta@gmail.com','12345','Female','2009-09-09','profile_image_1684150248.png','Chelhar District Tharparkar','Pending','Active','2023-05-15 16:31:37',NULL),
+(20,2,'Suhail','Ansari','suhail_ansari@gmail.com','12345','Male','2001-01-01','profile_image_1684563601.jpg','Karachi sindh','Pending','Active','2023-05-20 11:20:01',NULL),
+(21,2,'Ramesh','Kumar','ramesh@gmail.com','12345','Male','2000-01-01','profile_image_1684565645.png','mithi thar','Pending','Active','2023-05-20 11:54:05',NULL),
+(22,2,'Ramesh','Kumar','ramesh@gmail.com','12345','Male','2000-01-01','profile_image_1684565705.png','mithi thar','Pending','Active','2023-05-20 11:55:05',NULL),
+(23,2,'Suresh','Kumar','suresh@gmail.com','12345','Male','2000-01-01','profile_image_1684565764.jpg','ldksjf sldkjf','Pending','Active','2023-05-20 11:56:04',NULL),
+(24,2,'Suresh','Kumar','suresh@gmail.com','12345','Male','2000-01-01','profile_image_1684565849.jpg','ldksjf sldkjf','Pending','Active','2023-05-20 11:57:29',NULL),
+(25,2,'Suresh','Kumar','suresh@gmail.com','12345','Male','2000-01-01','profile_image_1684565905.jpg','ldksjf sldkjf','Pending','Active','2023-05-20 11:58:25',NULL),
+(26,2,'Ahsan','Khan','ahsan@gmail.com','12345','Male','2000-01-01','profile_image_1684566337.jpg','lkfj lsdkjf sld','Pending','Active','2023-05-20 12:05:37',NULL),
+(27,2,'Ahsan','Khan','ahsan@gmail.com','12345','Male','2000-01-01','profile_image_1684566404.jpg','lkfj lsdkjf sld','Pending','Active','2023-05-20 12:06:44',NULL),
+(28,2,'yaseen','ansari','yaseen@gmail.com','12345','Male','2000-01-01','profile_image_1684567282.jpg','lskdfj lskdjf d','Pending','Active','2023-05-20 12:21:22',NULL);
 
 /*Table structure for table `user_feedback` */
 
@@ -245,14 +264,17 @@ CREATE TABLE `user_feedback` (
   PRIMARY KEY (`feedback_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_feedback_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user_feedback` */
 
 insert  into `user_feedback`(`feedback_id`,`user_id`,`user_name`,`user_email`,`feedback`,`created_at`,`updated_at`) values 
-(1,NULL,'Baboo','babookumar15@gmail.com','','2023-05-19 06:52:50',NULL),
-(2,NULL,'Mohan','mohankumar15@gmail.com','','2023-05-19 07:15:35',NULL),
-(3,NULL,'Munesh','heerani@gmail.com','','2023-05-19 07:17:20',NULL);
+(1,NULL,'Baboo','babookumar15@gmail.com','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator\r\n','2023-05-20 09:25:15',NULL),
+(2,NULL,'Mohan','mohankumar15@gmail.com','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','2023-05-20 09:25:23',NULL),
+(3,NULL,'Munesh','heerani@gmail.com','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','2023-05-20 09:25:09',NULL),
+(11,NULL,'ali','ali_gohar@gmail.com','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','2023-05-20 09:23:52',NULL),
+(12,8,'Akash Kumar','akash@gmail.com','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','2023-05-20 10:01:22',NULL),
+(14,NULL,'Fatima','fatima@gmail.com','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','2023-05-20 10:04:44',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -11,17 +11,26 @@ require 'PHPMailer/src/SMTP.php';;
 // print_r($_SESSION['Admin']['role_type']);
 // die();
 
-if (isset($_POST['feedback'])) {
-include("require/connection.php");
+if (isset($_POST['feedback_button'])) {
+    include("require/connection.php");
         // var_dump($_POST);
         // echo "hello world";
         // echo $_POST['name'];
         // echo $_POST['email'];
         // echo $_POST['feedback'];
-        date_default_timezone_set("Asia/Karachi");
-        $current_time = date('Y-m-d h:i:s');
-        $query1 = "INSERT into user_feedback (user_name, user_email,feedback,created_at) VALUES('" . $_REQUEST['name'] . "','" . $_REQUEST['email'] . "','" . $_REQUEST['feedback'] . "','" . $current_time . "')";
-        $result1 = mysqli_query($connection, $query1);
+        if(isset($_SESSION['User']['user_id']))
+        {
+            date_default_timezone_set("Asia/Karachi");
+            $current_time = date('Y-m-d h:i:s');
+            $query1 = "INSERT into user_feedback (user_id,user_name, user_email,feedback,created_at) VALUES('".$_SESSION['User']['user_id']."','" . $_REQUEST['name'] . "','" . $_REQUEST['email'] . "','" . $_REQUEST['feedback'] . "','" . $current_time . "')";
+            $result1 = mysqli_query($connection, $query1);
+        }else{
+            date_default_timezone_set("Asia/Karachi");
+            $current_time = date('Y-m-d h:i:s');
+            $query1 = "INSERT into user_feedback (user_name, user_email,feedback,created_at) VALUES('" . $_REQUEST['name'] . "','" . $_REQUEST['email'] . "','" . $_REQUEST['feedback'] . "','" . $current_time . "')";
+            $result1 = mysqli_query($connection, $query1);
+        }
+        
     /**
      * This example shows settings to use when sending via Google's Gmail servers.
      * This uses traditional id & password authentication - look at the gmail_xoauth.phps

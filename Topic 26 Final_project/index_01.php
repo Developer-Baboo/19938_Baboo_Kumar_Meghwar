@@ -112,7 +112,7 @@ if (isset($_SESSION['Admin'])) {
     </nav>
     <!-- 1nd nav end -->
     <!-- 2nd nav start -->
-    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #5DADE2;z-index:0">
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #5DADE2;z-index:1">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.php">
             </a>
@@ -353,7 +353,7 @@ if (isset($_SESSION['Admin'])) {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button name="feedback" id="login" class="btn btn-primary" type="submit">Send Feedback</button>
+                            <button name="feedback_button" id="login" class="btn btn-primary" type="submit">Send Feedback</button>
                         </div>
                     </form>
                 </div>

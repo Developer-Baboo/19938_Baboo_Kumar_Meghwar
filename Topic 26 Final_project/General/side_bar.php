@@ -7,7 +7,7 @@ if (!isset($_SESSION['Admin'])) {
   header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -15,7 +15,7 @@ if (!isset($_SESSION['Admin'])) {
   <title>.::Online Blogging Application::.</title>
 </head>
 
-<body>
+<body> -->
   <?php
   // include("../require/connection.php");
   ?>
@@ -113,6 +113,3 @@ if (!isset($_SESSION['Admin'])) {
 
   <script src="../bootstrap-5.0.2-examples/assets/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../bootstrap-5.0.2-examples/sidebars/sidebars.js"></script>
-</body>
-
-</html>

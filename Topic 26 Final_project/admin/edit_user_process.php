@@ -1,6 +1,6 @@
 <?php
 require_once('../require/connection.php');
-/*************************Update Profile********************/
+/*************************User Update his Profile********************/
 if (isset($_REQUEST['edit_profile'])) {
     if (isset($_FILES['upload'])) {
         $file = $_FILES['upload'];

@@ -40,6 +40,12 @@ if (!isset($_SESSION['Admin'])) {
     <!-- /END SIDE BAR/ -->
     <!-- Users Feedback Table -->
     <div class="col-lg-9 col-md-9">
+      <?php
+            include("../require/connection.php");
+            $query = "SELECT * FROM user_feedback";
+            $result = mysqli_query($connection, $query);
+            if ($result->num_rows) {
+            ?>
       <center>
         <h1 class="text-primary font-weight-bold animated fadeInDown" style="font-family: 'Courier New', Courier, monospace; font-size: 48px;">ALL USERS FEEDBACKS</h1>
       </center>
@@ -49,16 +55,38 @@ if (!isset($_SESSION['Admin'])) {
             <tr>
               <th scope="col">FEEDBACK ID</th>
               <th scope="col">USER ID</th>
+              <th scope="col">USER NAME</th>
               <th scope="col">USER EMAIL</th>
               <th scope="col">FEEDBACK</th>
               <th scope="col">CREATED AT</th>
+              <th scope="col">UPDATED AT</th>
             </tr>
           </thead>
+          <?php
+              while ($row = mysqli_fetch_assoc($result)) {
+              // print_r($row);
+          ?>
           <tbody>
-            
+            <td><?php echo $row['feedback_id'] ?></td>
+                  <td>
+                    <?php 
+                      echo $row['user_id'] 
+                    ?>
+                  </td>
+                  <td><?php echo $row['user_name'] ?></td>
+                  <td><?php echo $row['user_email'] ?></td>
+                  <td><?php echo $row['feedback'] ?></td>
+                  <td><?php echo $row['created_at'] ?></td>
+                  <td><?php echo $row['created_at'] ?></td>
           </tbody>
+          <?php
+           }
+          ?>
         </table>
       </div>
+      <?php
+          }
+      ?>
     </div>
     <!-- User Feedback Table End Here -->
   </div>

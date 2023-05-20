@@ -12,8 +12,8 @@ if (isset($_SESSION['Admin'])) {
 
 
 <?php
+require_once("FPDF/fpdf.php");
 include("require/connection.php");
-
 if (isset($_REQUEST['register'])) {
   if (isset($_FILES['upload'])) {
     $file = $_FILES['upload'];
@@ -23,16 +23,21 @@ if (isset($_REQUEST['register'])) {
       $date = date('Y-m-d', strtotime($_REQUEST['dob']));
       date_default_timezone_set("Asia/Karachi");
       $current_time = date('Y-m-d h:i:s');
-
       $query1 = "INSERT into user (first_name, last_name, email, password, gender, date_of_birth, user_image, address, created_at) VALUES('" . $_REQUEST['first_name'] . "','" . $_REQUEST['last_name'] . "','" . $_REQUEST['email'] . "','" . $_REQUEST['password'] . "','" . $_REQUEST['gender'] . "','" . $date . "', '" . $file_name . "', '" . $_REQUEST['address'] . "', '" . $current_time . "')";
-
-      $result1 = mysqli_query($connection, $query1);
-      if ($result1) {
-?>
-        <script type="text/javascript">
-          confirm('Your account have been created successfully!...');
-        </script>
-<?php
+        $result1 = mysqli_query($connection, $query1);
+        if ($result1) {
+        $row=mysqli_fetch_assoc($result1);
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont("times");
+              $pdf->cell(0,10, $row['first_name'],1,1,"",0);
+              $pdf->cell(0,10, $row['last_name'],1,1,"",0);
+              $pdf->cell(0,10, $row['email'],1,1,"",0);
+              $pdf->cell(0,10, $row['password'],1,1,"",0);
+              $pdf->cell(0,10, $row['gender'],1,1,"",0);
+              $pdf->cell(0,10, $row['date_of_birth'],1,1,"",0);
+              $pdf->cell(0,10, $row['address'],1,1,"",0);
+              $pdf->Output();
       }
     }
   }

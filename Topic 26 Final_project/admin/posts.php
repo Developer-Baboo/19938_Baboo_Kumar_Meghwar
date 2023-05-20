@@ -38,11 +38,30 @@ if (!isset($_SESSION['Admin'])) {
     <?php require_once("../General/side_bar.php");?>
     <!-- SIDE BAR End -->
       <?php
+      include("../require/connection.php");
+      if(isset($_REQUEST['add_post'])){
+        /*echo "hello world";
+        echo $_REQUEST['post_title']."<br/>";
+        echo $_REQUEST['post_descrption']."<br/>";
+        echo $_REQUEST['choose_category']."<br/>";
+        echo $_REQUEST['upload']."<br/>";
+        echo $_REQUEST['choose_blog'];
+        echo $_REQUEST['is_active'];
+        echo $_REQUEST['comment_permission'];
+        echo $_REQUEST['post_summary'];*/
+        if (isset($_FILES['upload'])) {
+          $file = $_FILES['upload'];
+          $file_name = "post_image_" . time() . substr($file['name'], strpos($file['name'], "."));
 
-      if(isset($_Request[''])){
-        
+          if (move_uploaded_file($file['tmp_name'], "../images/" . $file_name)) {
+            // $date = date('Y-m-d', strtotime($_REQUEST['dob']));
+            date_default_timezone_set("Asia/Karachi");
+            $current_time = date('Y-m-d h:i:s');
+            $query1 = "INSERT into post (post_title, post_summary, post_description, featured_image, post_status, is_comment_allowed, created_at) VALUES('" . $_REQUEST['post_title'] . "','" . $_REQUEST['post_summary'] . "','" . $_REQUEST['post_descrption'] . "','" . $file_name . "','" . $_REQUEST['is_active'] . "','" . $_REQUEST['comment_permission'] . "','" . $current_time . "')";
+              $result1 = mysqli_query($connection, $query1);
+            }
+        }
       }
-
       ?>
     <div class="col-lg-8 col-md-8">
       <div class="row">
@@ -65,38 +84,40 @@ if (!isset($_SESSION['Admin'])) {
                     </div>
                     <div class="col-md-6">
                       <label for="postdecription" class="form-label">Post Description</label>
-                      <input type="text" class="form-control" name="poast_descrption" required placeholder="Enter Post Description">
+                      <input type="text" class="form-control" name="post_descrption" required placeholder="Enter Post Description">
                     </div>
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">Choose Category</label>
-                      <select id="inputState" class="form-select" name="choose_query">
-                        <option selected>Block Chain</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                      <select id="inputState" class="form-select" name="choose_category">
+                        <option selected>Health</option>
+                        <option value="Sport">Sport</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Buisness">Buisness</option>
                       </select>
                     </div>
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">Choose Blog</label>
-                      <select class="form-select" name="gender">
-                        <option selected>Block Chain</option>
-                        <option value="Male">IOT</option>
-                        <option value="Female">Information</option>
+                      <select class="form-select" name="choose_blog">
+                        <option selected>Health</option>
+                        <option value="Sport">Sport</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Buisness">Buisness</option>
                       </select>
                     </div>
 
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">POST STATUS</label>
                       <select id="inputState" class="form-select" name="is_active">
-                        <option value="Male">ACTIVE</option>
-                        <option value="Female">INACTIVE</option>
+                        <option value="ACTIVE">ACTIVE</option>
+                        <option value="INACTIVE">INACTIVE</option>
                       </select>
                     </div>
 
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">Comment Permission</label>
                       <select id="inputState" class="form-select" name="comment_permission">
-                        <option value="Male">YES</option>
-                        <option value="Female">NO</option>
+                        <option value="YES">YES</option>
+                        <option value="NO">NO</option>
                       </select>
                     </div>
                     <div class="col-md-6">
@@ -105,7 +126,7 @@ if (!isset($_SESSION['Admin'])) {
                     </div>
                     <div class="col-md-6">
                       <label for="posttitle" class="form-label">Post Summary</label>
-                      <input type="text" class="form-control" id="firstname" name="summaryt_s" required placeholder="Enter Post Title">
+                      <input type="text" class="form-control" id="firstname" name="post_summary" required placeholder="Enter Post Title">
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -151,11 +172,15 @@ if (!isset($_SESSION['Admin'])) {
 
           <!-- Post Table -->
           <div style="margin-left:-10px;" class="col-lg-12 col-md-12">
+            <?php
+            require_once("../require/connection.php");
+            $query = "SELECT * FROM post";
+            $result = mysqli_query($connection, $query);
+            if ($result->num_rows) {
+            ?>
             <center>
               <span><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button></span>
               <span style="font-size: 20px">All POSTS</span>
-              <!-- <h1></h1> -->
-
             </center>
             <div style="margin-left: -100px; " class="table-responsive">
               <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -175,9 +200,29 @@ if (!isset($_SESSION['Admin'])) {
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
+                <?php
+                    while ($row = mysqli_fetch_assoc($result)) {
+                 ?>
                 <tbody>
-                  
+                         
+                          <td><?php echo $row['post_id'] ?></td>
+                          <td><?php echo $row['blog_id'] ?></td>
+                          <td><?php echo $row['post_title'] ?></td>
+                          <td><?php echo $row['post_summary'] ?></td>
+                          <td><?php echo $row['post_description'] ?></td>
+                          <td>
+                            <a href="view_post.php">View POST</a>
+                          </td>
+                          <td><img src="../images/<?php echo $row['user_image'] ?>" width="50px" style="border-radius: 50px"></td>
+                          <td>
+                            <img src="<?php echo $row['post_status'] ?>">
+                          </td>
+                          <td><?php echo $row['is_comment_allowed'] ?></td>
+                          <td><?php echo $row['created_at'] ?></td>
                 </tbody>
+                <?php
+                    }
+                    ?>
               </table>
               <div>
               </div>
