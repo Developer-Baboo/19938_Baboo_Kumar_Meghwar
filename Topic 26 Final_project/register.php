@@ -5,7 +5,7 @@ session_start();
 
 if (isset($_SESSION['Admin'])) {
   header("location:./admin/admin_dashboard.php");
-}else if(isset($_SESSION['User'])){
+} else if (isset($_SESSION['User'])) {
   header("location:index_01.php");
 }
 ?>
@@ -14,6 +14,7 @@ if (isset($_SESSION['Admin'])) {
 <?php
 require_once("FPDF/fpdf.php");
 include("require/connection.php");
+
 if (isset($_REQUEST['register'])) {
   if (isset($_FILES['upload'])) {
     $file = $_FILES['upload'];
@@ -23,26 +24,29 @@ if (isset($_REQUEST['register'])) {
       $date = date('Y-m-d', strtotime($_REQUEST['dob']));
       date_default_timezone_set("Asia/Karachi");
       $current_time = date('Y-m-d h:i:s');
-      $query1 = "INSERT into user (first_name, last_name, email, password, gender, date_of_birth, user_image, address, created_at) VALUES('" . $_REQUEST['first_name'] . "','" . $_REQUEST['last_name'] . "','" . $_REQUEST['email'] . "','" . $_REQUEST['password'] . "','" . $_REQUEST['gender'] . "','" . $date . "', '" . $file_name . "', '" . $_REQUEST['address'] . "', '" . $current_time . "')";
-        $result1 = mysqli_query($connection, $query1);
-        if ($result1) {
-        $row=mysqli_fetch_assoc($result1);
+
+      $query1 = "INSERT into user (first_name, last_name, email, password, gender, date_of_birth, user_image, address, created_at) VALUES ('" . $_REQUEST['first_name'] . "','" . $_REQUEST['last_name'] . "','" . $_REQUEST['email'] . "','" . $_REQUEST['password'] . "','" . $_REQUEST['gender'] . "','" . $date . "', '" . $file_name . "', '" . $_REQUEST['address'] . "', '" . $current_time . "')";
+
+      $result1 = mysqli_query($connection, $query1);
+
+      if ($result1) {
         $pdf = new FPDF();
         $pdf->AddPage();
         $pdf->SetFont("times");
-              $pdf->cell(0,10, $row['first_name'],1,1,"",0);
-              $pdf->cell(0,10, $row['last_name'],1,1,"",0);
-              $pdf->cell(0,10, $row['email'],1,1,"",0);
-              $pdf->cell(0,10, $row['password'],1,1,"",0);
-              $pdf->cell(0,10, $row['gender'],1,1,"",0);
-              $pdf->cell(0,10, $row['date_of_birth'],1,1,"",0);
-              $pdf->cell(0,10, $row['address'],1,1,"",0);
-              $pdf->Output();
+        $pdf->cell(0, 10, $_REQUEST['first_name'], 1, 1, "", 0);
+        $pdf->cell(0, 10, $_REQUEST['last_name'], 1, 1, "", 0);
+        $pdf->cell(0, 10, $_REQUEST['email'], 1, 1, "", 0);
+        $pdf->cell(0, 10, $_REQUEST['password'], 1, 1, "", 0);
+        $pdf->cell(0, 10, $_REQUEST['gender'], 1, 1, "", 0);
+        $pdf->cell(0, 10, $date, 1, 1, "", 0);
+        $pdf->cell(0, 10, $_REQUEST['address'], 1, 1, "", 0);
+        $pdf->Output();
       }
     }
   }
 }
 ?>
+
 <!Doctype html>
 <html>
 
@@ -316,44 +320,44 @@ if (isset($_REQUEST['register'])) {
 
     <!-- Login Model Here -->
     <div class="modal fade" id="staticBackdropLogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Login Here</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Login Here</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
 
-                    <form method="POST" action="login_process.php" class="row g-3 needs-validation" novalidate>
-                        <div class="col-md-12 position-relative">
-                            <label for="validationTooltipUsername" class="form-label">Email</label>
-                            <div class="input-group has-validation">
-                                <!-- <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span> -->
-                                <input type="email" name="email" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
-                                <div class="invalid-tooltip">
-                                    Please choose a unique and valid username.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 position-relative">
-                            <label for="validationTooltipPassword" class="form-label">Password</label>
-                            <div class="input-group has-validation">
-                                <input name="password" type="password" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required>
-                                <div class="invalid-tooltip">
-                                    Password Must 8 to 12 Character
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                        </div>
+            <form method="POST" action="login_process.php" class="row g-3 needs-validation" novalidate>
+              <div class="col-md-12 position-relative">
+                <label for="validationTooltipUsername" class="form-label">Email</label>
+                <div class="input-group has-validation">
+                  <!-- <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span> -->
+                  <input type="email" name="email" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                  <div class="invalid-tooltip">
+                    Please choose a unique and valid username.
+                  </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button name="login" id="login" class="btn btn-primary" type="submit">Login Here</button>
+              </div>
+              <div class="col-md-12 position-relative">
+                <label for="validationTooltipPassword" class="form-label">Password</label>
+                <div class="input-group has-validation">
+                  <input name="password" type="password" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required>
+                  <div class="invalid-tooltip">
+                    Password Must 8 to 12 Character
+                  </div>
                 </div>
-                </form>
-            </div>
+              </div>
+              <div class="col-12">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button name="login" id="login" class="btn btn-primary" type="submit">Login Here</button>
+          </div>
+          </form>
         </div>
+      </div>
     </div>
     <!-- login model end -->
     <!-- Modal Contact Us -->

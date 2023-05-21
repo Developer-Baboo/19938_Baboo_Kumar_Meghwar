@@ -146,7 +146,7 @@ if (isset($_GET['user_id'])) {
       <div class="row">
         <!-- Edit User Model -->
         <?php
-        if(isset($_GET[''])){
+        if (isset($_GET[''])) {
           // echo 
         }
         // $user_id = UserId;
@@ -229,6 +229,7 @@ if (isset($_GET['user_id'])) {
             ?>
               <center>
                 <h2>All Approved Users</h2>
+
                 <div style="margin-left: -100px; " class="table-responsive">
                   <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <div id="response"></div>
@@ -292,18 +293,10 @@ if (isset($_GET['user_id'])) {
                           </td>
                           <!-- here -->
                           <td>
-                            <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="getUserID(<?php echo $row['user_id']; ?>)">Edit</a>
+                            <a href="./category.php">Edit</a>
+                            <a href="./edit_approved_user.php">Edit</a>
+                            <a href="./a.php">Hi</a>
                           </td>
-
-                          <script>
-                            function getUserID(userID) {
-                              // Perform any desired operations with the user ID
-                              console.log("User ID:", userID);
-                              // You can also pass the user ID to a function or make an AJAX request, etc.
-                              // For example, to redirect to the approved_users.php page with the user ID:
-                              // window.location.href = "approved_users.php?user_id=" + userID;
-                            }
-                          </script>
                         </tr>
                       </tbody>
                     <?php
@@ -312,7 +305,6 @@ if (isset($_GET['user_id'])) {
                   </table>
                 </div>
               </center>
-
             <?php
             }
             ?>

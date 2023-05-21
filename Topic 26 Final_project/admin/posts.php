@@ -35,12 +35,12 @@ if (!isset($_SESSION['Admin'])) {
 <body>
   <div class="row">
     <!-- SIDE BAR START -->
-    <?php require_once("../General/side_bar.php");?>
+    <?php require_once("../General/side_bar.php"); ?>
     <!-- SIDE BAR End -->
-      <?php
-      include("../require/connection.php");
-      if(isset($_REQUEST['add_post'])){
-        /*echo "hello world";
+    <?php
+    include("../require/connection.php");
+    if (isset($_REQUEST['add_post'])) {
+      /*echo "hello world";
         echo $_REQUEST['post_title']."<br/>";
         echo $_REQUEST['post_descrption']."<br/>";
         echo $_REQUEST['choose_category']."<br/>";
@@ -49,20 +49,20 @@ if (!isset($_SESSION['Admin'])) {
         echo $_REQUEST['is_active'];
         echo $_REQUEST['comment_permission'];
         echo $_REQUEST['post_summary'];*/
-        if (isset($_FILES['upload'])) {
-          $file = $_FILES['upload'];
-          $file_name = "post_image_" . time() . substr($file['name'], strpos($file['name'], "."));
+      if (isset($_FILES['upload'])) {
+        $file = $_FILES['upload'];
+        $file_name = "post_image_" . time() . substr($file['name'], strpos($file['name'], "."));
 
-          if (move_uploaded_file($file['tmp_name'], "../images/" . $file_name)) {
-            // $date = date('Y-m-d', strtotime($_REQUEST['dob']));
-            date_default_timezone_set("Asia/Karachi");
-            $current_time = date('Y-m-d h:i:s');
-            $query1 = "INSERT into post (post_title, post_summary, post_description, featured_image, post_status, is_comment_allowed, created_at) VALUES('" . $_REQUEST['post_title'] . "','" . $_REQUEST['post_summary'] . "','" . $_REQUEST['post_descrption'] . "','" . $file_name . "','" . $_REQUEST['is_active'] . "','" . $_REQUEST['comment_permission'] . "','" . $current_time . "')";
-              $result1 = mysqli_query($connection, $query1);
-            }
+        if (move_uploaded_file($file['tmp_name'], "../images/" . $file_name)) {
+          // $date = date('Y-m-d', strtotime($_REQUEST['dob']));
+          date_default_timezone_set("Asia/Karachi");
+          $current_time = date('Y-m-d h:i:s');
+          $query1 = "INSERT into post (post_title, post_summary, post_description, featured_image, post_status, is_comment_allowed, created_at) VALUES('" . $_REQUEST['post_title'] . "','" . $_REQUEST['post_summary'] . "','" . $_REQUEST['post_descrption'] . "','" . $file_name . "','" . $_REQUEST['is_active'] . "','" . $_REQUEST['comment_permission'] . "','" . $current_time . "')";
+          $result1 = mysqli_query($connection, $query1);
         }
       }
-      ?>
+    }
+    ?>
     <div class="col-lg-8 col-md-8">
       <div class="row">
         <!-- Add Post Modal -->
@@ -72,7 +72,7 @@ if (!isset($_SESSION['Admin'])) {
               <div class="modal-content" style="width: 100%">
                 <div class="modal-header">
                   <center>
-                        <h3 style="font-family: times;color: green; text-align: center; ">Create POST</h3>                  
+                    <h3 style="font-family: times;color: green; text-align: center; ">Create POST</h3>
                   </center>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -80,7 +80,7 @@ if (!isset($_SESSION['Admin'])) {
                   <form class="row g-3" method="POST" action="" enctype="multipart/form-data">
                     <div class="col-md-6">
                       <label for="posttitle" class="form-label">Post Title</label>
-                      <input type="text" class="form-control"  name="post_title" required placeholder="Enter Post Title">
+                      <input type="text" class="form-control" name="post_title" required placeholder="Enter Post Title">
                     </div>
                     <div class="col-md-6">
                       <label for="postdecription" class="form-label">Post Description</label>
@@ -88,20 +88,32 @@ if (!isset($_SESSION['Admin'])) {
                     </div>
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">Choose Category</label>
-                      <select id="inputState" class="form-select" name="choose_category">
-                        <option selected>Health</option>
-                        <option value="Sport">Sport</option>
-                        <option value="Politics">Politics</option>
-                        <option value="Buisness">Buisness</option>
+                      <select class="form-select" name="choose_category">
+                        <?php
+                        require("../require/connection.php");
+                        $sql = "SELECT category_title FROM category";
+                        $result = mysqli_query($connection, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                          while ($row = mysqli_fetch_assoc($result)) {
+                            echo '<option value="' . $row['category_title'] . '">' . $row['category_title'] . '</option>';
+                          }
+                        }
+                        ?>
                       </select>
                     </div>
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">Choose Blog</label>
                       <select class="form-select" name="choose_blog">
-                        <option selected>Health</option>
-                        <option value="Sport">Sport</option>
-                        <option value="Politics">Politics</option>
-                        <option value="Buisness">Buisness</option>
+                        <?php
+                        require("../require/connection.php");
+                        $sql = "SELECT blog_title FROM blog";
+                        $result = mysqli_query($connection, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                          while ($row = mysqli_fetch_assoc($result)) {
+                            echo '<option value="' . $row['blog_title'] . '">' . $row['blog_title'] . '</option>';
+                          }
+                        }
+                        ?>
                       </select>
                     </div>
 
@@ -135,7 +147,6 @@ if (!isset($_SESSION['Admin'])) {
                   </form>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -148,7 +159,7 @@ if (!isset($_SESSION['Admin'])) {
                 <div class="modal-content">
                   <div class="modal-header">
                     <center>
-                      <h3 style="font-family times; color: green; text-align: center;">View POST</h3>
+                      <h3 style="color: green; text-align: center;">View POST</h3>
                     </center>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
@@ -161,7 +172,7 @@ if (!isset($_SESSION['Admin'])) {
                     <h1 style="font-size: 24px; font-weight: bold; ">Post Description</h1>
                     <p style="font-size: 16px; line-height: 1.5; text-align: justify">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
                     <h1 style="font-size: 24px; font-weight: bold;">Image</h1>
-                    <img src="../images/12.jpg" alt="" height="100%" width="100%" >
+                    <img src="../images/12.jpg" alt="" height="100%" width="100%">
                   </div>
                 </div>
 
@@ -172,61 +183,71 @@ if (!isset($_SESSION['Admin'])) {
 
           <!-- Post Table -->
           <div style="margin-left:-10px;" class="col-lg-12 col-md-12">
+            <span><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button></span>
             <?php
             require_once("../require/connection.php");
-            $query = "SELECT * FROM post";
+            // $query = "SELECT * FROM post";
+            $query = "SELECT post.*, blog.blog_id
+                      FROM post
+                      INNER JOIN blog ON post.blog_id = blog.blog_id;";
+            // var_dump($query);
             $result = mysqli_query($connection, $query);
+            var_dump($result);
+            // die();
             if ($result->num_rows) {
             ?>
-            <center>
-              <span><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW POST</button></span>
-              <span style="font-size: 20px">All POSTS</span>
-            </center>
-            <div style="margin-left: -100px; " class="table-responsive">
-              <table id="example" class="table table-striped table-bordered" style="width:100%">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>POST ID</th>
-                    <th>BLOG ID</th>
-                    <th scope="col">POST Title</th>
-                    <th scope="col">POST Summary</th>
-                    <th scope="col">POST Description </th>
-                    <th scope="col">View Post</th>
-                    <th scope="col">Featured Image</th>
-                    <th scope="col">POST Status</th>
-                    <th scope="col">Comment Allowed</th>
-                    <th scope="col">Created At</th>
-                    <th scope="col">Updated At</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <?php
-                    while ($row = mysqli_fetch_assoc($result)) {
-                 ?>
-                <tbody>
-                         
-                          <td><?php echo $row['post_id'] ?></td>
-                          <td><?php echo $row['blog_id'] ?></td>
-                          <td><?php echo $row['post_title'] ?></td>
-                          <td><?php echo $row['post_summary'] ?></td>
-                          <td><?php echo $row['post_description'] ?></td>
-                          <td>
-                            <a href="view_post.php">View POST</a>
-                          </td>
-                          <td><img src="../images/<?php echo $row['user_image'] ?>" width="50px" style="border-radius: 50px"></td>
-                          <td>
-                            <img src="<?php echo $row['post_status'] ?>">
-                          </td>
-                          <td><?php echo $row['is_comment_allowed'] ?></td>
-                          <td><?php echo $row['created_at'] ?></td>
-                </tbody>
-                <?php
-                    }
-                    ?>
-              </table>
-              <div>
+              <center>
+                <span style="font-size: 20px">All POSTS</span>
+              </center>
+              <div style="margin-left: -100px; " class="table-responsive">
+                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th>POST ID</th>
+                      <th>BLOG ID</th>
+                      <th scope="col">POST Title</th>
+                      <th scope="col">POST Summary</th>
+                      <th scope="col">POST Description </th>
+                      <th scope="col">View Post</th>
+                      <th scope="col">Featured Image</th>
+                      <th scope="col">POST Status</th>
+                      <th scope="col">Comment Allowed</th>
+                      <th scope="col">Created At</th>
+                      <th scope="col">Updated At</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <?php
+                  while ($row = mysqli_fetch_assoc($result)) {
+                  ?>
+                    <tbody>
+                      <td><?php echo $row['post_id'] ?></td>
+                      <td><?php echo $row['blog_id'] ?></td>
+                      <td><?php echo $row['post_title'] ?></td>
+                      <td><?php echo $row['post_summary'] ?></td>
+                      <td><?php echo $row['post_description'] ?></td>
+                      <td>
+                        <a href="view_post.php">View POST</a>
+                      </td>
+                      <td><img src="../images/<?php echo $row['featured_image'] ?>" width="50px" style="border-radius: 50px"></td>
+                      <td><?php echo $row['post_status'] ?></td>
+                      <td><?php echo $row['is_comment_allowed'] ?></td>
+                      <td><?php echo $row['created_at'] ?></td>
+                      <td><?php echo $row['created_at'] ?></td>
+                      <td>
+                        <a href="post_edit.php">Edit</a>
+                      </td>
+                    </tbody>
+                  <?php
+                  }
+                  ?>
+                </table>
+                <div>
+                </div>
               </div>
-            </div>
+            <?php
+            }
+            ?>
           </div>
           <!-- Post Modal Table -->
         </div>
