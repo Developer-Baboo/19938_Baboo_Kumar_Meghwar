@@ -293,9 +293,10 @@ if (isset($_GET['user_id'])) {
                           </td>
                           <!-- here -->
                           <td>
-                            <a href="./category.php">Edit</a>
-                            <a href="./edit_approved_user.php">Edit</a>
-                            <a href="./a.php">Hi</a>
+                            <!-- <a href="./category.php">Edit</a> -->
+                            <a href="edit_approved_user.php?user_id=<?php echo $row['user_id'] ?>">Edit</a>
+                            <!-- <a href="hh.php">hhh</a> -->
+                            <!-- <a href="./a.php">Hi</a> -->
                           </td>
                         </tr>
                       </tbody>

@@ -1,10 +1,10 @@
 <?php
 session_start();
-if (isset($_SESSION['Admin'])) {
-    header("location:./admin/admin_dashboard.php");
-} else if (isset($_SESSION['User'])) {
-    header("location:index_01.php");
-}
+// if (isset($_SESSION['Admin'])) {
+//     header("location:./admin/admin_dashboard.php");
+// } else if (isset($_SESSION['User'])) {
+//     header("location:index_01.php");
+// }
 ?>
 
 
@@ -14,14 +14,14 @@ if (isset($_REQUEST['edit_user'])) {
     if (isset($_FILES['upload'])) {
         $file = $_FILES['upload'];
         $file_name = "profile_image_" . time() . substr($file['name'], strpos($file['name'], "."));
-        if (move_uploaded_file($file['tmp_name'], "images/" . $file_name)) {
+        if (move_uploaded_file($file['tmp_name'], "../images/" . $file_name)) {
             $date = date('Y-m-d', strtotime($_REQUEST['dob']));
             date_default_timezone_set("Asia/Karachi");
             $updated_at = date('Y-m-d h:i:s');
 
             $update_time = date('Y-m-d h:i:s');
-            $query = "UPDATE user SET first_name='" . $_REQUEST['first_name'] . "',last_name='" . $_REQUEST['last_name'] . "',password='" . $_REQUEST['password'] . "',gender='" . $_REQUEST['gender'] . "',date_of_birth='" . $_REQUEST['dob'] . "',user_image='" . $file_name . "',address='" . $_REQUEST['address'] . "', updated_at='" . $update_time . "' WHERE user_id='" . $_REQUEST['user_id'] . "' ";
-            $result1 = mysqli_query($connection, $query1);
+            $query = "UPDATE user SET first_name='" . $_REQUEST['first_name'] . "',last_name='" . $_REQUEST['last_name'] . "',password='" . $_REQUEST['password'] . "',gender='" . $_REQUEST['gender'] . "',date_of_birth='" . $_REQUEST['dob'] . "',user_image='" . $file_name . "',address='" . $_REQUEST['address'] . "', updated_at='" . $update_at . "' WHERE user_id='" . $_REQUEST['user_id'] . "' ";
+            $result1 = mysqli_query($connection, $query);
             if ($result1) {
                 header("Location: approved_users.php");
             }
@@ -74,34 +74,48 @@ if (isset($_REQUEST['edit_user'])) {
         </div>
 
         <form style="width:50%; margin-bottom: 20px;" method="POST" action="#" enctype="multipart/form-data">
+            <?php
+
+            if(isset($_GET['user_id'])){
+                $user_id = $_GET['user_id'];
+                $query = "SELECT * from user WHERE user_id = $user_id";
+                $result = mysqli_query($connection,$query);
+                // var_dump($result);
+                $row = mysqli_fetch_assoc($result);
+                
+                // var_dump($row);
+
+            }
+
+            ?>
             <table cellpadding="10px" cellspacing="0px" style="background: skyblue;width: 100%;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px">
                 <tr>
                     <td>Firstname:<span>*</span></td>
-                    <td><input value="" type="text" name="first_name" id="first_name" required placeholder="Enter Your Firstname" style="border-radius: 5px;width: 100%;  padding: 6px;"></td>
+                    <td><input value="<?php echo $row['first_name'] ?>" type="text" name="first_name" id="first_name" required placeholder="Enter Your Firstname" style="border-radius: 5px;width: 100%;  padding: 6px;"></td>
                     <td><span id="msg_first_name"></span></td>
                 </tr>
                 <tr>
                     <td>Lastname:<span>*</span></td>
-                    <td><input value="" type="text" name="last_name" id="last_name" required placeholder="Enter Your Lastname" style="border-radius: 5px;width: 100%; padding: 6px;"></td>
+                    <td><input value="<?php echo $row['last_name'] ?>" type="text" name="last_name" id="last_name" required placeholder="Enter Your Lastname" style="border-radius: 5px;width: 100%; padding: 6px;"></td>
                     <td><span id="msg_last_name"></span></td>
 
                 </tr>
                 <tr>
                     <td>Gender:<span>*</span></td>
-                    <td><input value="" type="radio" name="gender" id="male" value="Male" class="from-control"> Male
+                    <td><input value="<?php echo $row['gender'] ?>" type="radio" name="gender" id="male" value="Male" class="from-control"> Male
                         <input type="radio" name="gender" id="female" value="Female"> Female
                     </td>
                     <td><span id="msg_gender"></span></td>
                 </tr>
                 <tr>
                     <td>Password<span>*</span></td>
-                    <td><input value="" type="password" name="password" id="password" required placeholder="Enter Your Password" style="border-radius: 5px;width: 100%;padding: 5px;"></td>
+                    <td><input value="<?php echo $row['password'] ?>" type="password" name="password" id="password" required placeholder="Enter Your Password" style="border-radius: 5px;width: 100%;padding: 5px;"></td>
                     <td><span id="msg_password"></span></td>
 
                 </tr>
                 <tr>
                     <td>Date-Of-Birth<span>*</span></td>
-                    <td><input value="" type="date" name="dob" id="dob" style="border-radius: 5px;width: 100%;padding: 5px;"></td>
+                    <td><input value="<?php echo $row['date_of_birth'] ?>" type="date" name="dob" id="dob" style="border-radius: 5px;width: 100%;padding: 5px;"></td>
                     <td><span id="msg_dob"></span></td>
 
                 </tr>
@@ -112,8 +126,8 @@ if (isset($_REQUEST['edit_user'])) {
 
                 </tr>
                 <tr>
-                    <td>Hometown<span>*</span></td>
-                    <td><textarea value="" name="address" id="address" cols="20" rows="3" style="border-radius: 5px;width: 100%;"></textarea> </td>
+                    <td>Address<span>*</span></td>
+                    <td><textarea value="<?php echo $row['address'] ?>" name="address" id="address" cols="20" rows="3" style="border-radius: 5px;width: 100%;"></textarea> </td>
                     <td><span id="msg_address"></span></td>
                 </tr>
                 <tr>

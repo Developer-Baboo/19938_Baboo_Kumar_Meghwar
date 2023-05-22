@@ -126,7 +126,7 @@ if (!isset($_SESSION['Admin'])) {
 
         <!-- Edit Category Model -->
         <div class="col-md-12">
-          <<!-- div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" data-bs-whatever="@mdo">Edit Category</button>
+          <!-- div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" data-bs-whatever="@mdo">Edit Category</button>
         </div> -->
         <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">

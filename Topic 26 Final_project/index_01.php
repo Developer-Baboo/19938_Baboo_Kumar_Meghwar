@@ -98,7 +98,8 @@ if (isset($_SESSION['Admin'])) {
         <?php } else { ?>
             <!-- User is not logged in -->
             <button class="btn btn-outline-secondary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin" style="margin-right: 10px;">Login</button>
-            <button class="btn btn-outline-primary" class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropLogin"><a class="nav-link active " aria-current="page" href="register.php">Register</a></button>
+            <button class="btn btn-outline-primary" class="btn" type="submit"><a class="nav-link active " aria-current="page" href="register.php">Registerr</a></button>
+            <!-- <a href="./register.php">register</a> -->
             <div class="social-media-icons mx-2">
                 <a href="#"><i class="bi bi-facebook"></i></a>
                 <a href="#"><i class="bi bi-twitter"></i></a>
@@ -175,7 +176,17 @@ if (isset($_SESSION['Admin'])) {
             </div>
             <!-- Tending Post  -->
             <div class="col-md-4">
+                <?php
+                    include("require/connection.php");
+                    $query = "SELECT * FROM post";
+                    $result = mysqli_query($connection, $query);
+                    if ($result->num_rows) {
+                    ?>
                 <div class="row">
+                    <?php
+                            while ($row = mysqli_fetch_assoc($result)) {
+                            // print_r($row);
+                    ?>
                     <center>
                         <h4>Trending Posts</h4>
                     </center>
@@ -183,13 +194,20 @@ if (isset($_SESSION['Admin'])) {
                         <img style="border-radius: 10px;" src="./images/sport/01.jpg" height="100px" width="100px" alt="">
                     </div>
                     <div class="col-md-8">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, libero? Expedita at accusamus vero necessitatibus ipsum, ullam Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, libero? Expedita at accusamus vero necessitatibus ipsum, ullam </p>
+                        <p><?php $row['post_description']; ?></p>
+                        <p>Lorem ipsum dolor sit amet, cat accusamus vero necessitatibus ipsum, ullam </p>
                     </div>
                     <div class="col-md-4">
                         <img style="border-radius: 10px;" src="./images/health/01.jpeg" height="100px" width="100px" alt="">
                     </div>
                     <div class="col-md-8">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, libero? Expedita at accusamus vero necessitatibus ipsum, ullam Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, libero? Expedita at accusamus vero necessitatibus ipsum, ullam </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, libero? Expedita at accusamus vero necessitatibus ipsum, ullam Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, libero? Expedita at accusamus vero necessitatibus ipsum, ullam 
+                            <a href="view_post_details.php?post_id=<?php echo $row['post_id']?> " style="color:blue" >View More</a></p>
+                            <?php
+                              //echo "<td><a href=?post_id='" . $row['post_id'] . "'>View More</a>
+                                // </td>";
+                            ?>
+
                     </div>
                     <div class="col-md-4">
                         <img style="border-radius: 10px;" src="./images/health/1.jpg" height="100px" width="100px" alt="">
@@ -197,7 +215,9 @@ if (isset($_SESSION['Admin'])) {
                     <div class="col-md-8">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, libero? Expedita at accusamus vero necessitatibus ipsum, </p>
                     </div>
+                <?php } ?>
                 </div>
+                <?php } ?>
             </div>
             <!-- Trending pOst ends  -->
         </div>

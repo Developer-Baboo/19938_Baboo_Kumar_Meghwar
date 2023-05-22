@@ -1,0 +1,11 @@
+show posts
+view more 
+	post_id,blog blog
+	commnet
+	author name + date
+	image+description
+	follow blog
+category update/active/inactive
+user edit active/inactive
+
+post attachement + theme customization

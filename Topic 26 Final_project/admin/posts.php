@@ -57,7 +57,9 @@ if (!isset($_SESSION['Admin'])) {
           // $date = date('Y-m-d', strtotime($_REQUEST['dob']));
           date_default_timezone_set("Asia/Karachi");
           $current_time = date('Y-m-d h:i:s');
-          $query1 = "INSERT into post (post_title, post_summary, post_description, featured_image, post_status, is_comment_allowed, created_at) VALUES('" . $_REQUEST['post_title'] . "','" . $_REQUEST['post_summary'] . "','" . $_REQUEST['post_descrption'] . "','" . $file_name . "','" . $_REQUEST['is_active'] . "','" . $_REQUEST['comment_permission'] . "','" . $current_time . "')";
+          $selected_blog_id = $_POST['choose_blog'];
+          $query1 = "INSERT INTO post (post_title, post_summary, post_description, featured_image, post_status, is_comment_allowed, created_at, blog_id)
+           VALUES ('" . $_REQUEST['post_title'] . "','" . $_REQUEST['post_summary'] . "','" . $_REQUEST['post_description'] . "','" . $file_name . "','" . $_REQUEST['is_active'] . "','" . $_REQUEST['comment_permission'] . "','" . $current_time . "'," . $selected_blog_id . ")";
           $result1 = mysqli_query($connection, $query1);
         }
       }
@@ -84,7 +86,7 @@ if (!isset($_SESSION['Admin'])) {
                     </div>
                     <div class="col-md-6">
                       <label for="postdecription" class="form-label">Post Description</label>
-                      <input type="text" class="form-control" name="post_descrption" required placeholder="Enter Post Description">
+                      <input type="text" class="form-control" name="post_description" required placeholder="Enter Post Description">
                     </div>
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">Choose Category</label>
@@ -106,11 +108,11 @@ if (!isset($_SESSION['Admin'])) {
                       <select class="form-select" name="choose_blog">
                         <?php
                         require("../require/connection.php");
-                        $sql = "SELECT blog_title FROM blog";
+                        $sql = "SELECT blog_id, blog_title FROM blog";
                         $result = mysqli_query($connection, $sql);
                         if (mysqli_num_rows($result) > 0) {
                           while ($row = mysqli_fetch_assoc($result)) {
-                            echo '<option value="' . $row['blog_title'] . '">' . $row['blog_title'] . '</option>';
+                            echo '<option value="' . $row['blog_id'] . '">' . $row['blog_title'] . '</option>';
                           }
                         }
                         ?>
@@ -192,7 +194,7 @@ if (!isset($_SESSION['Admin'])) {
                       INNER JOIN blog ON post.blog_id = blog.blog_id;";
             // var_dump($query);
             $result = mysqli_query($connection, $query);
-            var_dump($result);
+            // var_dump($result);
             // die();
             if ($result->num_rows) {
             ?>
@@ -235,7 +237,7 @@ if (!isset($_SESSION['Admin'])) {
                       <td><?php echo $row['created_at'] ?></td>
                       <td><?php echo $row['created_at'] ?></td>
                       <td>
-                        <a href="post_edit.php">Edit</a>
+                        <a href="edit_post.php?post_id=<?php echo $row['post_id'] ?>">Edit</a>
                       </td>
                     </tbody>
                   <?php

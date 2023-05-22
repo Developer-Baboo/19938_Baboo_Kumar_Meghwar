@@ -53,7 +53,7 @@ if (!isset($_SESSION['Admin'])) {
 <body>
   <!-- <h1>hello world</h1> -->
   <?php
-  
+
 
   include("../require/connection.php");
 
@@ -73,18 +73,17 @@ if (!isset($_SESSION['Admin'])) {
         date_default_timezone_set("Asia/Karachi");
         $current_time = date('Y-m-d h:i:s');
 
-        $query1 = "INSERT into blog (user_id, blog_title, post_per_page, blog_background_image, blog_status, created_at) VALUES('" . $_SESSION['Admin']['user_id']."','" . $_REQUEST['blog_title'] . "','" . $_REQUEST['post_blog'] . "', '" . $file_name . "','".$_REQUEST['blog_status']."' ,'" . $current_time . "')";
+        $query1 = "INSERT into blog (user_id, blog_title, post_per_page, blog_background_image, blog_status, created_at) VALUES('" . $_SESSION['Admin']['user_id'] . "','" . $_REQUEST['blog_title'] . "','" . $_REQUEST['post_blog'] . "', '" . $file_name . "','" . $_REQUEST['blog_status'] . "' ,'" . $current_time . "')";
         // var_dump($query1);
         $result1 = mysqli_query($connection, $query1);
         if (!$result1) {
           echo "Query execution failed: " . mysqli_error($connection);
-        }
-        else{
-            ?>
+        } else {
+  ?>
           <script type="text/javascript">
             alert('Blog Created Successfully!...');
           </script>
-          <?php
+  <?php
         }
       }
     }
@@ -146,7 +145,7 @@ if (!isset($_SESSION['Admin'])) {
           </div>
         </div>
         <!-- Add Blog Modal End -->
-         <!-- Edit Blog Modal Start -->
+        <!-- Edit Blog Modal Start -->
         <div class="col-md-12">
           <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -199,63 +198,58 @@ if (!isset($_SESSION['Admin'])) {
         <div class="col-lg-12 col-md-12 col-sm-12">
           <!-- kgjgjhgj -->
           <?php
-            $query = "SELECT * FROM blog";
-            $result = mysqli_query($connection, $query);
-            if ($result->num_rows) {
+          $query = "SELECT * FROM blog";
+          $result = mysqli_query($connection, $query);
+          if ($result->num_rows) {
           ?>
-          <div class="row">
-            <div class="col-lg-6">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD BLOG</button>
+            <div class="row">
+              <div class="col-lg-6">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD BLOG</button>
+              </div>
+              <div class="col-lg-6">
+                <h1>ALL Created BLOGS </h1>
+              </div>
             </div>
-            <div class="col-lg-6">
-              <h1>ALL Created BLOGS </h1>
-            </div>
-          </div>
-          <div class="table-responsive">
-            <table id="example" class="table table-striped table-bordered" style="width:100%">
-              <thead>
-                <tr>
-                  <th>BLOG ID</th>
-                  <th>USER NAME</th>
-                  <th>BLOG TITLE</th>
-                  <th>POST PER PAGE</th>
-                  <th>BLOG BACKGROUND IMAGE</th>
-                  <th>BLOG STATUS</th>
-                  <th>Created At</th>
-                  <th>Updated At</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <?php
-                    while ($row = mysqli_fetch_assoc($result)) {
-                      // print_r($row);
-              ?>
-              <tbody>
-                <td><?php echo $row['blog_id'] ?></td>
-                <td><?php echo $row['user_id'] ?></td>
-                <td><?php echo $row['blog_title'] ?></td>
-                <td><?php echo $row['post_per_page'] ?></td>
-                <td><img src="../images/blogs/<?php echo $row['blog_background_image'] ?>" width="50px" style="border-radius: 50px"></td>
-                <td><?php echo $row['blog_status'] ?></td>
-                <td><?php echo $row['created_at'] ?></td>
-                <td><?php echo $row['created_at'] ?></td>
-                <td>
-                <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" data-bs-whatever="@mdo" onclick="getUserID(<?php echo $row['blog_id']; ?>)">Edit</a>
-                <script>
-                            function getUserID(blogID) {
-                              console.log("Blog ID:", blogID);
-                            }
-                </script>
-                </td>
-              </tbody>
-              <?php
+            <div class="table-responsive">
+              <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                  <tr>
+                    <th>BLOG ID</th>
+                    <th>USER NAME</th>
+                    <th>BLOG TITLE</th>
+                    <th>POST PER PAGE</th>
+                    <th>BLOG BACKGROUND IMAGE</th>
+                    <th>BLOG STATUS</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <?php
+                while ($row = mysqli_fetch_assoc($result)) {
+                  // print_r($row);
+                ?>
+                  <tbody>
+                    <td><?php echo $row['blog_id'] ?></td>
+                    <td><?php echo $_SESSION['Admin']['first_name'] . ' ' . $_SESSION['Admin']['last_name'] ?></td>
+                    <td><?php echo $row['blog_title'] ?></td>
+                    <td><?php echo $row['post_per_page'] ?></td>
+                    <td><img src="../images/blogs/<?php echo $row['blog_background_image'] ?>" width="50px" style="border-radius: 50px"></td>
+                    <td><?php echo $row['blog_status'] ?></td>
+                    <td><?php echo $row['created_at'] ?></td>
+                    <td><?php echo $row['created_at'] ?></td>
+                    <td>
+                      <a href="edit_blog.php?blog_id=<?php echo $row['blog_i'] ?>" class="btn btn-info">Edit</a>
+                    </td>
+                  </tbody>
+                <?php
                 }
-              ?>
-            </table>
-          </div>
+                ?>
+              </table>
+            </div>
           <?php
           }
-            ?>
+          ?>
         </div>
       </div>
       <!-- Table data end here -->

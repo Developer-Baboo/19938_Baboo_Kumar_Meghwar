@@ -302,7 +302,7 @@ if (isset($_REQUEST['register'])) {
 
         </tr>
         <tr>
-          <td>Hometown<span>*</span></td>
+          <td>Address<span>*</span></td>
           <td><textarea name="address" id="address" cols="20" rows="3" style="border-radius: 5px;width: 100%;"></textarea> </td>
           <td><span id="msg_address"></span></td>
 
