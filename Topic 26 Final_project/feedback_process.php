@@ -103,7 +103,7 @@ if (isset($_POST['feedback_button'])) {
     if (!$mail->send()) {
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
-        header("Location: ./index_01.php?color=green&msg= Feedback sent Successfully..");
+        header("Location: ./index.php?color=green&msg= Feedback sent Successfully..");
     }
 }
 // approved user code end

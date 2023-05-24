@@ -5,7 +5,7 @@ session_start();
  include("../require/connection.php");
 
 if (!isset($_SESSION['Admin'])) {
-    header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
+    header("location:../index.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
 <html>
@@ -38,12 +38,12 @@ if (!isset($_SESSION['Admin'])) {
     <?php
     if(isset($_REQUEST['edit_category'])){
         // echo "hello";
-       
-
+        date_default_timezone_set("Asia/Karachi");
         $updated_at = date('Y-m-d h:i:s');
-        echo $update_query = "UPDATE category SET category_title = '".$_REQUEST['category_title']."',category_description='".$_REQUEST['category_description']."',$updated_at";
+        // $updated_at = time();
+        echo $update_query = "UPDATE category SET category_title = '".$_REQUEST['category_title']."',category_description='".$_REQUEST['category_description']."', updated_at='" . $update_at . "'";
         $result = mysqli_query($connection, $update_query);
-        var_dump($result);
+        // var_dump($result);
         if($result){
             header("Location: category.php");
         }

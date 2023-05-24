@@ -37,7 +37,7 @@
     <!-- 1st Nav Bar Start -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./index_01.php"><img src="../images/logo.png" style="width: 100px;"></a>
+            <a class="navbar-brand" href="./index.php"><img src="../images/logo.png" style="width: 100px;"></a>
             <form class="d-flex mx-auto">
                 <div class="col-sm-12 col-md-8">
                     <input class="form-control w-100 search-input" type="search" placeholder="Search news here" aria-label="Search">
@@ -95,7 +95,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index_01.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active " aria-current="page" href="./politics.php">Politics</a>

@@ -13,7 +13,7 @@ require 'PHPMailer/src/SMTP.php';
 // die();
 
 if (!isset($_SESSION['Admin'])) {
-  header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
+  header("location:../index.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
 
@@ -21,6 +21,10 @@ if (!isset($_SESSION['Admin'])) {
 <?php
 if (isset($_GET['approve'])) {
   $user_id = $_GET['approve'];
+  $fetchQuery1 = "SELECT * FROM user WHERE user_id = $user_id";
+  $result1 = mysqli_query($connection, $fetchQuery1);
+  $row1 = mysqli_fetch_assoc($result1);
+  $email = $row1['email'];
   /**
    * This example shows settings to use when sending via Google's Gmail servers.
    * This uses traditional id & password authentication - look at the gmail_xoauth.phps
@@ -63,7 +67,7 @@ if (isset($_GET['approve'])) {
   //Set an alternative reply-to address
   $mail->addReplyTo('babookumar15@gmail.com', 'Developer Baboo');
   //Set who the message is to be sent to
-  $mail->addAddress('babookumar15@gmail.com', 'Developer Baboo');
+  $mail->addAddress($email, 'Developer Baboo');
   //Set the subject line
   $mail->Subject = 'Account Approval Message';
 
@@ -111,6 +115,10 @@ if (isset($_GET['approve'])) {
 // reject user code
 if (isset($_GET['reject'])) {
   $user_id = $_GET['reject'];
+  $fetchQuery1 = "SELECT * FROM user WHERE user_id = $user_id";
+  $result1 = mysqli_query($connection, $fetchQuery1);
+  $row1 = mysqli_fetch_assoc($result1);
+  $email = $row1['email'];
   /**
    * This example shows settings to use when sending via Google's Gmail servers.
    * This uses traditional id & password authentication - look at the gmail_xoauth.phps
@@ -153,7 +161,7 @@ if (isset($_GET['reject'])) {
   //Set an alternative reply-to address
   $mail->addReplyTo('babookumar15@gmail.com', 'Developer Baboo');
   //Set who the message is to be sent to
-  $mail->addAddress('babookumar15@gmail.com', 'Developer Baboo');
+  $mail->addAddress($email, 'Developer Baboo');
   //Set the subject line
   $mail->Subject = 'Account Rejection';
   //Read an HTML message body

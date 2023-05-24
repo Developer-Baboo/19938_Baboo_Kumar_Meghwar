@@ -19,7 +19,7 @@ if (isset($_REQUEST['edit_profile'])) {
                 $result = mysqli_query($connection, $query);
                 $row  = mysqli_fetch_assoc($result);
                 $_SESSION['User'] = $row;
-                header("location:../index_01.php?color=green&msg=Profile Updated Successfully");
+                header("location:../index.php?color=green&msg=Profile Updated Successfully");
             } 
             else {
                 header("location:edit_profile.php?message= Sorry Profile  Not Updated....!");

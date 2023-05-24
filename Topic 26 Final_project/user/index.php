@@ -4,7 +4,7 @@ session_start();
 // die();
 
 if (!isset($_SESSION['User']['role_type']) == 'User') {
-    header("location:../index_01.php?msg=Sorry! Only Registered User can Access It !...&color=red");
+    header("location:../index.php?msg=Sorry! Only Registered User can Access It !...&color=red");
 }
 ?>
 <?php

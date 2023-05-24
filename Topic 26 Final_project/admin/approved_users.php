@@ -12,7 +12,7 @@ require 'PHPMailer/src/SMTP.php';
 // die();
 
 if (!isset($_SESSION['Admin'])) {
-  header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
+  header("location:../index.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
 <?php
@@ -66,7 +66,7 @@ if (isset($_GET['user_id'])) {
   //Set an alternative reply-to address
   $mail->addReplyTo('babookumar15@gmail.com', 'Developer Baboo');
   //Set who the message is to be sent to
-  $mail->addAddress($email, 'Developer Baboo');
+  $mail->addAddress('babooheerani999@gmail.com', 'Developer Baboo');
   //Set the subject line
   $mail->Subject = 'Account Approval Message';
 
@@ -325,35 +325,6 @@ if (isset($_GET['user_id'])) {
         searching: true,
       });
     });
-
-
-    var user_id = "";
-
-    function is_approve(obj) {
-
-      status = obj.value;
-      user_id = obj.getAttribute("user_id");
-    }
-
-    function done() {
-      var ajax;
-
-      if (window.XMLHttpRequest) {
-        ajax = new XMLHttpRequest();
-      } else {
-        ajax = new ActiveXObject('Microsoft.XMLHTTP')
-      }
-      ajax.onreadystatechange = function() {
-        if (ajax.readyState == 4 && ajax.status == 200) {
-          var data = ajax.responseText;
-          document.getElementById("response").innerHTML = data;
-          location.reload();
-        }
-      }
-      ajax.open('POST', 'users.php');
-      ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-      ajax.send('action=permission&status=' + status + '&user_id=' + user_id);
-    }
   </script>
 </body>
 

@@ -4,7 +4,7 @@ session_start();
 // die();
 
 if (!isset($_SESSION['Admin'])) {
-  header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
+  header("location:../index.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
 <!DOCTYPE html>
@@ -40,8 +40,6 @@ if (!isset($_SESSION['Admin'])) {
     <?php
     include("../require/connection.php");
     if (isset($_REQUEST['add_post'])) {
-      // print_r($_POST);
-      // die;
       if (isset($_FILES['upload'])) {
         $file = $_FILES['upload'];
         $file_name = "post_image_" . time() . substr($file['name'], strpos($file['name'], "."));

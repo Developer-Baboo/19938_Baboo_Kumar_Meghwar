@@ -4,7 +4,7 @@ session_start();
 // die();
 
 if (!isset($_SESSION['Admin'])) {
-  header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
+  header("location:../index.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
 <!DOCTYPE html>
@@ -65,10 +65,7 @@ if (isset($_REQUEST['edit_post'])) {
     </legend>
 <form style="width: 80%" class="row g-3" method="POST" action="" enctype="multipart/form-data">
 	 <?php
-
             if(isset($_GET['post_id'])){
-
-
                 // echo "<pre>";
                 //   print_r($_GET);
                 // echo "</pre>";
@@ -151,11 +148,9 @@ if (isset($_REQUEST['edit_post'])) {
                       <button style="margin-top:10px; margin-bottom: 10px; margin-right: 700px"  type="submit" class="btn btn-primary" name="edit_post">Edit POST</button>
                     </div>
                   </form>
-  
   </fieldset>
-
 </center>
-                  <?php require_once("../General/footer.php") ?>
+ <?php require_once("../General/footer.php") ?>
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

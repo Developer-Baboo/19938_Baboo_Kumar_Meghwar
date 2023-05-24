@@ -4,7 +4,7 @@ session_start();
 // die();
 
 if (!isset($_SESSION['Admin'])) {
-  header("location:../index_01.php?msg=Sorry! Only Admin can Access It !...&color=red");
+  header("location:../index.php?msg=Sorry! Only Admin can Access It !...&color=red");
 }
 ?>
 <?php

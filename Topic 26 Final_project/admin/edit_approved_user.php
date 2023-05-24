@@ -3,7 +3,7 @@ session_start();
 // if (isset($_SESSION['Admin'])) {
 //     header("location:./admin/admin_dashboard.php");
 // } else if (isset($_SESSION['User'])) {
-//     header("location:index_01.php");
+//     header("location:index.php");
 // }
 ?>
 

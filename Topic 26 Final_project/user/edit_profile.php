@@ -4,7 +4,7 @@ session_start();
 // die();
 
 if (!isset($_SESSION['User'])) {
-  header("location:../index_01.php?msg=Sorry! Only Registered User can Access It !...&color=red");
+  header("location:../index.php?msg=Sorry! Only Registered User can Access It !...&color=red");
 }
 require_once("../require/connection.php");
 ?>
@@ -88,7 +88,7 @@ require_once("../require/connection.php");
   <!-- edit form end -->
 
   <!-- Footer Start -->
-    <?php require_once("./General/footer.php") ?>
+    <?php require_once("../General/footer.php") ?>
   <!-- Footer End -->
 </body>
 

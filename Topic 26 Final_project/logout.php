@@ -3,5 +3,5 @@
 session_start();
 
 session_destroy();
-header("Location:index_01.php?color=green&msg= You has been Logged Out Successfully!..");
+header("Location:index.php?color=green&msg= You has been Logged Out Successfully!..");
 ?>

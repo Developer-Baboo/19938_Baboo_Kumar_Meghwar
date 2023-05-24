@@ -68,7 +68,7 @@
           //Set an alternative reply-to address
           $mail->addReplyTo('babookumar15@gmail.com', 'Developer Baboo');
           //Set who the message is to be sent to
-          $mail->addAddress('babookumar15@gmail.com', 'Developer Baboo');
+          $mail->addAddress($email, 'Developer Baboo');
           //Set the subject line
           $mail->Subject = 'Forgot password';
         require_once("require/connection.php");
@@ -97,12 +97,12 @@
           if (!$mail->send()) {
             echo 'Mailer Error: ' . $mail->ErrorInfo;
           } else {
-            header("Location: ./index_01.php?color=green&msg= Email Sent Successfully...!");
+            header("Location: ./index.php?color=green&msg= Email Sent Successfully...!");
           }
         //}
         }
         else {
-        header("Location: ./index_01.php?color=red&msg= Sorry Incorrect Eamil Address");
+        header("Location: ./index.php?color=red&msg= Sorry Incorrect Eamil Address");
       }
       }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////        -->
