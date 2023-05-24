@@ -74,6 +74,7 @@ if (!isset($_SESSION['Admin'])) {
         $current_time = date('Y-m-d h:i:s');
 
         $query1 = "INSERT into blog (user_id, blog_title, post_per_page, blog_background_image, blog_status, created_at) VALUES('" . $_SESSION['Admin']['user_id'] . "','" . $_REQUEST['blog_title'] . "','" . $_REQUEST['post_blog'] . "', '" . $file_name . "','" . $_REQUEST['blog_status'] . "' ,'" . $current_time . "')";
+        
         // var_dump($query1);
         $result1 = mysqli_query($connection, $query1);
         if (!$result1) {
@@ -239,7 +240,7 @@ if (!isset($_SESSION['Admin'])) {
                     <td><?php echo $row['created_at'] ?></td>
                     <td><?php echo $row['created_at'] ?></td>
                     <td>
-                      <a href="edit_blog.php?blog_id=<?php echo $row['blog_i'] ?>" class="btn btn-info">Edit</a>
+                      <a href="edit_blog.php?blog_id=<?php echo $row['blog_id'] ?>" class="btn btn-info">Edit</a>
                     </td>
                   </tbody>
                 <?php

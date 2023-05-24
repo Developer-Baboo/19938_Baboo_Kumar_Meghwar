@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <footer class="footer-main bg-dark text-light">
+    <footer class="footer-main bg-primary text-light">
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-8">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="bg-secondary text-light py-3">
+        <div class="bg-primary text-light py-3">
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col-md-6 text-center text-md-start">

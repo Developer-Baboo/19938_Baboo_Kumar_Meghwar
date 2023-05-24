@@ -1,8 +1,13 @@
     <?php
+session_start();
+// session_start();
+// print_r($_SESSION['Admin']['role_type']);
+// die();
 
-    session_start();
-
-    ?>
+if (isset($_SESSION['Admin'])) {
+    header("location:./admin/admin_dashboard.php");
+}
+?>
     <?php require_once("../General/header.php") ?>
     <!-- Slider -->
     <div class="container mt-10">
@@ -163,27 +168,48 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Message Here</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Feedback Here</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                    </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send Message</button>
+                    <form method="POST" action="../feedback_process.php" class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-12 position-relative">
+                            <label for="validationTooltipUsername" class="form-label">Name</label>
+                            <div class="input-group has-validation">
+                                <!-- <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span> -->
+                                <input type="text" name="name" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                                <div class="invalid-tooltip">
+                                    Please choose a unique and valid username.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 position-relative">
+                            <label for="validationTooltipPassword" class="form-label">Email</label>
+                            <div class="input-group has-validation">
+                                <input name="email" type="email" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required>
+                                <div class="invalid-tooltip">
+                                    Password Enter Valid User Email
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="col-md-12 position-relative">
+                                <label for="validationTooltipPassword" class="form-label">Feedback</label>
+                                <div class="input-group has-validation">
+                                    <!-- <input name="feedback" type="password" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required> -->
+                                    <textarea class="form-control" name="feedback" id="validationTooltipPassword" aria-describedby="validationTooltipUsernamePrepend" required cols="10" rows="1"></textarea>
+                                    <div class="invalid-tooltip">
+                                        Please Enter Feedback in Proper Way
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button name="feedback_button" id="login" class="btn btn-primary" type="submit">Send Feedback</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

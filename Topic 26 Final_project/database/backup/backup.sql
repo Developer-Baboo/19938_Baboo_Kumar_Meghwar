@@ -235,26 +235,21 @@ CREATE TABLE `user` (
 insert  into `user`(`user_id`,`role_id`,`first_name`,`last_name`,`email`,`password`,`gender`,`date_of_birth`,`user_image`,`address`,`is_approved`,`is_active`,`created_at`,`updated_at`) values 
 (7,1,'Baboo','Kumar','baboo@gmail.com','12345','Male','2002-02-02','profile_image_1683396936.jpeg','Mithi Tharparkar','Pending','Active','2023-05-06 23:15:55',NULL),
 (8,2,'Akash','Kumar','akash@gmail.com','12345','Male','2002-02-02','profile_image_1683397041.png','Diplo Tharparkar','Approved','Active','2023-05-11 17:34:33',NULL),
-(9,2,'Arti','Kumari','arti@gmail.com','12345','Female','2001-01-01','profile_image_1683397142.png','Umerkot Sindh','Approved','Active','2023-05-11 17:39:51',NULL),
+(9,2,'Artiiiiiii','Kumari','arti@gmail.com','12345','Male','2001-01-01','profile_image_1684821398.png',' Umerkot Sindhh','Approved','Active','2023-05-23 10:56:38','2023-05-23 10:56:38'),
 (10,2,'Rabia','Ansari','rabia@gmail.com','12345','Male','3003-03-31','profile_image_1683398105.png','Hyderabad Sindh','Rejected','Active','2023-05-12 01:24:58',NULL),
 (11,2,'Aneel','Kumar','babookumar15@gmail.com','12345','Male','2023-04-05','profile_image_1683597295.jpg','Digri Umerkot ','Approved','Active','2023-05-22 09:44:05',NULL),
 (12,2,'Sangeeta','Kumari','sangeeta@gmail.com','12345','Female','2008-01-09','profile_image_1683597487.png','Hyderabad Sindh','Rejected','Active','2023-05-14 17:46:39',NULL),
 (14,2,'Munesh','Kumar','munesh@gmail.com','12345','Male','2000-06-09','profile_image_1683608137.png','Parmar Colony Mithi','Rejected','Active','2023-05-14 17:46:45',NULL),
 (15,2,'Pardeep','Kumar','parkash@gmail.com','12345','Male','1111-01-01','profile_image_1684748844.png','Mithi','Approved','InActive','2023-05-22 14:47:24','2023-05-22 02:47:24'),
-(16,2,'Mohan',' Lal','mohan@gmail.com','12345','Male','2000-07-07','profile_image_1684065448.png','New Kot Sindh pakistan','Pending','Active','2023-05-14 17:41:34',NULL),
+(16,2,'Mohan',' Lal','mohan@gmail.com','12345','Male','2000-07-07','profile_image_1684065448.png','New Kot Sindh pakistan','Approved','Active','2023-05-23 12:55:19',NULL),
 (18,2,'Naima','Ansari','naima@gmail.com','12345','Male','6000-06-06','profile_image_1684118799.png','Marvi Town Hyderabad','Pending','Active','2023-05-15 07:46:39',NULL),
 (19,1,'Mineeta','Kumari','mineeta@gmail.com','12345','Female','2009-09-09','profile_image_1684150248.png','Chelhar District Tharparkar','Pending','Active','2023-05-15 16:31:37',NULL),
 (20,2,'Suhail','Ansari','suhail_ansari@gmail.com','12345','Male','2001-01-01','profile_image_1684563601.jpg','Karachi sindh','Pending','Active','2023-05-20 11:20:01',NULL),
 (21,2,'Ramesh','Kumar','ramesh@gmail.com','12345','Male','2000-01-01','profile_image_1684565645.png','mithi thar','Pending','Active','2023-05-20 11:54:05',NULL),
-(22,2,'Ramesh','Kumar','ramesh@gmail.com','12345','Male','2000-01-01','profile_image_1684565705.png','mithi thar','Pending','Active','2023-05-20 11:55:05',NULL),
 (23,2,'Suresh','Kumar','suresh@gmail.com','12345','Male','2000-01-01','profile_image_1684565764.jpg','ldksjf sldkjf','Pending','Active','2023-05-20 11:56:04',NULL),
-(24,2,'Suresh','Kumar','suresh@gmail.com','12345','Male','2000-01-01','profile_image_1684565849.jpg','ldksjf sldkjf','Pending','Active','2023-05-20 11:57:29',NULL),
-(25,2,'Suresh','Kumar','suresh@gmail.com','12345','Male','2000-01-01','profile_image_1684565905.jpg','ldksjf sldkjf','Pending','Active','2023-05-20 11:58:25',NULL),
 (26,2,'Ahsan','Khan','ahsan@gmail.com','12345','Male','2000-01-01','profile_image_1684566337.jpg','lkfj lsdkjf sld','Pending','Active','2023-05-20 12:05:37',NULL),
-(27,2,'Ahsan','Khan','ahsan@gmail.com','12345','Male','2000-01-01','profile_image_1684566404.jpg','lkfj lsdkjf sld','Pending','Active','2023-05-20 12:06:44',NULL),
 (28,2,'yaseen','ansari','yaseen@gmail.com','12345','Male','2000-01-01','profile_image_1684567282.jpg','lskdfj lskdjf d','Pending','Active','2023-05-20 12:21:22',NULL),
 (29,2,'Vinod','Kumar','vinod@gmail.com','12345','Male','2000-01-01','profile_image_1684631477.png','mithi tharparkar','Pending','Active','2023-05-21 06:11:17',NULL),
-(30,2,'Vinod','Kumar','vinod@gmail.com','12345','Male','2000-01-01','profile_image_1684631507.png','mithi tharparkar','Pending','Active','2023-05-21 06:11:47',NULL),
 (31,2,'Ahmad','ali','ahmad@gmail.com','12345','Male','2000-01-01','profile_image_1684631717.jpeg','mithi thar','Pending','Active','2023-05-21 06:15:17',NULL),
 (32,2,'Aamir','Khaskali','aamir@gmail.com','12345','Male','2004-04-04','profile_image_1684730720.png','Chelhar Mithi','Pending','Active','2023-05-22 09:45:20',NULL);
 
@@ -273,7 +268,7 @@ CREATE TABLE `user_feedback` (
   PRIMARY KEY (`feedback_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_feedback_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user_feedback` */
 
@@ -283,7 +278,9 @@ insert  into `user_feedback`(`feedback_id`,`user_id`,`user_name`,`user_email`,`f
 (3,NULL,'Munesh','heerani@gmail.com','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','2023-05-20 09:25:09',NULL),
 (11,NULL,'ali','ali_gohar@gmail.com','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','2023-05-20 09:23:52',NULL),
 (12,8,'Akash Kumar','akash@gmail.com','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','2023-05-20 10:01:22',NULL),
-(14,NULL,'Fatima','fatima@gmail.com','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','2023-05-20 10:04:44',NULL);
+(14,NULL,'Fatima','fatima@gmail.com','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','2023-05-20 10:04:44',NULL),
+(15,NULL,'baboo','baboo2@gmail.com','12345','2023-05-23 12:22:20',NULL),
+(16,NULL,'yaseen','memon@gmail.com','wonderful blog, will visit it soon','2023-05-23 12:38:17',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

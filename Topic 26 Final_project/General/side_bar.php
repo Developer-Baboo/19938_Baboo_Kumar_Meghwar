@@ -20,11 +20,9 @@ if (!isset($_SESSION['Admin'])) {
   // include("../require/connection.php");
   ?>
   <!-- SIDE BAR START -->
-  <div class="col-lg-3 col-md-3">
+  <div class="col-lg-3 col-md-3" >
     <main>
       <h1 class="visually-hidden">Sidebars examples</h1>
-
-
       <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; background-color: #5DADE2">
         <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
           <img src="../images/logo.png" width="50px">
@@ -51,7 +49,7 @@ if (!isset($_SESSION['Admin'])) {
               MANAGE CATEGORIES
             </a>
           </li>
-          <div style="margin-left: 15px" class="dropdown">
+          <div  style="margin-left: 15px" class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="../images/icons/user.svg" width="10%" height="10%">
               Manage Users
@@ -65,7 +63,7 @@ if (!isset($_SESSION['Admin'])) {
               </li>
             </ul>
           </div>
-          <li>
+          <li  style="padding-top: 10x">
             <i class="fas fa-comment"></i>
             <a href="./all_comments.php" class="nav-link text-white">
               <img src="../images/icons/comment.svg" width="10%" height="10%">

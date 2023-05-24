@@ -53,9 +53,13 @@ if (!isset($_SESSION['Admin'])) {
 <body>
 
 <center>
-	<form class="row g-3" method="POST" action="" enctype="multipart/form-data">
+  <fieldset>
+    <legend>
+      Edit Blog
+    </legend>
+    <form style="width:50%" class="row g-3" method="POST" action="" enctype="multipart/form-data">
                     <div class="col-md-6">
-                      <label for="posttitle" class="form-label">Blog Title</label>
+                      <label for="posttitle" class="form-label">EDIT BLOG BELOW</label>
                       <input type="text" class="form-control" id="firstname" name="blog_title" required placeholder="Enter Blog Title">
                     </div>
                     <div class="col-md-6">
@@ -77,10 +81,13 @@ if (!isset($_SESSION['Admin'])) {
                     </div>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary" name="add_blog">Add Blog</button>
+                      <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                      <button type="submit" class="btn btn-primary" name="add_blog">Edit Blog</button>
                     </div>
                   </form>
+  </fieldset>
 </center>
+<?php require_once("../General/footer.php") ?>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

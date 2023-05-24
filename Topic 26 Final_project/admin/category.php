@@ -187,7 +187,7 @@ if (!isset($_SESSION['Admin'])) {
                     <th scope="col">Category Description </th>
                     <th scope="col">Category Status</th>
                     <th scope="col">Created At</th>
-                    <th scope="col">Updated At</th>
+                    <!-- <th scope="col">Updated At</th> -->
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -201,10 +201,10 @@ if (!isset($_SESSION['Admin'])) {
                     <td><?php echo $row['category_description'] ?></td>
                     <td><?php echo $row['category_status'] ?></td>
                     <td><?php echo $row['created_at'] ?></td>
-                    <td>1999999</td>
+                    <!-- <td>1999999</td> -->
                     <!-- <td><?php //echo $row['category_id'] 
                               ?></td> -->
-                    <td><a href="./edit_category.php?user_id=<?php echo $row['category_id']; ?>" class="btn btn-info">Edit</a></td>
+                    <td><a href="./edit_category.php?category_id=<?php echo $row['category_id']; ?>" class="btn btn-info">Edit</a></td>
                   </tbody>
                 <?php
                 }

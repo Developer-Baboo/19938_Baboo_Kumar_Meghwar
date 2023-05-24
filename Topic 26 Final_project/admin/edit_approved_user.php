@@ -127,7 +127,9 @@ if (isset($_REQUEST['edit_user'])) {
                 </tr>
                 <tr>
                     <td>Address<span>*</span></td>
-                    <td><textarea value="<?php echo $row['address'] ?>" name="address" id="address" cols="20" rows="3" style="border-radius: 5px;width: 100%;"></textarea> </td>
+                    <td><textarea name="address" id="address" cols="20" rows="3" style="border-radius: 5px;width: 100%;">
+                        <?php echo $row['address'];?>
+                    </textarea> </td>
                     <td><span id="msg_address"></span></td>
                 </tr>
                 <tr>

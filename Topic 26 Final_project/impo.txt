@@ -9,3 +9,14 @@ category update/active/inactive
 user edit active/inactive
 
 post attachement + theme customization
+
+
+
+
+
+
+
+
+post update/active
+blog update
+comment/inactive/active

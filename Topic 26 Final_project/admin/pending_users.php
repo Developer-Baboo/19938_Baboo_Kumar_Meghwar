@@ -277,10 +277,13 @@ if (isset($_REQUEST['register'])) {
 
     <div class="col-sm-8 mt-4">
       <div>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD USERS</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD NEW USER</button>
       </div>
 
-      <div class="text-center" style="color: red; font-family: times; font-size: 18px;">New Users</div>
+      <!-- <h1 class="text-center" style="color: red; font-family: times; font-size: 18px;">New Users</h1> -->
+      <center>
+        <h1 style="color: red; font-family: times;">All Pending Users</h1>
+      </center>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content" style="width: 100%">
@@ -389,7 +392,7 @@ if (isset($_REQUEST['register'])) {
               <a href=?reject='" . $row['user_id'] . "' class='btn-reject'>Reject</a>
             </td>";
                       ?>
-                      <td style="color:red;">Pending</td>
+                      <td style="color:red; font-weight: bold; ">Pending</td>
                       <td><?php echo $row['created_at'] ?></td>
                     </tr>
                   </tbody>
@@ -420,38 +423,6 @@ if (isset($_REQUEST['register'])) {
         searching: true,
       });
     });
-
-
-    var user_id = "";
-
-    function is_approve(obj) {
-
-      status = obj.value;
-      user_id = obj.getAttribute("user_id");
-    }
-
-    function done() {
-      var ajax;
-
-      if (window.XMLHttpRequest) {
-        ajax = new XMLHttpRequest();
-      } else {
-        ajax = new ActiveXObject('Microsoft.XMLHTTP')
-      }
-      ajax.onreadystatechange = function() {
-        if (ajax.readyState == 4 && ajax.status == 200) {
-          var data = ajax.responseText;
-          document.getElementById("response").innerHTML = data;
-
-          location.reload();
-
-
-        }
-      }
-      ajax.open('POST', 'users.php');
-      ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-      ajax.send('action=permission&status=' + status + '&user_id=' + user_id);
-    }
   </script>
 </body>
 

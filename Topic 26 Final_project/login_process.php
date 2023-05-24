@@ -48,6 +48,6 @@ if (isset($_REQUEST['login'])) {
             }
         }
     } else {
-        header("Location: ./index_01.php?color=red&msg = Invalid email or password");
+        header("Location: ./index_01.php?color=red&msg=Invalid email or password");
     }
 }

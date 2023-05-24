@@ -22,6 +22,8 @@ include("../require/connection.php");
 <?php
 if (isset($_GET['user_id'])) {
   $user_id = $_GET['user_id'];
+  $query = "SELECT * FROM user WHERE user_id = $user_id";
+  $result = mysqli_query($connection, $query);
   /**
    * This example shows settings to use when sending via Google's Gmail servers.
    * This uses traditional id & password authentication - look at the gmail_xoauth.phps
@@ -64,12 +66,9 @@ if (isset($_GET['user_id'])) {
   //Set an alternative reply-to address
   $mail->addReplyTo('babookumar15@gmail.com', 'Developer Baboo');
   //Set who the message is to be sent to
-  $mail->addAddress('babookumar15@gmail.com', 'Developer Baboo');
+  $mail->addAddress($email, 'Developer Baboo');
   //Set the subject line
   $mail->Subject = 'Account Approval Message';
-
-  $query = "SELECT * FROM user WHERE user_id = $user_id";
-  $result = mysqli_query($connection, $query);
 
   if ($row = mysqli_fetch_assoc($result)) {
     //Read an HTML message body
@@ -294,7 +293,7 @@ if (isset($_GET['user_id'])) {
                           <!-- here -->
                           <td>
                             <!-- <a href="./category.php">Edit</a> -->
-                            <a href="edit_approved_user.php?user_id=<?php echo $row['user_id'] ?>">Edit</a>
+                            <a class="btn btn-dark" href="edit_approved_user.php?user_id=<?php echo $row['user_id'] ?>">Edit</a>
                             <!-- <a href="hh.php">hhh</a> -->
                             <!-- <a href="./a.php">Hi</a> -->
                           </td>
@@ -348,10 +347,7 @@ if (isset($_GET['user_id'])) {
         if (ajax.readyState == 4 && ajax.status == 200) {
           var data = ajax.responseText;
           document.getElementById("response").innerHTML = data;
-
           location.reload();
-
-
         }
       }
       ajax.open('POST', 'users.php');

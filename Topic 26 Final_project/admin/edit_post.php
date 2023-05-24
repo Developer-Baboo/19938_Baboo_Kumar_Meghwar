@@ -35,22 +35,22 @@ if (!isset($_SESSION['Admin'])) {
 <?php
 include("../require/connection.php");
 if (isset($_REQUEST['edit_post'])) {
-	echo "edit post";
+	// echo "edit post";
     if (isset($_FILES['upload'])) {
     	echo "upload";
         $file = $_FILES['upload'];
         $file_name = "post_image_" . time() . substr($file['name'], strpos($file['name'], "."));
         if (move_uploaded_file($file['tmp_name'], "../images/" . $file_name)) {
-            echo "uploaded file";
+            // echo "uploaded file";
             // $date = date('Y-m-d', strtotime($_REQUEST['dob']));
             date_default_timezone_set("Asia/Karachi");
             $updated_at = date('Y-m-d h:i:s');
-echo $_REQUEST['post_title'];
+// echo $_REQUEST['post_title'];
 
             // $update_time = date('Y-m-d h:i:s');
-            echo $query = "UPDATE post SET post_title = '" . $_REQUEST['post_title'] . "',post_summary = '" . $_REQUEST['post_summary'] . "',$updated_at";
+            $query = "UPDATE post SET post_title = '" . $_REQUEST['post_title'] . "',post_summary = '" . $_REQUEST['post_summary'] . "',$updated_at";
             $result1 = mysqli_query($connection, $query);
-            var_dump($result1);
+            // var_dump($result1);
             if ($result1) {
                 header("Location: posts.php");
             }
@@ -58,25 +58,38 @@ echo $_REQUEST['post_title'];
     }
 }
 ?>
-<form class="row g-3" method="POST" action="" enctype="multipart/form-data">
+<center>
+  <fieldset>
+    <legend>
+      EDIT POST FORM
+    </legend>
+<form style="width: 80%" class="row g-3" method="POST" action="" enctype="multipart/form-data">
 	 <?php
 
             if(isset($_GET['post_id'])){
-                echo $post_id = $_GET['post_id'];
+
+
+                // echo "<pre>";
+                //   print_r($_GET);
+                // echo "</pre>";
+
+                $post_id = $_GET['post_id'];
                 $query1 = "SELECT * from post WHERE post_id = $post_id";
                 $result1 = mysqli_query($connection,$query1);
-                // var_dump($result);
-                $row = mysqli_fetch_assoc($result1);   
-                // var_dump($row);
+                // var_dump($result1);
+                $row1 = mysqli_fetch_assoc($result1);   
+                // echo "<pre>";
+                // print_r($row1);
+                // echo "</pre";
             }
             ?>
                     <div class="col-md-6">
                       <label for="posttitle" class="form-label">Post Title</label>
-                      <input value="<?php echo $row['post_title'] ?>" type="text" class="form-control" name="post_title" required placeholder="Enter Post Title">
+                      <input value="<?php echo $row1['post_title'] ?>" type="text" class="form-control" name="post_title" required placeholder="Enter Post Title">
                     </div>
                     <div class="col-md-6">
                       <label for="postdecription" class="form-label">Post Description</label>
-                      <input value="<?php echo $row['post_description'] ?>" type="text" class="form-control" name="post_description" required placeholder="Enter Post Description">
+                      <input value="<?php echo $row1['post_description'] ?>" type="text" class="form-control" name="post_description" required placeholder="Enter Post Description">
                     </div>
                     <div class="col-md-6">
                       <label for="inputState" class="form-label">Choose Category</label>
@@ -129,15 +142,20 @@ echo $_REQUEST['post_title'];
                       <input type="file" class="form-control" name="upload" id="image">
                     </div>
                     <div class="col-md-6">
-                      <label for="posttitle" class="form-label">Post Summary</label>
-                      <input value="<?php echo $row['post_summary'] ?>" type="text" class="form-control" id="firstname" name="post_summary" required placeholder="Enter Post Title">
+                      <?php //echo $row['post_summary'] ?>
+                      <label  class="form-label">Post Summary</label>
+                      <input value="<?php echo $row1['post_summary'];?>" type="text" class="form-control" name="post_summary" required placeholder="Enter Post Title">
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary" name="edit_post">Edit POST</button>
+                      <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                      <button style="margin-top:10px; margin-bottom: 10px; margin-right: 700px"  type="submit" class="btn btn-primary" name="edit_post">Edit POST</button>
                     </div>
                   </form>
-    <?php require_once("../General/footer.php") ?>
+  
+  </fieldset>
+
+</center>
+                  <?php require_once("../General/footer.php") ?>
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

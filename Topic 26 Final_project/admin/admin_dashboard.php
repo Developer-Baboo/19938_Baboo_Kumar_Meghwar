@@ -87,38 +87,56 @@ include("../require/connection.php");
     <!-- Sider bar  -->
     <?php require_once("../General/side_bar.php"); ?>
     <!-- Side bar End -->
-
     <!-- Dashboard body -->
     <div class="col-lg-8 col-md-8">
       <div class="row">
-        <div style="margin-top: 10px" class="card" style="width: 18rem;">
-          <img class="card-img-top" src="..." alt="Card image cap">
+        <div  class="card" style="width: 18rem;">
+          <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+             <center>
+              <h5 class="card-title">Total USERS</h5>
+            </center>
+            <p style="text-align: justify;" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <center>
+              <a href="#" class="btn btn-primary">View USERS</a>
+            </center>
+
           </div>
         </div>
+
         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="..." alt="Card image cap">
+          <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <center><h5 class="card-title">Total POSTS</h5></center>
+            <p style="text-align: justify;" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <center><a href="#" class="btn btn-secondary">View POSTS</a></center>
           </div>
         </div>
+
       </div>
       <div class="row">
-        <div class="col-md-6 border rounded shadow-lg my-5">
-          Total Blogs
+          <div class="card" style="width: 18rem;">
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-body">
+               <center><h5 class="card-title">TOTAL BLOGS</h5>center>
+              <p style="text-align: justify;" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+             <center><a href="#" class="btn btn-success">View Blogs</a></center>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+          <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+          <div class="card-body">
+            <center><h5 class="card-title">Total USERS</h5> </center>
+            <p style="text-align: justify;" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">View USERS</a>
+          </div>
         </div>
-        <div class="col-md-6 border rounded shadow-lg my-5">
-          Total Posts
-        </div>
-      </div>
     </div>
-    <!-- Dashboard body End -->
+
+    </div>
   </div>
+    <!-- Dashboard body End -->
 
   <?php require_once("../General/footer.php") ?>
   <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>

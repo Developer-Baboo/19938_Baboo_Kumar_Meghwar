@@ -104,30 +104,6 @@ include("../require/connection.php");
         searching: true,
       });
     });
-    var user_id = "";
-    function is_approve(obj) {
-      status = obj.value;
-      user_id = obj.getAttribute("user_id");
-    }
-    function done() {
-      var ajax;
-
-      if (window.XMLHttpRequest) {
-        ajax = new XMLHttpRequest();
-      } else {
-        ajax = new ActiveXObject('Microsoft.XMLHTTP')
-      }
-      ajax.onreadystatechange = function() {
-        if (ajax.readyState == 4 && ajax.status == 200) {
-          var data = ajax.responseText;
-          document.getElementById("response").innerHTML = data;
-          location.reload();
-        }
-      }
-      ajax.open('POST', 'users.php');
-      ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-      ajax.send('action=permission&status=' + status + '&user_id=' + user_id);
-    }
   </script>
 </body>
 

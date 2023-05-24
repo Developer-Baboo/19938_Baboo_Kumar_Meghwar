@@ -1,7 +1,5 @@
 <?php
 session_start();
-?>
-<?php
 // session_start();
 // print_r($_SESSION['Admin']['role_type']);
 // die();
@@ -148,6 +146,20 @@ if (isset($_SESSION['Admin'])) {
         </div>
     </nav>
     <!-- 2nd Nav End Here -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     <!-- Slider -->
     <div class="container mt-10">
         <div class="row">
