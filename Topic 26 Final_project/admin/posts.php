@@ -57,7 +57,9 @@ if (!isset($_SESSION['Admin'])) {
 
           $query2 = "INSERT INTO post_category (post_id, category_id,created_at) VALUES('" . $id . "','" . $selected_category_id . "','" . $current_time . "')";
           $result2 = mysqli_query($connection, $query2);
-          var_dump($result2);
+
+          // var_dump($result2);
+          
         }
       }
     }
