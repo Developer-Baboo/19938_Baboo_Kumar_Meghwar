@@ -1,1 +1,0 @@
-SELECT * FROM post INNER JOIN post_category ON post.post_id=post_category.post_id INNER JOIN category ON post.blog_id=category.category_id WHERE post.blog_id=4;

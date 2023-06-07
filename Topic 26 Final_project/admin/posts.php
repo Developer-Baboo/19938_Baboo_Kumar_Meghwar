@@ -49,17 +49,9 @@ if (!isset($_SESSION['Admin'])) {
           date_default_timezone_set("Asia/Karachi");
           $current_time = date('Y-m-d h:i:s');
           $selected_blog_id = $_POST['choose_blog'];
-          $selected_category_id = $_POST['choose_category'];
           $query1 = "INSERT INTO post (post_title, post_summary, post_description, featured_image, post_status, is_comment_allowed, created_at, blog_id)
            VALUES ('" . $_REQUEST['post_title'] . "','" . $_REQUEST['post_summary'] . "','" . $_REQUEST['post_description'] . "','" . $file_name . "','" . $_REQUEST['is_active'] . "','" . $_REQUEST['comment_permission'] . "','" . $current_time . "'," . $selected_blog_id . ")";
           $result1 = mysqli_query($connection, $query1);
-          $id = mysqli_insert_id($connection);
-
-          $query2 = "INSERT INTO post_category (post_id, category_id,created_at) VALUES('" . $id . "','" . $selected_category_id . "','" . $current_time . "')";
-          $result2 = mysqli_query($connection, $query2);
-
-          // var_dump($result2);
-          
         }
       }
     }
@@ -92,11 +84,11 @@ if (!isset($_SESSION['Admin'])) {
                       <select class="form-select" name="choose_category">
                         <?php
                         require("../require/connection.php");
-                        $sql = "SELECT category_id,category_title FROM category";
+                        $sql = "SELECT category_title FROM category";
                         $result = mysqli_query($connection, $sql);
                         if (mysqli_num_rows($result) > 0) {
                           while ($row = mysqli_fetch_assoc($result)) {
-                            echo '<option value="' . $row['category_id'] . '">' . $row['category_title'] . '</option>';
+                            echo '<option value="' . $row['category_title'] . '">' . $row['category_title'] . '</option>';
                           }
                         }
                         ?>
@@ -198,9 +190,8 @@ if (!isset($_SESSION['Admin'])) {
             if ($result->num_rows) {
             ?>
               <center>
-                <!--                 <span style="font-size: 20px">All POSTS</span>
- -->
-                <h2>All POSTS</h2>
+<!--                 <span style="font-size: 20px">All POSTS</span>
+ -->                <h2>All POSTS</h2>
               </center>
               <div style="margin-left: -100px; " class="table-responsive">
                 <table id="example" class="table table-striped table-bordered" style="width:100%">

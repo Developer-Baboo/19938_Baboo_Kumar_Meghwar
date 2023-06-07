@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.5.0 (64 bit)
-MySQL - 10.4.28-MariaDB : Database - 19938_baboo_kumar
+MySQL - 10.4.27-MariaDB : Database - online_blogging_app
 *********************************************************************
 */
 
@@ -12,9 +12,9 @@ MySQL - 10.4.28-MariaDB : Database - 19938_baboo_kumar
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`19938_baboo_kumar` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`19938_Baboo_Kumar` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 
-USE `19938_baboo_kumar`;
+USE `19938_Baboo_Kumar`;
 
 /*Table structure for table `blog` */
 
@@ -102,7 +102,7 @@ CREATE TABLE `post` (
   PRIMARY KEY (`post_id`),
   KEY `blog_id` (`blog_id`),
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`blog_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `post` */
 
@@ -110,10 +110,7 @@ insert  into `post`(`post_id`,`blog_id`,`post_title`,`post_summary`,`post_descri
 (6,3,'lorem ipsum','Reference site about Lorem Ipsum, giving ','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','post_image_1684693629.jpg','Active',0,'2023-05-22 05:38:16',NULL),
 (7,3,'politics lorem ipsum','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','post_image_1684693725.jpg','Active',0,'2023-05-22 05:38:22',NULL),
 (8,3,'Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','post_image_1684693838.jpg','Active',0,'2023-05-22 05:38:29',NULL),
-(9,2,'Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','post_image_1684693921.jpg','Active',0,'2023-05-22 05:39:03',NULL),
-(10,2,'post title','post summary','hello','post_image_1684935589.jpg','Active',0,'2023-05-24 06:39:49',NULL),
-(11,4,'post title','post summary','posts description','post_image_1684936224.jpg','Active',0,'2023-05-24 06:50:24',NULL),
-(12,4,'lskdjf','lksdjfsd','lzxsjfsdl','post_image_1684936425.jpg','Active',0,'2023-05-24 06:53:45',NULL);
+(9,2,'Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator','post_image_1684693921.jpg','Active',0,'2023-05-22 05:39:03',NULL);
 
 /*Table structure for table `post_atachment` */
 
@@ -149,12 +146,9 @@ CREATE TABLE `post_category` (
   KEY `category_id` (`category_id`),
   CONSTRAINT `post_category_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `post_category_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `post_category` */
-
-insert  into `post_category`(`post_category_id`,`post_id`,`category_id`,`created_at`,`updated_at`) values 
-(3,12,1,'2023-05-24 06:53:45',NULL);
 
 /*Table structure for table `post_comment` */
 
